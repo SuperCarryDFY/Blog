@@ -1,0 +1,30 @@
+name: hugo push to github pages
+
+on:
+  push:
+    branches:
+    - blog
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.59.1'
+        extended: true
+
+    - name: Build
+      run: hugo --minify
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN}}
+        PUBLISH_BRANCH: main
+        publish_dir: ./public  
