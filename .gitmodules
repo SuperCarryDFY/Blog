@@ -1,0 +1,6 @@
+[submodule "themes/hugo-eureka"]
+	path = themes/hugo-eureka
+	url = https://github.com/wangchucheng/hugo-eureka.git
+[submodule "themes/KeepIt"]
+	path = themes/KeepIt
+	url = https://github.com/Fastbyte01/KeepIt.git

@@ -3,7 +3,7 @@ name: hugo push to github pages
 on:
   push:
     branches:
-    - blog
+    - main
 
 jobs:
   build-deploy:
