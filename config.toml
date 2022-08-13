@@ -1,8 +1,8 @@
 baseURL = "https://SuperCarryDFY.github.io"
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "KeepIt"
-theme = "KeepIt"
+title = "starter-hugo-academic"
+theme = "starter-hugo-academic"
 
 paginate = 12
 enableEmoji = true
