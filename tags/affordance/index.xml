@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Affordance on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/affordance/</link><description>Recent content in Affordance on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/affordance/index.xml" rel="self" type="application/rss+xml"/><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Affordance on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/affordance/</link><description>Recent content in Affordance on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/affordance/index.xml" rel="self" type="application/rss+xml"/><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
 >One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;ul>
@@ -29,6 +29,10 @@
 &lt;/ul>
 &lt;h2 id="methods">Methods&lt;/h2>
 &lt;h3 id="framework">Framework&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/framework2.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;ul>
 &lt;li>input: query images, human-object interactions&lt;/li>
 &lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $$ X_{sup} $$&lt;/li>
@@ -37,6 +41,10 @@
 &lt;li>输入encoded feature 到CEM， 输出affordance&lt;/li>
 &lt;/ul>
 &lt;h3 id="purpose-learning-module">Purpose Learning Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/plm.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;p>:star:&lt;a class="link" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhan_On_Exploring_Undetermined_Relationships_for_Visual_Relationship_Detection_CVPR_2019_paper.pdf" target="_blank" rel="noopener"
 >On Exploring Undetermined Relationships for Visual Relationship Detection&lt;/a>受到了这篇文章的启发，说instance（人或物）的特征可以指导网络哪里应该focus。&lt;/p>
 &lt;p>先得到$M_O$和$M_H$ &lt;strong>（这两者分别代表什么？作者说是为了让模型去分别focus on物体和个人，引入了注意力机制，其中GMP的作用是得到最显著的特征）&lt;/strong> 其中⊗ 代表element-wise product，元素对应位置相乘，$f_O$和$f_H$是$X_O$和$X_H$进行 global maximum pooling（GMP）后的值
@@ -57,11 +65,19 @@ $$&lt;/p>
 &lt;li>输出：动作目的编码 $F_{sup}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="purpose-transfer-module">Purpose Transfer Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/ptm.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;p>通过attention机制，将action purpose传递到query image中，加强相关features
 $$
 X_{T_i} = X_i + Softmax(X_i⊗F_{sup})⊗X_i,\ where\ i \ in\ [1,n]
 $$&lt;/p>
 &lt;h3 id="collaboration-enhancement-module">Collaboration Enhancement Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/cem.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;p>交替使用E-step和M-step，得到一个紧凑的基集，重建query image的特征图。&lt;/p>
 &lt;ul>
 &lt;li>

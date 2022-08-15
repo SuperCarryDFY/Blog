@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
 >One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;ul>
@@ -29,6 +29,10 @@
 &lt;/ul>
 &lt;h2 id="methods">Methods&lt;/h2>
 &lt;h3 id="framework">Framework&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/framework2.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;ul>
 &lt;li>input: query images, human-object interactions&lt;/li>
 &lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $$ X_{sup} $$&lt;/li>
@@ -37,6 +41,10 @@
 &lt;li>输入encoded feature 到CEM， 输出affordance&lt;/li>
 &lt;/ul>
 &lt;h3 id="purpose-learning-module">Purpose Learning Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/plm.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;p>:star:&lt;a class="link" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhan_On_Exploring_Undetermined_Relationships_for_Visual_Relationship_Detection_CVPR_2019_paper.pdf" target="_blank" rel="noopener"
 >On Exploring Undetermined Relationships for Visual Relationship Detection&lt;/a>受到了这篇文章的启发，说instance（人或物）的特征可以指导网络哪里应该focus。&lt;/p>
 &lt;p>先得到$M_O$和$M_H$ &lt;strong>（这两者分别代表什么？作者说是为了让模型去分别focus on物体和个人，引入了注意力机制，其中GMP的作用是得到最显著的特征）&lt;/strong> 其中⊗ 代表element-wise product，元素对应位置相乘，$f_O$和$f_H$是$X_O$和$X_H$进行 global maximum pooling（GMP）后的值
@@ -57,11 +65,19 @@ $$&lt;/p>
 &lt;li>输出：动作目的编码 $F_{sup}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="purpose-transfer-module">Purpose Transfer Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/ptm.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;p>通过attention机制，将action purpose传递到query image中，加强相关features
 $$
 X_{T_i} = X_i + Softmax(X_i⊗F_{sup})⊗X_i,\ where\ i \ in\ [1,n]
 $$&lt;/p>
 &lt;h3 id="collaboration-enhancement-module">Collaboration Enhancement Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/cem.png"
+loading="lazy"
+alt="image-20220815123526239"
+>&lt;/p>
 &lt;p>交替使用E-step和M-step，得到一个紧凑的基集，重建query image的特征图。&lt;/p>
 &lt;ul>
 &lt;li>
@@ -182,4 +198,110 @@ $$&lt;/p>
 &lt;li>E-M 迭代次数 3&lt;/li>
 &lt;/ul>
 &lt;h3 id="quantitative-and-qualitative-comparisons">Quantitative and Qualitative Comparisons&lt;/h3>
-&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>hello world!&lt;/p></description></item></channel></rss>
+&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/title1.png"
+loading="lazy"
+alt="title1.png"
+>&lt;/p>
+&lt;h2 id="introduction">INTRODUCTION&lt;/h2>
+&lt;p>主要解决了两个问题：&lt;/p>
+&lt;ul>
+&lt;li>Generalization Reduction &amp;amp; High-Level Features.
+&lt;ul>
+&lt;li>[CANet: Classagnostic segmentation networks with iterative refinement and attentive few-shot learning]指出high-level feature cause performance drop. （估计是因为使用high-level feature会使得模型泛化能力变弱）&lt;/li>
+&lt;li>他们用imagenet上pre-train出来的模块，生成“prior”。因为prior是用high-level feature训练出来的，并且只是在imagenet上训练，所以不失generalization ability。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Spatial Inconsistency.
+&lt;ul>
+&lt;li>因为support image有限，有时候support image和query image上的物体的姿势之类的可能变化很大。他们提出了Feature Enrichment Module，去解决这个问题。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="related-work">RELATED WORK&lt;/h2>
+&lt;p>&lt;strong>Few-Shot Learning&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>meta-learning
+&lt;ul>
+&lt;li>跟memory有关。似乎是基于RNN的模型（比如LSTM）修改的。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>metric-learning
+&lt;ul>
+&lt;li>Prototypical network&lt;/li>
+&lt;li>这篇文章比较偏向于metric-learning&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/framework1.png"
+loading="lazy"
+alt="framework1.png"
+>&lt;/p>
+&lt;h3 id="prior-for-few-shot-segmentation">Prior for Few-Shot Segmentation&lt;/h3>
+&lt;p>CANet表现好主要是通过backbone提取了middle-level feature，并且CANet说middle-level里面有unseen class的object part。但是我们的解释与之相反。&lt;/p>
+&lt;p>Prior Generation的具体做法&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>先利用backbone network对输入的query和support进行特征提取，其中$M_S$代表Supprort image mask
+$$
+X_Q=F(I_Q), \ X_S = F(I_S)\times M_S
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$Y_Q$表征了$X_Q$和$X_S$在像素维度上的一致性。如果一个$X_Q$上的像素在$Y_Q$上有比较大的值，说明这个像素在support image上更有可能有至少一个像素。为了计算$Y_Q$，首先计算cosine similarity
+$$
+cos(x_q,x_s)=\frac{x_q^Tx_s}{|x_q||x_s|},\ \ \ \ q,s\in{1,2,&amp;hellip;,hw}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>对每一个$x_q \in X_Q$来说，取其中最大的值作为correspondence value
+$$
+c_q = max_{s\in {1,2&amp;hellip;,hw}}(cos(x_q,x_s))
+$$&lt;/p>
+&lt;p>$$
+C_Q = [c_1,c_2,&amp;hellip;,c_hw] \in R^{hw\times1}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>把$C_Q$ reshape 到h*w*1的空间，作为$Y_Q$，然后做一个normalization
+$$
+Y_Q = \frac{Y_Q-min(Y_Q)}{max(Y_Q)-min(Y_Q)+\epsilon}
+$$&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="feature-enrichment-module">Feature Enrichment Module&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/module1.png"
+loading="lazy"
+alt="module1.png"
+>&lt;/p>
+&lt;p>将support image和query image关联起来的方法&lt;/p>
+&lt;ul>
+&lt;li>对support image做global average pooling
+&lt;ul>
+&lt;li>不用说都感觉效果一般&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>multi-level spatial information
+&lt;ul>
+&lt;li>说有两点不好，分别是merge的时候缺少specific refinement，和relation across different scales is ignored。这两点看看就好了，我感觉作者说有这两点问题主要是他自己在这两点做了一些trick。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>作者提出的FEM可以很好的解决问题。其中M的具体操作如下&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/module2.png"
+loading="lazy"
+alt="module2.png"
+>&lt;/p>
+&lt;h3 id="loss-function">Loss Function&lt;/h3>
+&lt;p>$$
+L = \frac{\sigma}{n}\sum_{i=1}^{n}{L_1^i+L_2}
+$$&lt;/p>
+&lt;p>主要选用交叉熵作为损失函数。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>$L_1^i$ FEM出来的n层spatial size中的第i层的X，通过intermediate supervision生成（？）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$L_2$ 最后prediction和label的交叉熵。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
