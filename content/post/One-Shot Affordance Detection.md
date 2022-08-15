@@ -1,6 +1,6 @@
 ---
 title: One-Shot Affordance Detection
-date: 2020-04-05
+date: 2022-08-15
 tags: ["Affordance"]
 ---
 
@@ -29,11 +29,9 @@ tags: ["Affordance"]
 
 ## Methods
 
-
-
 ### Framework
 
-
+![image-20220815123526239](../../assets/img/framework2.png)
 
 - input: query images, human-object interactions
 - ResNet50 -> 获得图像表现 $X$  and $$ X_{sup} $$ 
@@ -43,9 +41,9 @@ tags: ["Affordance"]
 
 ### Purpose Learning Module
 
+![image-20220815123526239](../../assets/img/plm.png)
+
 :star:[On Exploring Undetermined Relationships for Visual Relationship Detection](https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhan_On_Exploring_Undetermined_Relationships_for_Visual_Relationship_Detection_CVPR_2019_paper.pdf)受到了这篇文章的启发，说instance（人或物）的特征可以指导网络哪里应该focus。
-
-
 
 先得到$M_O$和$M_H$ **（这两者分别代表什么？作者说是为了让模型去分别focus on物体和个人，引入了注意力机制，其中GMP的作用是得到最显著的特征）** 其中⊗ 代表element-wise product，元素对应位置相乘，$f_O$和$f_H$是$X_O$和$X_H$进行 global maximum pooling（GMP）后的值
 $$
@@ -64,11 +62,9 @@ $$
 - 输入：$X_{sup}$以及人和物体的边界框
 - 输出：动作目的编码 $F_{sup}$
 
-
-
 ### Purpose Transfer Module
 
-
+![image-20220815123526239](../../assets/img/ptm.png)
 
 通过attention机制，将action purpose传递到query image中，加强相关features
 $$
@@ -77,9 +73,7 @@ $$
 
 ### Collaboration Enhancement Module
 
-
-
-
+![image-20220815123526239](../../assets/img/cem.png)
 
 交替使用E-step和M-step，得到一个紧凑的基集，重建query image的特征图。
 
