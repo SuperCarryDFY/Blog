@@ -6,4 +6,4 @@
 	url = https://github.com/Fastbyte01/KeepIt.git
 [submodule "themes/hugo-theme-stack"]
 	path = themes/hugo-theme-stack
-	url = https://github.com/CaiJimmy/hugo-theme-stack.git
+	url = git@github.com:CaiJimmy/hugo-theme-stack.git
