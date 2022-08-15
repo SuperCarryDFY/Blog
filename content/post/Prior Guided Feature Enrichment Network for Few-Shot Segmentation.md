@@ -63,3 +63,26 @@ Prior Generation的具体做法
 ### Feature Enrichment Module
 
 ![module1.png](../../assets/img/module1.png)
+
+将support image和query image关联起来的方法
+
+- 对support image做global average pooling
+  - 不用说都感觉效果一般
+- multi-level spatial information
+  - 说有两点不好，分别是merge的时候缺少specific refinement，和relation across different scales is ignored。这两点看看就好了，我感觉作者说有这两点问题主要是他自己在这两点做了一些trick。
+
+作者提出的FEM可以很好的解决问题。其中M的具体操作如下
+
+![module2.png](../../assets/img/module2.png)
+
+### Loss Function
+
+$$
+L = \frac{\sigma}{n}\sum_{i=1}^{n}{L_1^i+L_2}
+$$
+
+主要选用交叉熵作为损失函数。
+
+- $L_1^i$ FEM出来的n层spatial size中的第i层的X，通过intermediate supervision生成（？）
+
+- $L_2$ 最后prediction和label的交叉熵。
