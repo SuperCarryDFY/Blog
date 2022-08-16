@@ -198,7 +198,7 @@ $$&lt;/p>
 &lt;li>E-M 迭代次数 3&lt;/li>
 &lt;/ul>
 &lt;h3 id="quantitative-and-qualitative-comparisons">Quantitative and Qualitative Comparisons&lt;/h3>
-&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
+&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://SuperCarryDFY.github.io/img/title1.png"
 loading="lazy"
 alt="title1.png"
 >&lt;/p>
@@ -304,4 +304,381 @@ $$&lt;/p>
 &lt;li>
 &lt;p>$L_2$ 最后prediction和label的交叉熵。&lt;/p>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title/><link>https://SuperCarryDFY.github.io/p/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/</guid><description>&lt;h2 id="argparse">&lt;strong>argparse&lt;/strong>&lt;/h2>
+&lt;p>&lt;a class="link" href="https://docs.python.org/3/library/argparse.html" target="_blank" rel="noopener"
+>Tutorial&lt;/a>&lt;/p>
+&lt;p>&lt;code>argparse&lt;/code>module makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and &lt;a class="link" href="https://docs.python.org/3/library/argparse.html#module-argparse" target="_blank" rel="noopener"
+>&lt;code>argparse&lt;/code>&lt;/a> will figure out how to parse those out of &lt;a class="link" href="https://docs.python.org/3/library/sys.html#sys.argv" target="_blank" rel="noopener"
+>&lt;code>sys.argv&lt;/code>&lt;/a>. The &lt;a class="link" href="https://docs.python.org/3/library/argparse.html#module-argparse" target="_blank" rel="noopener"
+>&lt;code>argparse&lt;/code>&lt;/a> module also automatically generates help and usage messages and issues errors when users give the program invalid arguments.&lt;/p>
+&lt;p>把他看作一个字典好了&lt;/p>
+&lt;h2 id="property--abstractmethod">&lt;strong>@property &amp;amp; @abstractmethod&lt;/strong>:&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>@property: 通过这个可以把一个函数当作属性来使用&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>@abstractmethod: 来自ABCMeta库，描述如下&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>This module provides the infrastructure for defining &lt;a class="link" href="https://docs.python.org/3/glossary.html#term-abstract-base-class" target="_blank" rel="noopener"
+>abstract base classes&lt;/a> (ABCs) in Python&lt;/p>
+&lt;/blockquote>
+&lt;p>好像就是说被这个装饰的函数不能实例化，但是其子类如果实现了该抽象方法的话就可以被实例化&lt;/p>
+&lt;h2 id="nptranspose">np.transpose()&lt;/h2>
+&lt;p>类似torch.permute&lt;/p>
+&lt;h2 id="torchstack">torch.stack()&lt;/h2>
+&lt;p>torch.stack(inputs, dim=?) → Tensor&lt;/p>
+&lt;p>沿着一个新维度对输入张量序列进行连接。 序列中所有的张量都应该为相同形状。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 例子&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 假设是时间步T1的输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">T1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">tensor&lt;/span>&lt;span class="p">([[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="mi">7&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">8&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">9&lt;/span>&lt;span class="p">]])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 假设是时间步T2的输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">T2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">tensor&lt;/span>&lt;span class="p">([[&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="mi">40&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="mi">70&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">90&lt;/span>&lt;span class="p">]])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stack&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">T1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">T2&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="n">dim&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stack&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">T1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">T2&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="n">dim&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stack&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">T1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">T2&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="n">dim&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stack&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">T1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">T2&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="n">dim&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">shape&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># outputs:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="ne">IndexError&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Dimension&lt;/span> &lt;span class="n">out&lt;/span> &lt;span class="n">of&lt;/span> &lt;span class="nb">range&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">expected&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">be&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span> &lt;span class="n">of&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">but&lt;/span> &lt;span class="n">got&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 报错&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="torchautogradvariable">torch.autograd.Variable&lt;/h2>
+&lt;p>tensor是硬币的话，那Variable就是钱包，它记录着里面的钱的多少，和钱的流向&lt;/p>
+&lt;p>Tensor是存在Variable中的.data里的，而cpu和gpu的数据是通过 .cpu()和.cuda()来转换的&lt;/p>
+&lt;h2 id="torchnnfunctionalinterpolate">torch.nn.functional.interpolate&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">nn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">functional&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">interpolate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">input&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">scale_factor&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;nearest&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">align_corners&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>根据给定的size或者scale_factor参数来对输入进行上/下采样，参数：&lt;/p>
+&lt;ul>
+&lt;li>input&amp;ndash;tensor &amp;ndash; 输入张量&lt;/li>
+&lt;li>size &amp;ndash;int or Tuple &amp;ndash; 输出大小&lt;/li>
+&lt;li>scale_factor &amp;ndash;float or Tuple&amp;ndash;指定输出为输入的多少倍数。如果输入为tuple，其也要制定为tuple类型&lt;/li>
+&lt;li>mode &amp;ndash;str&amp;ndash; 可使用的上采样算法，有&lt;code>'nearest'&lt;/code>, &lt;code>'linear'&lt;/code>, &lt;code>'bilinear'&lt;/code>, &lt;code>'bicubic'&lt;/code> , &lt;code>'trilinear'和'area'&lt;/code>. &lt;code>默认使用``'nearest'&lt;/code>&lt;/li>
+&lt;li>align_corners &amp;ndash;bool&amp;ndash; 几何上，我们认为输入和输出的像素是正方形，而不是点。如果设置为True，则输入和输出张量由其角像素的中心点对齐，从而保留角像素处的值。如果设置为False，则输入和输出张量由它们的角像素的角点对齐，插值使用边界外值的边值填充;&lt;code>当scale_factor保持不变时&lt;/code>，使该操作独立于输入大小。仅当使用的算法为&lt;code>'linear'&lt;/code>, &lt;code>'bilinear', 'bilinear'&lt;/code>or &lt;code>'trilinear'时可以使用。&lt;/code>默认设置为``False`&lt;/li>
+&lt;/ul>
+&lt;h2 id="torchsave">torch.save&lt;/h2>
+&lt;blockquote>
+&lt;p>torch.save(&lt;em>obj&lt;/em>, &lt;em>f&lt;/em>, &lt;em>pickle_module=pickle&lt;/em>, &lt;em>pickle_protocol=DEFAULT_PROTOCOL&lt;/em>, &lt;em>_use_new_zipfile_serialization=True&lt;/em>)&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a class="link" href="https://pytorch.org/docs/stable/notes/serialization.html#saving-loading-tensors" target="_blank" rel="noopener"
+>Saves an object to a disk file.&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">t&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">2.&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">save&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;tensor.pt&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;tensor.pt&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">2.&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In PyTorch, a module’s state is frequently serialized using a ‘state dict.’ A module’s state dict contains all of its parameters and persistent buffers:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">bn&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">nn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">BatchNorm1d&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">track_running_stats&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">bn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">named_parameters&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[(&lt;/span>&lt;span class="s1">&amp;#39;weight&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Parameter&lt;/span> &lt;span class="n">containing&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">requires_grad&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;bias&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Parameter&lt;/span> &lt;span class="n">containing&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">requires_grad&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">))]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">bn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">named_buffers&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[(&lt;/span>&lt;span class="s1">&amp;#39;running_mean&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">])),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;running_var&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">])),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;num_batches_tracked&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">))]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">bn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">state_dict&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OrderedDict&lt;/span>&lt;span class="p">([(&lt;/span>&lt;span class="s1">&amp;#39;weight&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">])),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;bias&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">])),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;running_mean&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">0.&lt;/span>&lt;span class="p">])),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;running_var&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">1.&lt;/span>&lt;span class="p">])),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;num_batches_tracked&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">tensor&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">))])&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In the tutorials, it is recommended to instead save only its state dict. Python modules have a function,&lt;code>load_state_dict()&lt;/code>, to restore their states from a state dict.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">save&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">bn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">state_dict&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="s1">&amp;#39;bn.pt&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">bn_state_dict&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;bn.pt&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">new_bn&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">nn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">BatchNorm1d&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">track_running_stats&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">new_bn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load_state_dict&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">bn_state_dict&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">All&lt;/span> &lt;span class="n">keys&lt;/span> &lt;span class="n">matched&lt;/span> &lt;span class="n">successfully&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bn">BN&lt;/h2>
+&lt;p>Batch Normalization&lt;/p>
+&lt;p>&lt;strong>Internal Covariate Shift&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>在深层网络训练的过程中，由于网络中参数变化而引起内部结点数据分布发生变化的这一过程被称作Internal Covariate Shift。&lt;/li>
+&lt;/ul>
+&lt;p>Batch Normalization具体做法&lt;/p>
+&lt;ul>
+&lt;li>对当前层的第j个维度做规范化（有m个样本），使得每一层输入的每个特征的分布均值为0，方差为1&lt;/li>
+&lt;li>考虑到规范化后容易使得底层网络学习到的信息丢失，因此引入两个可学习的参数$\gamma$和$\beta$，对规范后的数据进行线性变换。&lt;/li>
+&lt;/ul>
+&lt;h2 id="tensorcontiguous">tensor.contiguous&lt;/h2>
+&lt;p>一些tensor操作（traspose，permute）和原tensor是共享内存的，不会改变底层数组的存储，但是如果要使用view方法的话，就要求对应tensor的数据占用内存是连续的。&lt;/p>
+&lt;blockquote>
+&lt;p>Tensor.contiguous(&lt;em>memory_format=torch.contiguous_format&lt;/em>) -&amp;gt; Tensor&lt;/p>
+&lt;/blockquote>
+&lt;p>Returns a contiguous in memory tensor containing the same data as &lt;code>self&lt;/code> tensor. If &lt;code>self&lt;/code> tensor is already in the specified memory format, this function returns the &lt;code>self&lt;/code> tensor.&lt;/p>
+&lt;p>如果想要改变形状并且直接改内存的话，就用reshape&lt;/p>
+&lt;h2 id="validation-data-sets">validation data sets&lt;/h2>
+&lt;ul>
+&lt;li>为了调整超参数&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>也就是说我们将数据划分训练集、验证集和测试集。在训练集上训练模型，在验证集上评估模型，一旦找到的最佳的参数，就在测试集上最后测试一次，测试集上的误差作为泛化误差的近似。关于验证集的划分可以参考测试集的划分，其实都是一样的，这里不再赘述。&lt;/p>
+&lt;p>吴恩达老师的视频中，如果当数据量不是很大的时候（万级别以下）的时候将训练集、验证集以及测试集划分为6：2：2；若是数据很大，可以将训练集、验证集、测试集比例调整为98：1：1；但是当可用的数据很少的情况下也可以使用一些高级的方法，比如留出方，K折交叉验证等。&lt;/p>
+&lt;/blockquote>
+&lt;p>引入k-fold交叉验证的模板&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">load_data&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">train&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">test&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">hyper_parameters&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">set_hyper&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">k&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">init_k_fold&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">hyper&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">hyper_parameters&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">metrics&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">index&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">k&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fold_train&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">fold_valid&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cv_split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">index&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">k&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">train&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 用此时的超参数训练模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">model&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">fold_train&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">hyper&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">current_metric&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">evaluate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">model&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">fold_valid&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">metrics&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">current_metric&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">avg_metric&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mean&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">metrics&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">std_metric&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">np&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">std&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">metrics&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># compare metrics among different hypers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">best_hyper&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">update_best&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># finally&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">model&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">train&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">best_hyper&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">metrics&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">evaluate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">model&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">test&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># show your final metrics&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="tensorboard">tensorboard&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">torch.utils.tensorboard&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">SummaryWriter&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">writer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">SummaryWriter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;logs/xxx&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># model是你想打印的模型，inputs是forword时输入的参数，如果有多个就以元组形式输出，其中元素必须是tensor&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">writer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_graph&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">model&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">inputs&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印loss&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">n_iter&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">train&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">writer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_scalar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Loss/train&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">train_loss&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n_iter&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="gpu加速">GPU加速&lt;/h2>
+&lt;p>&lt;strong>torch.nn.DataParallel&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>CLASS&lt;/em>&lt;code>torch.nn.DataParallel&lt;/code>(&lt;em>module&lt;/em>, &lt;em>device_ids=None&lt;/em>, &lt;em>output_device=None&lt;/em>, &lt;em>dim=0&lt;/em>)&lt;/p>
+&lt;p>首先在前向过程中，你的输入数据会被划分成多个子部分（以下称为副本）送到不同的device中进行计算，而你的模型module是在每个device上进行复制一份，也就是说，输入的batch是会被平均分到每个device中去，但是你的模型module是要拷贝到每个devide中去的，每个模型module只需要处理每个副本即可，当然你要保证你的batch size大于你的gpu个数。然后在反向传播过程中，每个副本的梯度被累加到原始模块中。概括来说就是：DataParallel 会自动帮我们将数据切分 load 到相应 GPU，将模型复制到相应 GPU，进行正向传播计算梯度并汇总。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">device_ids&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">net&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">nn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">DataParallel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">net&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">device_ids&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">device_ids&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>实际上optimizer也可以使用dataparallel优化，此时需要注意到下面第二行返回的是一个module，因此optimizer需要当module使用&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">optimizer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">optim&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">SGD&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">net&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">lr&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">lr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">optimizer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">nn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">DataParallel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">optimizer&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">device_ids&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">device_ids&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 优化器原本使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">optimizer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">step&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 修改之后优化器使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">optimizer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">module&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">step&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>实际上pytorch不建议用DataParallel。。。&lt;/p>
+&lt;p>&lt;strong>torch.nn.parallel.DistributedDataParallel&lt;/strong>&lt;/p>
+&lt;p>相比DataParallel&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>DataParallel&lt;/code>是单进程多线程的，只用于单机情况，而&lt;code>DistributedDataParallel&lt;/code>是多进程的，适用于单机和多机情况，真正实现分布式训练；&lt;/li>
+&lt;li>&lt;code>DistributedDataParallel&lt;/code>的训练更高效，因为每个进程都是独立的Python解释器，避免GIL问题，而且通信成本低其训练速度更快，基本上&lt;code>DataParallel&lt;/code>已经被弃用；&lt;/li>
+&lt;li>&lt;code>DistributedDataParallel&lt;/code>中每个进程都有独立的优化器，执行自己的更新过程，但是梯度通过通信传递到每个进程，所有执行的内容是相同的；&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a class="link" href="https://pytorch.org/tutorials/intermediate/ddp_tutorial.html" target="_blank" rel="noopener"
+>https://pytorch.org/tutorials/intermediate/ddp_tutorial.html&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/113694038" target="_blank" rel="noopener"
+>https://zhuanlan.zhihu.com/p/113694038&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://pytorch.org/tutorials/beginner/dist_overview.html#torch-nn-parallel-distributeddataparallel" target="_blank" rel="noopener"
+>https://pytorch.org/tutorials/beginner/dist_overview.html#torch-nn-parallel-distributeddataparallel&lt;/a>&lt;/p>
+&lt;h2 id="benchmark">benchmark&lt;/h2>
+&lt;p>benchmark in osad&lt;/p>
+&lt;ul>
+&lt;li>IoU: 交并比。
+&lt;ul>
+&lt;li>$IoU = \frac{traget \cap prediction}{target \cup prediction}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CC: Pearson product-moment correlation coefficient,皮尔逊相关系数。
+&lt;ul>
+&lt;li>$\rho_{X,Y}=\frac{cov(X，Y)}{\sigma_X\sigma_Y}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MAE：Mean Absolute Error，平均绝对误差&lt;/li>
+&lt;/ul>
+&lt;h2 id="torchcudasynchronize">torch.cuda.synchronize()&lt;/h2>
+&lt;p>因为torch里面执行都是异步的，这行代码的意思是等待所有进程运行完。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 例子&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cuda&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">synchronize&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">start&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">input&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">cuda&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">synchronize&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">end&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="torchbmm">torch.bmm&lt;/h2>
+&lt;blockquote>
+&lt;p>torch.bmm(&lt;em>input&lt;/em>, &lt;em>mat2&lt;/em>, *, &lt;em>out=None&lt;/em>) → Tensor&lt;/p>
+&lt;/blockquote>
+&lt;p>If &lt;code>input&lt;/code> is a $(b \times n \times m)$ tensor, &lt;code>mat2&lt;/code> is a $(b \times m \times p)$ tensor, &lt;code>out&lt;/code> will be a$(b \times n \times p)$ tensor.&lt;/p>
+&lt;p>input and mat2 must be 3-D tensors each containing the same number of matrics.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="nb">input&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">randn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">mat2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">randn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">res&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">bmm&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">input&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mat2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
