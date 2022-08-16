@@ -29,9 +29,9 @@
 &lt;/ul>
 &lt;h2 id="methods">Methods&lt;/h2>
 &lt;h3 id="framework">Framework&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/framework2.png"
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png"
 loading="lazy"
-alt="image-20220815123526239"
+alt="framework2.png"
 >&lt;/p>
 &lt;ul>
 &lt;li>input: query images, human-object interactions&lt;/li>
@@ -41,9 +41,9 @@ alt="image-20220815123526239"
 &lt;li>输入encoded feature 到CEM， 输出affordance&lt;/li>
 &lt;/ul>
 &lt;h3 id="purpose-learning-module">Purpose Learning Module&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/plm.png"
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/HUW6kjnPJ29qX83.png"
 loading="lazy"
-alt="image-20220815123526239"
+alt="plm.png"
 >&lt;/p>
 &lt;p>:star:&lt;a class="link" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhan_On_Exploring_Undetermined_Relationships_for_Visual_Relationship_Detection_CVPR_2019_paper.pdf" target="_blank" rel="noopener"
 >On Exploring Undetermined Relationships for Visual Relationship Detection&lt;/a>受到了这篇文章的启发，说instance（人或物）的特征可以指导网络哪里应该focus。&lt;/p>
@@ -65,18 +65,18 @@ $$&lt;/p>
 &lt;li>输出：动作目的编码 $F_{sup}$&lt;/li>
 &lt;/ul>
 &lt;h3 id="purpose-transfer-module">Purpose Transfer Module&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/ptm.png"
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/qARrZbuCIm4BipT.png"
 loading="lazy"
-alt="image-20220815123526239"
+alt="ptm.png"
 >&lt;/p>
 &lt;p>通过attention机制，将action purpose传递到query image中，加强相关features
 $$
 X_{T_i} = X_i + Softmax(X_i⊗F_{sup})⊗X_i,\ where\ i \ in\ [1,n]
 $$&lt;/p>
 &lt;h3 id="collaboration-enhancement-module">Collaboration Enhancement Module&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/../../assets/img/cem.png"
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/lx5Jb4jkPhIuSN3.png"
 loading="lazy"
-alt="image-20220815123526239"
+alt="cem.png"
 >&lt;/p>
 &lt;p>交替使用E-step和M-step，得到一个紧凑的基集，重建query image的特征图。&lt;/p>
 &lt;ul>
