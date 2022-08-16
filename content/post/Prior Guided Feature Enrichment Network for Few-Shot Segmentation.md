@@ -1,10 +1,10 @@
 ---
 title: Prior Guided Feature Enrichment Network for Few-Shot Segmentation
 date: 2022-08-15
-tags: ["Segmentation"]
+tags: ["Segmentation","Few-Shot Learning"]
 ---
 
-![title1.png](../../assets/img/title1.png)
+![title1.png](https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png)
 
 ## INTRODUCTION
 
@@ -28,7 +28,7 @@ tags: ["Segmentation"]
 
 ## METHOD
 
-![framework1.png](../../assets/img/framework1.png)
+![framework1.png](https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png)
 
 ### Prior for Few-Shot Segmentation
 
@@ -62,7 +62,7 @@ Prior Generation的具体做法
 
 ### Feature Enrichment Module
 
-![module1.png](../../assets/img/module1.png)
+![module1.png](https://s2.loli.net/2022/08/16/rhadcOZ1iPuQ7nH.png)
 
 将support image和query image关联起来的方法
 
@@ -73,7 +73,7 @@ Prior Generation的具体做法
 
 作者提出的FEM可以很好的解决问题。其中M的具体操作如下
 
-![module2.png](../../assets/img/module2.png)
+![module2.png](https://s2.loli.net/2022/08/16/P9ux8joOMAlyv3t.png)
 
 ### Loss Function
 

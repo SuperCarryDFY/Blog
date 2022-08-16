@@ -31,7 +31,7 @@ tags: ["Affordance"]
 
 ### Framework
 
-![image-20220815123526239](../../assets/img/framework2.png)
+![framework2.png](https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png)
 
 - input: query images, human-object interactions
 - ResNet50 -> 获得图像表现 $X$  and $$ X_{sup} $$ 
@@ -41,7 +41,7 @@ tags: ["Affordance"]
 
 ### Purpose Learning Module
 
-![image-20220815123526239](../../assets/img/plm.png)
+![plm.png](https://s2.loli.net/2022/08/16/HUW6kjnPJ29qX83.png)
 
 :star:[On Exploring Undetermined Relationships for Visual Relationship Detection](https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhan_On_Exploring_Undetermined_Relationships_for_Visual_Relationship_Detection_CVPR_2019_paper.pdf)受到了这篇文章的启发，说instance（人或物）的特征可以指导网络哪里应该focus。
 
@@ -64,7 +64,7 @@ $$
 
 ### Purpose Transfer Module
 
-![image-20220815123526239](../../assets/img/ptm.png)
+![ptm.png](https://s2.loli.net/2022/08/16/qARrZbuCIm4BipT.png)
 
 通过attention机制，将action purpose传递到query image中，加强相关features
 $$
@@ -73,7 +73,7 @@ $$
 
 ### Collaboration Enhancement Module
 
-![image-20220815123526239](../../assets/img/cem.png)
+![cem.png](https://s2.loli.net/2022/08/16/lx5Jb4jkPhIuSN3.png)
 
 交替使用E-step和M-step，得到一个紧凑的基集，重建query image的特征图。
 
