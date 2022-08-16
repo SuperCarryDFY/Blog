@@ -49,7 +49,37 @@ alt="image.png"
 &lt;p>dialated convolution的优点：内部数据结构的保留和避免使用 down-sampling 。&lt;/p>
 &lt;/blockquote>
 &lt;p>具体的，他们把Resnet分成4个block，只用block2和block3的输出，将其concat到一起。后面就是support feature与support feaure相乘来把背景像素清0，avg pool之后repeat到之前的维度和query feature concat到一起，比较常规。&lt;/p>
-&lt;h3 id="inerative-optimization-module">INERATIVE OPTIMIZATION MODULE&lt;/h3></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+&lt;h3 id="inerative-optimization-module">INERATIVE OPTIMIZATION MODULE&lt;/h3>
+&lt;p>每一次迭代中，首先进行如下运算。其中$M$是output of the residual blocks，$x$是DCM模块的输出，$y_{t-1}$是上一个迭代块的输出，$F$是concat之后再经过两层卷积层。
+$$
+M_t = x + F(x,y_{t-1})
+$$
+对$M_t$，再经过两层vanilla residual blocks。然后再经过(ASSP)[https://arxiv.org/abs/1706.05587]模块输出。&lt;/p>
+&lt;p>就差不多这么迭代n次&lt;/p>
+&lt;h3 id="attention-mechanism-for-k-shot-segmentation">ATTENTION MECHANISM FOR K-SHOT SEGMENTATION&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/ZEuUP7zm2i9IKks.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>&lt;strong>这也算attention嘛? query, key, value分别是什么？&lt;/strong>&lt;/p>
+&lt;p>在attention模块中，经过两层卷积再softmax得到$\hat\lambda_k$，然后把$\hat\lambda_k$和经过卷积的support sample n相乘。&lt;/p>
+&lt;h2 id="ablation-study">ABLATION STUDY&lt;/h2>
+&lt;p>&lt;strong>Feature for Comparison&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/8ZJEQznfqDu9sTj.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>这里说单个的话block2效果是最好的，整体上block2+block3的效果最好。嗯，比较可信。&lt;/p>
+&lt;blockquote>
+&lt;p>其中提了一嘴While block4 corresponds to high-level features, e.g., categories, and incorporates a great number of parameters (2048 channels), which makes it hard to optimize under the fewshot setting.&lt;/p>
+&lt;p>深有同感！我改topformer的时候就是纠结这个地方&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Attention vs. Feature Fusion vs. Mask Fusion&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/home/dai/snap/typora/57/.config/Typora/typora-user-images/image-20220816194800654.png"
+loading="lazy"
+alt="image-20220816194800654"
+>&lt;/p>
+&lt;p>从这里可以看出Attention效果是最好的。但是相比来说的话还是多了两层卷积，增加了参数。Feature-Avg表现不错，感觉跟attention也差不多了（主要是没有另外加参数）。Mask-Avg这么奇怪的想法竟然也有效，能+0.5。还有Mask-OR你要笑死我嘛，怎么还没1-shot高啊，怎么回事啊小老弟，纯纯的帮倒忙。&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
 >One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;ul>
@@ -86,7 +116,7 @@ alt="framework2.png"
 >&lt;/p>
 &lt;ul>
 &lt;li>input: query images, human-object interactions&lt;/li>
-&lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $$ X_{sup} $$&lt;/li>
+&lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $ X_{sup} $&lt;/li>
 &lt;li>输入$X_{sup}$和 人和物体的边界矩阵到PLM -&amp;gt; 提取human-object interaction信息，对action-purpose编码，发现人想要旋转的原因&lt;/li>
 &lt;li>输入feature representation和$X$到PTM里面 -&amp;gt; 让网络学会处理带affordance的信息&lt;/li>
 &lt;li>输入encoded feature 到CEM， 输出affordance&lt;/li>

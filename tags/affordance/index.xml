@@ -35,7 +35,7 @@ alt="framework2.png"
 >&lt;/p>
 &lt;ul>
 &lt;li>input: query images, human-object interactions&lt;/li>
-&lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $$ X_{sup} $$&lt;/li>
+&lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $ X_{sup} $&lt;/li>
 &lt;li>输入$X_{sup}$和 人和物体的边界矩阵到PLM -&amp;gt; 提取human-object interaction信息，对action-purpose编码，发现人想要旋转的原因&lt;/li>
 &lt;li>输入feature representation和$X$到PTM里面 -&amp;gt; 让网络学会处理带affordance的信息&lt;/li>
 &lt;li>输入encoded feature 到CEM， 输出affordance&lt;/li>
