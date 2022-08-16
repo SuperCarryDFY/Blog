@@ -49,7 +49,7 @@ alt="image.png"
 &lt;p>dialated convolution的优点：内部数据结构的保留和避免使用 down-sampling 。&lt;/p>
 &lt;/blockquote>
 &lt;p>具体的，他们把Resnet分成4个block，只用block2和block3的输出，将其concat到一起。后面就是support feature与support feaure相乘来把背景像素清0，avg pool之后repeat到之前的维度和query feature concat到一起，比较常规。&lt;/p>
-&lt;h3 id="inerative-optimization-module">INERATIVE OPTIMIZATION MODULE&lt;/h3></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://SuperCarryDFY.github.io/title1.png"
+&lt;h3 id="inerative-optimization-module">INERATIVE OPTIMIZATION MODULE&lt;/h3></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
 loading="lazy"
 alt="title1.png"
 >&lt;/p>
