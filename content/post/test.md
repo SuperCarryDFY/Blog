@@ -1,6 +1,7 @@
 ---
-title: One-Shot Affordance Detection
-date: 2022-08-15
-tags: ["Affordance"]
+title: CANet: Class-Agnostic Segmentation Networks with Iterative Refinement adn Attentive Few-Shot Learning
+date: 2022-08-16
+tags: ["Few-Shot Learning","Segmentation"]
 ---
+
 # test
