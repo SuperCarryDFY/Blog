@@ -34,7 +34,7 @@ tags: ["Affordance"]
 ![framework2.png](https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png)
 
 - input: query images, human-object interactions
-- ResNet50 -> 获得图像表现 $X$  and $$ X_{sup} $$ 
+- ResNet50 -> 获得图像表现 $X$  and $ X_{sup} $ 
 - 输入$X_{sup}$和 人和物体的边界矩阵到PLM -> 提取human-object interaction信息，对action-purpose编码，发现人想要旋转的原因
 - 输入feature representation和$X$到PTM里面 -> 让网络学会处理带affordance的信息
 - 输入encoded feature 到CEM， 输出affordance

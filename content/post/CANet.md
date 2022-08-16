@@ -51,5 +51,36 @@ fancy的地方
 
 ### INERATIVE OPTIMIZATION MODULE
 
+每一次迭代中，首先进行如下运算。其中$M$是output of the residual blocks，$x$是DCM模块的输出，$y_{t-1}$是上一个迭代块的输出，$F$是concat之后再经过两层卷积层。
+$$
+M_t = x + F(x,y_{t-1})
+$$
+对$M_t$，再经过两层vanilla residual blocks。然后再经过(ASSP)[https://arxiv.org/abs/1706.05587]模块输出。
 
+就差不多这么迭代n次
 
+### ATTENTION MECHANISM FOR K-SHOT SEGMENTATION
+
+![image.png](https://s2.loli.net/2022/08/16/ZEuUP7zm2i9IKks.png)
+
+**这也算attention嘛? query, key, value分别是什么？**
+
+在attention模块中，经过两层卷积再softmax得到$\hat\lambda_k$，然后把$\hat\lambda_k$和经过卷积的support sample n相乘。
+
+## ABLATION STUDY
+
+**Feature for Comparison**
+
+![image.png](https://s2.loli.net/2022/08/16/8ZJEQznfqDu9sTj.png)
+
+这里说单个的话block2效果是最好的，整体上block2+block3的效果最好。嗯，比较可信。
+
+> 其中提了一嘴While block4 corresponds to high-level features, e.g., categories, and incorporates a great number of parameters (2048 channels), which makes it hard to optimize under the fewshot setting.
+>
+> 深有同感！我改topformer的时候就是纠结这个地方
+
+**Attention vs. Feature Fusion vs. Mask Fusion**
+
+![image-20220816194800654](/home/dai/snap/typora/57/.config/Typora/typora-user-images/image-20220816194800654.png)
+
+从这里可以看出Attention效果是最好的。但是相比来说的话还是多了两层卷积，增加了参数。Feature-Avg表现不错，感觉跟attention也差不多了（主要是没有另外加参数）。Mask-Avg这么奇怪的想法竟然也有效，能+0.5。还有Mask-OR你要笑死我嘛，怎么还没1-shot高啊，怎么回事啊小老弟，纯纯的帮倒忙。
