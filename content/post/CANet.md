@@ -81,6 +81,6 @@ $$
 
 **Attention vs. Feature Fusion vs. Mask Fusion**
 
-![image-20220816194800654](/home/dai/snap/typora/57/.config/Typora/typora-user-images/image-20220816194800654.png)
+![image.png](https://s2.loli.net/2022/08/16/layPuvoMD6Xrgkc.png)
 
 从这里可以看出Attention效果是最好的。但是相比来说的话还是多了两层卷积，增加了参数。Feature-Avg表现不错，感觉跟attention也差不多了（主要是没有另外加参数）。Mask-Avg这么奇怪的想法竟然也有效，能+0.5。还有Mask-OR你要笑死我嘛，怎么还没1-shot高啊，怎么回事啊小老弟，纯纯的帮倒忙。
