@@ -75,9 +75,9 @@ alt="image.png"
 &lt;p>深有同感！我改topformer的时候就是纠结这个地方&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>Attention vs. Feature Fusion vs. Mask Fusion&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/home/dai/snap/typora/57/.config/Typora/typora-user-images/image-20220816194800654.png"
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/layPuvoMD6Xrgkc.png"
 loading="lazy"
-alt="image-20220816194800654"
+alt="image.png"
 >&lt;/p>
 &lt;p>从这里可以看出Attention效果是最好的。但是相比来说的话还是多了两层卷积，增加了参数。Feature-Avg表现不错，感觉跟attention也差不多了（主要是没有另外加参数）。Mask-Avg这么奇怪的想法竟然也有效，能+0.5。还有Mask-OR你要笑死我嘛，怎么还没1-shot高啊，怎么回事啊小老弟，纯纯的帮倒忙。&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
 loading="lazy"
