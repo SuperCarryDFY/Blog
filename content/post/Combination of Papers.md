@@ -4,7 +4,7 @@ date: 2022-08-17
 tags: ["others"]
 ---
 
-There are some papers which is famous and have gotten high number of citation. Always appears when I'm reading current papers. So I decide to write down the most important parts (mostly concerned by myself, in other way)in the papers.
+There are some papers which is famous and have gotten high number of citation. They Always appear when I'm reading current papers. So I decide to write down the most important parts (mostly concerned by myself, in other way) from these papers in this page.
 
 # Learning Deep Features for Discriminative Localization
 
@@ -24,7 +24,7 @@ GAP can focus on a wide range of pixels while GMP only depends on the most signi
 
 ## FRAMEWORK
 
-![image-20220817142844844](/home/dai/snap/typora/57/.config/Typora/typora-user-images/image-20220817142844844.png)
+![image.png](https://s2.loli.net/2022/08/17/g3qjOyweVAtlNR1.png)
 
 The output of the last convolutional layer is denoted as $f_k(x,y)$, while k means the channel. After GAP, which should be expressed as $F^k = \sum_{x,y}f_k(x,y)$, for a given class, the input to the softmax $S_c$, is $\Sigma_kw_k^cF_k$ where $w_k^c$ is weight corresponding to class c for unit k. 
 $$
