@@ -1,5 +1,5 @@
 ---
-title: "pytorch"
+title: "Pytorch"
 date: 2022-08-16
 tags: ["code"]
 ---
