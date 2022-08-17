@@ -1,3 +1,9 @@
+---
+title: "pytorch"
+date: 2022-08-16
+tags: ["code"]
+---
+
 ## **argparse**
 
 [Tutorial](https://docs.python.org/3/library/argparse.html)

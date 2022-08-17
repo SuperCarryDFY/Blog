@@ -1,5 +1,5 @@
 ---
-title: Prior Guided Feature Enrichment Network for Few-Shot Segmentation
+title: "Prior Guided Feature Enrichment Network for Few-Shot Segmentation"
 date: 2022-08-15
 tags: ["Segmentation","Few-Shot Learning"]
 ---
