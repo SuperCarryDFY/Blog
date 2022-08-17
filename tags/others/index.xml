@@ -1,16 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>others on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/others/</link><description>Recent content in others on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/others/index.xml" rel="self" type="application/rss+xml"/><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>There are some papers which is famous and get high number of citation. Always appears when I&amp;rsquo;m reading current papers. So I decide to write down the most important parts (most concerned by myself, in other way)in the papers&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>others on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/others/</link><description>Recent content in others on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/others/index.xml" rel="self" type="application/rss+xml"/><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>There are some papers which is famous and have gotten high number of citation. Always appears when I&amp;rsquo;m reading current papers. So I decide to write down the most important parts (mostly concerned by myself, in other way)in the papers.&lt;/p>
 &lt;h1 id="learning-deep-features-for-discriminative-localization">Learning Deep Features for Discriminative Localization&lt;/h1>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/17/xeEUAgGitC461Q7.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
 &lt;p>This is a pretty well-known work from CVPR2016, which has got 6.5k citation numbers up-to-date.&lt;/p>
-&lt;p>There are 2 parts seems to be important to me: &lt;strong>comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>weakly-supervised object localization&lt;/strong>.&lt;/p>
+&lt;p>There are 2 parts seems to be important to me: &lt;strong>comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>framework&lt;/strong>.&lt;/p>
 &lt;h2 id="gmp-vs-gap">GMP vs. GAP&lt;/h2>
 &lt;blockquote>
 &lt;p>We believe that GAP loss encourages the network to identify the extent of the object as compared to GMP which encourages it to identify just one discriminative part.&lt;/p>
 &lt;p>while GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
 &lt;/blockquote>
 &lt;p>GAP can focus on a wide range of pixels while GMP only depends on the most significant feature.&lt;/p>
-&lt;h2 id="weakly-supervised-object-localization">Weakly-supervised Object Localization&lt;/h2>
-&lt;p>They meant weakly-supervised because the labels is image-level but localization is object-level&lt;/p></description></item></channel></rss>
+&lt;h2 id="framework">FRAMEWORK&lt;/h2>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/home/dai/snap/typora/57/.config/Typora/typora-user-images/image-20220817142844844.png"
+loading="lazy"
+alt="image-20220817142844844"
+>&lt;/p>
+&lt;p>The output of the last convolutional layer is denoted as $f_k(x,y)$, while k means the channel. After GAP, which should be expressed as $F^k = \sum_{x,y}f_k(x,y)$, for a given class, the input to the softmax $S_c$, is $\Sigma_kw_k^cF_k$ where $w_k^c$ is weight corresponding to class c for unit k.
+$$
+S_c = \sum_kw_k^c\sum_{x,y} f_k(x,y) = \sum_{x,y}\sum_k w_k^cf_k(x,y)
+$$
+They did upsampling in the middle of the framework to fit the size.&lt;/p>
+&lt;p>ABOUT &lt;strong>weakly-supervised&lt;/strong>: They meant weakly-supervised because the labels is image-level but localization is object-level&lt;/p></description></item></channel></rss>
