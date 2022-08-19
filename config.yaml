@@ -236,6 +236,6 @@ menu:
           url: /about
           weight: -100
           params:
-            icon: about
+            icon: tag
             newTab: false
         
