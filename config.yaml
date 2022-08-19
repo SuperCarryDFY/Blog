@@ -223,6 +223,13 @@ markup:
         
 menu:
     main:
+        - identifier: about
+          name: About
+          url: /about
+          weight: -100
+          params:
+            icon: tag
+            newTab: false
         - identifier: home
           name: Home
           url: /
@@ -231,11 +238,5 @@ menu:
             icon: home
             newTab: false
             
-        - identifier: about
-          name: About
-          url: /about
-          weight: -100
-          params:
-            icon: tag
-            newTab: false
+
         
