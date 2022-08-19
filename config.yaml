@@ -166,8 +166,8 @@ params:
 
     defaultImage:
         opengraph:
-            enabled: false
-            local: false
+            enabled: true
+            local: true
             src:
 
     colorScheme:
@@ -234,4 +234,4 @@ menu:
           weight: -100
           params:
             icon: home
-            newTab: true
+            newTab: false
