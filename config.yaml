@@ -221,4 +221,21 @@ markup:
         lineNumbersInTable: true
         tabWidth: 4
         
+menu:
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          params:
+            icon: home
+            newTab: false
+            
+        - identifier: about
+          name: About
+          url: /about
+          weight: -100
+          params:
+            icon: about
+            newTab: false
         
