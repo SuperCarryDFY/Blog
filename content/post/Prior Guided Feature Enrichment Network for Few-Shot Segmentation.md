@@ -6,8 +6,6 @@ tags: ["Segmentation","Few-Shot Learning"]
 
 ![title1.png](https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png)
 
-![pic1](post/title1.png)
-
 ## INTRODUCTION
 
 主要解决了两个问题：
