@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CV on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/categories/cv/</link><description>Recent content in CV on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/categories/cv/index.xml" rel="self" type="application/rss+xml"/><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/title1.png" alt="Featured image of post Prior Guided Feature Enrichment Network for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
+loading="lazy"
+alt="title1.png"
+>&lt;/p>
+&lt;h2 id="introduction">INTRODUCTION&lt;/h2>
+&lt;p>主要解决了两个问题：&lt;/p>
+&lt;ul>
+&lt;li>Generalization Reduction &amp;amp; High-Level Features.
+&lt;ul>
+&lt;li>[CANet: Classagnostic segmentation networks with iterative refinement and attentive few-shot learning]指出high-level feature cause performance drop. （估计是因为使用high-level feature会使得模型泛化能力变弱）&lt;/li>
+&lt;li>他们用imagenet上pre-train出来的模块，生成“prior”。因为prior是用high-level feature训练出来的，并且只是在imagenet上训练，所以不失generalization ability。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Spatial Inconsistency.
+&lt;ul>
+&lt;li>因为support image有限，有时候support image和query image上的物体的姿势之类的可能变化很大。他们提出了Feature Enrichment Module，去解决这个问题。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="related-work">RELATED WORK&lt;/h2>
+&lt;p>&lt;strong>Few-Shot Learning&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>meta-learning
+&lt;ul>
+&lt;li>跟memory有关。似乎是基于RNN的模型（比如LSTM）修改的。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>metric-learning
+&lt;ul>
+&lt;li>Prototypical network&lt;/li>
+&lt;li>这篇文章比较偏向于metric-learning&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png"
+loading="lazy"
+alt="framework1.png"
+>&lt;/p>
+&lt;h3 id="prior-for-few-shot-segmentation">Prior for Few-Shot Segmentation&lt;/h3>
+&lt;p>CANet表现好主要是通过backbone提取了middle-level feature，并且CANet说middle-level里面有unseen class的object part。但是我们的解释与之相反。&lt;/p>
+&lt;p>Prior Generation的具体做法&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>先利用backbone network对输入的query和support进行特征提取，其中$M_S$代表Supprort image mask
+$$
+X_Q=F(I_Q), \ X_S = F(I_S)\times M_S
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$Y_Q$表征了$X_Q$和$X_S$在像素维度上的一致性。如果一个$X_Q$上的像素在$Y_Q$上有比较大的值，说明这个像素在support image上更有可能有至少一个像素。为了计算$Y_Q$，首先计算cosine similarity
+$$
+cos(x_q,x_s)=\frac{x_q^Tx_s}{|x_q||x_s|},\ \ \ \ q,s\in{1,2,&amp;hellip;,hw}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>对每一个$x_q \in X_Q$来说，取其中最大的值作为correspondence value
+$$
+c_q = max_{s\in {1,2&amp;hellip;,hw}}(cos(x_q,x_s))
+$$&lt;/p>
+&lt;p>$$
+C_Q = [c_1,c_2,&amp;hellip;,c_hw] \in R^{hw\times1}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>把$C_Q$ reshape 到h*w*1的空间，作为$Y_Q$，然后做一个normalization
+$$
+Y_Q = \frac{Y_Q-min(Y_Q)}{max(Y_Q)-min(Y_Q)+\epsilon}
+$$&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="feature-enrichment-module">Feature Enrichment Module&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/rhadcOZ1iPuQ7nH.png"
+loading="lazy"
+alt="module1.png"
+>&lt;/p>
+&lt;p>将support image和query image关联起来的方法&lt;/p>
+&lt;ul>
+&lt;li>对support image做global average pooling
+&lt;ul>
+&lt;li>不用说都感觉效果一般&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>multi-level spatial information
+&lt;ul>
+&lt;li>说有两点不好，分别是merge的时候缺少specific refinement，和relation across different scales is ignored。这两点看看就好了，我感觉作者说有这两点问题主要是他自己在这两点做了一些trick。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>作者提出的FEM可以很好的解决问题。其中M的具体操作如下&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/P9ux8joOMAlyv3t.png"
+loading="lazy"
+alt="module2.png"
+>&lt;/p>
+&lt;h3 id="loss-function">Loss Function&lt;/h3>
+&lt;p>$$
+L = \frac{\sigma}{n}\sum_{i=1}^{n}{L_1^i+L_2}
+$$&lt;/p>
+&lt;p>主要选用交叉熵作为损失函数。&lt;/p>
+&lt;ul>
+&lt;li>$L_1^i$ FEM出来的n层spatial size中的第i层的X，通过intermediate supervision生成&lt;/li>
+&lt;li>具体来说，这个X应该是FEM模块中，每一层的feature在information concentration之前，interpolate后做交叉熵的值&lt;/li>
+&lt;li>$L_2$ 最后prediction和label的交叉熵。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;!-- raw HTML omitted -->问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）&lt;!-- raw HTML omitted -->&lt;/p></description></item></channel></rss>
