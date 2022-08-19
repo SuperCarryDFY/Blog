@@ -9,11 +9,6 @@ languages:
         languageName: English
         title: Dai Fengyuan
         weight: 1
-    zh-cn:
-        languageName: 中文
-        title: 戴枫源
-        weight: 2
-
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
