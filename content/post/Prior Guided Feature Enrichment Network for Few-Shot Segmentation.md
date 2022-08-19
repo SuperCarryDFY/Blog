@@ -3,7 +3,7 @@ title: "Prior Guided Feature Enrichment Network for Few-Shot Segmentation"
 date: 2022-08-15
 tags: ["Segmentation","Few-Shot Learning"]
 categories : ["CV"]
-image : "/post/title1.png"
+image : "https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png"
 ---
 
 ![title1.png](https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png)
