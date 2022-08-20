@@ -2,9 +2,12 @@
 title: About
 description: Hugo, the world's fastest framework for building websites
 date: '2022-08-21'
+aliases:
+  - about-us
+  - about-hugo
+  - contact
 menu:
     main: 
-        name: about
         weight: -110
         params:
             icon: user
