@@ -2,6 +2,7 @@
 title: "Holistic Prototype Activation for Few-Shot Segmentation"
 date: 2022-08-15
 tags: ["Segmentation","Few-Shot Learning"]
+categories : ["CV"]
 ---
 
 ![image.png](https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png)

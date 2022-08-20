@@ -2,6 +2,7 @@
 title: "One-Shot Affordance Detection"
 date: 2022-08-15
 tags: ["Affordance"]
+categories : ["CV"]
 ---
 
 [One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)](https://arxiv.org/pdf/2106.14747.pdf)
