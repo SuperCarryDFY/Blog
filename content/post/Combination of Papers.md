@@ -3,6 +3,7 @@ title: "Combination of Papers"
 date: 2022-08-17
 tags: ["others"]
 categories : ["Others"]
+license: CC BY-NC-ND
 ---
 
 Some papers are famous and have gotten several citations. They Always appear when I'm reading current papers. So I decided to write down the most critical parts (concerned mainly by myself, in another way) from these papers on this page.

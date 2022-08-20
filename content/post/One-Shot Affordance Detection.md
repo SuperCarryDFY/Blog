@@ -3,6 +3,8 @@ title: "One-Shot Affordance Detection"
 date: 2022-08-15
 tags: ["Affordance"]
 categories : ["CV"]
+license: CC BY-NC-ND
+image: "https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png"
 ---
 
 [One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)](https://arxiv.org/pdf/2106.14747.pdf)

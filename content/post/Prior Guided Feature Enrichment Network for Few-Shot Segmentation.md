@@ -4,6 +4,7 @@ date: 2022-08-15
 tags: ["Segmentation","Few-Shot Learning"]
 categories : ["CV"]
 image : "https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png"
+license: CC BY-NC-ND
 ---
 
 ![title1.png](https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png)

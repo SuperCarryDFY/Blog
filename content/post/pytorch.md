@@ -3,6 +3,7 @@ title: "Pytorch"
 date: 2022-08-16
 tags: ["code"]
 categories : ["Others"]
+license: CC BY-NC-ND
 ---
 
 ## **argparse**

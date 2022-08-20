@@ -1,8 +1,10 @@
 ---
 title: "CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning"
 date: 2022-08-16
+license: CC BY-NC-ND
 tags: ["Few-Shot Learning","Segmentation"]
 categories : ["CV"]
+image: "https://s2.loli.net/2022/08/16/9DYVUmMyPNJnwkq.png"
 ---
 
 ![image.png](https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png)
