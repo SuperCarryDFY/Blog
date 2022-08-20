@@ -1,7 +1,5 @@
 ---
 title: About
-description: Hey, it's Dai Fengyuan
-date: '2022-08-21'
 aliases:
   - about-us
   - about-hugo
