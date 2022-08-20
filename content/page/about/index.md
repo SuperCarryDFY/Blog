@@ -9,7 +9,7 @@ aliases:
 license: CC BY-NC-ND
 menu:
     main: 
-        weight: 10
+        weight: -5
         params:
             icon: user
 ---
