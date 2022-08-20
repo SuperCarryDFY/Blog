@@ -64,7 +64,7 @@ params:
         provider: disqus
 
         disqusjs:
-            shortname:
+            shortname: Fengyuan Dai
             apiUrl:
             apiKey:
             admin:
@@ -138,7 +138,6 @@ params:
             id:
     widgets:
         homepage:
-            - type: search
             - type: archives
               params:
                   limit: 5
@@ -148,6 +147,7 @@ params:
             - type: tag-cloud
               params:
                   limit: 10
+            - type: search
         page:
             - type: toc
 
