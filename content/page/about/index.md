@@ -1,33 +1,34 @@
 ---
 title: About
-description: Hey, it's Dai Fengyuan!
-date: '2022-08-21'
+description: Hugo, the world's fastest framework for building websites
+date: '2019-02-28'
 aliases:
   - about-us
   - about-hugo
   - contact
 license: CC BY-NC-ND
+lastmod: '2020-10-09'
 menu:
     main: 
-        weight: -5
+        weight: -90
         params:
             icon: user
 ---
 
+Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 
-# About
+Hugo makes use of a variety of open source projects including:
 
-Hey, welcome to Dai Fengyuan's blog!
+* https://github.com/yuin/goldmark
+* https://github.com/alecthomas/chroma
+* https://github.com/muesli/smartcrop
+* https://github.com/spf13/cobra
+* https://github.com/spf13/viper
 
-I am an undergraduate student from SHU, majoring in Computer Science. 
+Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 
-Fortunately, I am doing internship jobs at Milab, Westlake University simultaneously. 
+Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
 
-At present, my concerned field is Few-Shot Learning and Segmentation. 
+Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
 
-I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any ideas later, I will post them here.
-
-Later the website will support a comment system, so you can leave your idea here.
-
-If you want to contact me, please email me at da1cantst0p@gmail.com or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate purpose) 
-
+Learn more and contribute on [GitHub](https://github.com/gohugoio).
