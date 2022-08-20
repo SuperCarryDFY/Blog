@@ -1,14 +1,15 @@
 ---
 title: About
-description: Hugo, the world's fastest framework for building websites
+description: Hey, it's Dai Fengyuan!
 date: '2022-08-21'
 aliases:
   - about-us
   - about-hugo
   - contact
+license: CC BY-NC-ND
 menu:
     main: 
-        weight: -110
+        weight: 10
         params:
             icon: user
 ---
@@ -29,5 +30,4 @@ I built this website mainly because I needed the motivation to write down the ke
 Later the website will support a comment system, so you can leave your idea here.
 
 If you want to contact me, please email me at da1cantst0p@gmail.com or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate purpose) 
-
 
