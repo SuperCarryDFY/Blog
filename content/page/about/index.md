@@ -1,11 +1,12 @@
 ---
 title: About
+description: Hey, it's Dai Fengyuan
 aliases:
   - about-us
   - about-hugo
   - contact
 license: CC BY-NC-ND
-lastmod: '2022-8-21'
+lastmod: '2022-8-22'
 menu:
     main: 
         weight: 10
