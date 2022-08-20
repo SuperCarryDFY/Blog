@@ -1,12 +1,12 @@
 ---
 title: About
-description: Hey, it's Dai Fengyuan
+description: Hey, it's Dai Fengyuan!
+date: '2022-08-21'
 aliases:
   - about-us
   - about-hugo
   - contact
 license: CC BY-NC-ND
-lastmod: '2022-8-22'
 menu:
     main: 
         weight: 10
@@ -20,7 +20,7 @@ I am an undergraduate student from SHU, majoring in Computer Science.
 
 Fortunately, I am doing internship jobs at Milab, Westlake University simultaneously. 
 
-At present, my concerned field is Few-Shot Learning and Segmentation. 
+At present, my research field is Few-Shot Learning and Segmentation. 
 
 I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any ideas later, I will post them here.
 
