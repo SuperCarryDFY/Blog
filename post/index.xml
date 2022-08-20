@@ -52,7 +52,7 @@ alt="image.png"
 &lt;p>和prototypical network的区别&lt;/p>
 &lt;blockquote>
 &lt;p>Relation Network比原型网络的方法多了可学习的层，用来判别相似度度量，而在原型网络中是直接拿特定的相似度度量公式（如cosine similarity）&lt;/p>
-&lt;/blockquote></description></item><item><title>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning</title><link>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</guid><description>&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png"
+&lt;/blockquote></description></item><item><title>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning</title><link>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/9DYVUmMyPNJnwkq.png" alt="Featured image of post CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -510,7 +510,7 @@ alt="image.png"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">])&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Holistic Prototype Activation for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</guid><description>&lt;p>&lt;img src="https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png"
+&lt;/div></description></item><item><title>Holistic Prototype Activation for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/18/wB47rIvCWOyTZVi.png" alt="Featured image of post Holistic Prototype Activation for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -578,7 +578,7 @@ alt="image.png"
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/18/y95dGIcosCltvVN.png"
 loading="lazy"
 alt="image.png"
->&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+>&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png" alt="Featured image of post One-Shot Affordance Detection" />&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
 >One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;ul>
