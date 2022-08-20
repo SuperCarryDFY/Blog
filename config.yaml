@@ -226,7 +226,7 @@ menu:
         - identifier: home
           name: Home
           url: /
-          weight: 0
+          weight: -100
           params:
             icon: home
             newTab: false
