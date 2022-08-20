@@ -882,4 +882,10 @@ $$&lt;/p>
 &lt;li>具体来说，这个X应该是FEM模块中，每一层的feature在information concentration之前，interpolate后做交叉熵的值&lt;/li>
 &lt;li>$L_2$ 最后prediction和label的交叉熵。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;!-- raw HTML omitted -->问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）&lt;!-- raw HTML omitted -->&lt;/p></description></item></channel></rss>
+&lt;p>&lt;!-- raw HTML omitted -->问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>About</title><link>https://SuperCarryDFY.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/about/</guid><description>&lt;p>Hey, welcome to Dai Fengyuan&amp;rsquo;s blog!&lt;/p>
+&lt;p>I am an undergraduate student from SHU, majoring in Computer Science.&lt;/p>
+&lt;p>Fortunately, I am doing internship jobs at Milab, Westlake University simultaneously.&lt;/p>
+&lt;p>At present, my concerned field is Few-Shot Learning and Segmentation.&lt;/p>
+&lt;p>I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any ideas later, I will post them here.&lt;/p>
+&lt;p>Later the website will support a comment system, so you can leave your idea here.&lt;/p>
+&lt;p>If you want to contact me, please email me at &lt;a class="link" href="mailto:da1cantst0p@gmail.com" >da1cantst0p@gmail.com&lt;/a> or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate purpose)&lt;/p></description></item></channel></rss>
