@@ -4,7 +4,8 @@ description: Hugo, the world's fastest framework for building websites
 date: '2022-08-21'
 menu:
     main: 
-        weight: -90
+        name: about
+        weight: -110
         params:
             icon: user
 ---
@@ -25,6 +26,5 @@ I built this website mainly because I needed the motivation to write down the ke
 Later the website will support a comment system, so you can leave your idea here.
 
 If you want to contact me, please email me at da1cantst0p@gmail.com or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate purpose) 
-
 
 
