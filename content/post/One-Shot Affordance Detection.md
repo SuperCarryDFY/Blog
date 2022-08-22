@@ -1,7 +1,7 @@
 ---
 title: "One-Shot Affordance Detection"
 date: 2022-08-15
-tags: ["Affordance"]
+tags: ["Affordance","Few-Shot Learning"]
 categories : ["CV"]
 license: CC BY-NC-ND
 image: "https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png"
