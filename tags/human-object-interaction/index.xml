@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Human-Object Interaction on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/human-object-interaction/</link><description>Recent content in Human-Object Interaction on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/human-object-interaction/index.xml" rel="self" type="application/rss+xml"/><item><title>Affordance Transfer Learning for Human-Object Interaction Detection</title><link>https://SuperCarryDFY.github.io/p/affordance-transfer-learning-for-human-object-interaction-detection/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/affordance-transfer-learning-for-human-object-interaction-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png" alt="Featured image of post Affordance Transfer Learning for Human-Object Interaction Detection" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/avbpq9mtxy5IdCF.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="abstract--introduction">ABSTRACT &amp;amp; INTRODUCTION&lt;/h2>
+&lt;p>这篇实质是完成一个分类任务，并且能在unseen objects上也能辨认出其affordance，应该比较容易拿过来做few-shot任务。&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/UltqHo4P2MOs9Lf.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>train用这张图，test用下面object affordance recognition那张图&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h3 id="affordance-transfer-learning">AFFORDANCE TRANSFER LEARNING&lt;/h3>
+&lt;p>&lt;strong>Efficient HOI Composition&lt;/strong>&lt;/p>
+&lt;p>To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,
+$$
+\hat{y} = (\hat{l_o}A_o) \and (l_vA_v)
+$$
+，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
+&lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
+&lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
+&lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>
+&lt;p>这里主要解释如何在test phase做推理&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/CaRPrfTUmpjAqtX.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>对每个affordance，我们随机抽取M（这里M=100）个instances，抽取完特征之后作为affordance feature bank&lt;/p>
+&lt;p>对一个输入的object feature，我们把它和bank所有的affordance一一结合起来，把所有的HOI predictions都转换成affordance prediction（这有啥区别），然后就得到了有许多重复元素的affordance lists。一个元素重复得越多说明有这个affordance的可能习惯越大。&lt;/p>
+&lt;h3 id="optimization-and-inference">OPTIMIZATION AND INFERENCE&lt;/h3>
+&lt;p>loss就比较常规
+$$
+L = L_{hoi_sp}+\lambda_1L_{hoi}+\lambda_2L_{ATL}
+$$
+，其中$\lambda_1$,$\lambda_2$都是超参数。&lt;/p></description></item><item><title>Learning Transferable Human-Object Interaction Detector with Natural Language Supervision</title><link>https://SuperCarryDFY.github.io/p/learning-transferable-human-object-interaction-detector-with-natural-language-supervision/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-transferable-human-object-interaction-detector-with-natural-language-supervision/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/d7nPavWht2iRBue.png" alt="Featured image of post Learning Transferable Human-Object Interaction Detector with Natural Language Supervision" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/gWoakEicOMpR68j.png"
+loading="lazy"
+alt="image-20220822150720449"
+>&lt;/p>
+&lt;h2 id="abstract--introduction">ABSTRACT &amp;amp; INTRODUCTION&lt;/h2>
+&lt;p>这篇文章的工作是，输入一张图片，输出HOI特征，并且用HOI短语作为监督训练（基于CLIP）。&lt;/p>
+&lt;p>他与其他HOI transfer工作不同的点在于，之前的工作对unseen object都是用discrete label作为输出，得到HOI。但是这就要求label中对应的HOI（就是每个动作）都预训练过，很难去识别interaction that out of the predefined list。这篇的思路主要是对文字和图像同时encode，然后寻找最近的匹配对，所以不存在这个问题。&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/IGi64rQnLkNBma3.png"
+loading="lazy"
+alt="image-20220822152554566"
+>&lt;/p>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/d7nPavWht2iRBue.png"
+loading="lazy"
+alt="image-20220822152833390"
+>&lt;/p>
+&lt;p>他们定义了HOI为 ${(b_p,b_o,a,o)}$（有些文章定义为triplet，其实都差不多，最重要的是verb），其中$b_p$和$b_o$是人和物的bounding box。$a$和$o$分别是human action和object category。&lt;/p>
+&lt;h3 id="preliminary">PRELIMINARY&lt;/h3>
+&lt;p>在preliminary中，他们简单设想了一些步骤，用Faster RCNN得到bounding box然后输入到CLIP，就能在Unseen数据集上得到SOTA，even without tuning.（废话，人家设计的时候也没管unseen HOI啊）&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/36FEm9MqlODH4wT.png"
+loading="lazy"
+alt="image-20220822155533112"
+>&lt;/p>
+&lt;h3 id="proposed-method">PROPOSED METHOD&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>visual input: ${(h,c,b_p,b_o)}$,&lt;/p>
+&lt;ul>
+&lt;li>h is feature representation for interactions&lt;/li>
+&lt;li>$b_p,b_o$ is bounding box&lt;/li>
+&lt;li>c is the confidence score for bounding box prediction&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>text encoder: raw text of interactions&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>similarity $h^Ts$, where h, s denote the output of visual encoder and text encoder. They are semantic features in the same dimension.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>ViT-based Visual Encoder&lt;/strong>&lt;/p>
+&lt;p>前半部分输入跟ViT一样，对图像分patch之后加position embedding，在首位置插入CLS后直接作为输入放到ViT中。其中，关于CLS的理解如下&lt;/p>
+&lt;blockquote>
+&lt;p>CLS的特点&lt;/p>
+&lt;ul>
+&lt;li>不基于图像内容&lt;/li>
+&lt;li>位置编码固定&lt;/li>
+&lt;/ul>
+&lt;p>好处&lt;/p>
+&lt;ul>
+&lt;li>该token随机初始化，能够编码整个序列的统计特性&lt;/li>
+&lt;li>本身不基于图像内容，避免对某个特定的token产生偏向性&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>但是和ViT不同的是，这里期望能识别出多种不同的HOI（ViT最开始是做分类任务的）。所以在原本的序列后面另外加入了M个CLS（留了M个空让网络自己去学）。&lt;/p>
+&lt;p>然而，输入的patch（以下称为X）和作为HOI的CLS（以下称为H）在ViT中作计算时亦有不同。&lt;/p>
+&lt;p>X就是正常经过Transformer block，不管H。其中MHA是多层注意力机制，LN是layer norm，MLP是2层感知机。
+$$
+X_l^{&amp;rsquo;} = MHA(X_{l-1})+X_{l-1} \
+X_l = MLP(LN(X_l^{&amp;rsquo;}))+X_l^{&amp;rsquo;}
+$$
+H在做多层注意力机制时，需要聚合来自X的信息（但是不需要位置0的CLS，他们说如果不mask的话，HOI会直接copy位置0的信息）
+$$
+H_l^{&amp;rsquo;}=MHA(H_{l-1},X_{l-1}^{[1:]}) + H_{l-1} \
+H_l = MLP(LN(H_l^{&amp;rsquo;}))+H_l^{&amp;rsquo;}
+$$
+&lt;strong>HOI Sequence Parser&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/X8iwQBC4c9SYFyI.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>从transformer block出来的HOI序列有一个问题，没办法区分开来。这其实也好理解，因为输入的时候并没有带位置信息，实际上H之间都是等效的。&lt;/p>
+&lt;p>所以作者故意在这个模块中使用Sequence manner 而不是 in parallel的方式。&lt;/p>
+&lt;p>&lt;strong>Project Head and Bounding Box Regressor&lt;/strong>&lt;/p>
+&lt;p>Project Head其实就是一个线性层，把从transformer block出来的X映射到text encoder的输出的维度，方便做相似度计算，从而找到最近的tensor。&lt;/p>
+&lt;p>因为我不懂detection，所以Regressor不太关心。&lt;/p>
+&lt;h2 id="loss">LOSS&lt;/h2>
+&lt;p>LOSS部分没有很复杂，由两部分组成，分别是box head输出和project head的loss
+$$
+L_m(i,\phi) = L_b(\hat{b_p^i},b_p^{\phi_i})+L_b(\hat{b_o^i},b_o^{\phi_i})+L_h(\hat{h_i},s_{\phi_i})
+$$
+其中$L_b$表示Bounding box 的loss，$L_h$代表CLIP那边的loss，包括text-to-visual和visual-to-text&lt;/p></description></item></channel></rss>

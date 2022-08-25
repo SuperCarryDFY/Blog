@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Affordance on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/affordance/</link><description>Recent content in Affordance on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/affordance/index.xml" rel="self" type="application/rss+xml"/><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png" alt="Featured image of post One-Shot Affordance Detection" />&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>“Affordance” on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/affordance/</link><description>Recent content in “Affordance” on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/affordance/index.xml" rel="self" type="application/rss+xml"/><item><title>Affordance Transfer Learning for Human-Object Interaction Detection</title><link>https://SuperCarryDFY.github.io/p/affordance-transfer-learning-for-human-object-interaction-detection/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/affordance-transfer-learning-for-human-object-interaction-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png" alt="Featured image of post Affordance Transfer Learning for Human-Object Interaction Detection" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/avbpq9mtxy5IdCF.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="abstract--introduction">ABSTRACT &amp;amp; INTRODUCTION&lt;/h2>
+&lt;p>这篇实质是完成一个分类任务，并且能在unseen objects上也能辨认出其affordance，应该比较容易拿过来做few-shot任务。&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/UltqHo4P2MOs9Lf.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>train用这张图，test用下面object affordance recognition那张图&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h3 id="affordance-transfer-learning">AFFORDANCE TRANSFER LEARNING&lt;/h3>
+&lt;p>&lt;strong>Efficient HOI Composition&lt;/strong>&lt;/p>
+&lt;p>To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,
+$$
+\hat{y} = (\hat{l_o}A_o) \and (l_vA_v)
+$$
+，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
+&lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
+&lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
+&lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>
+&lt;p>这里主要解释如何在test phase做推理&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/CaRPrfTUmpjAqtX.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>对每个affordance，我们随机抽取M（这里M=100）个instances，抽取完特征之后作为affordance feature bank&lt;/p>
+&lt;p>对一个输入的object feature，我们把它和bank所有的affordance一一结合起来，把所有的HOI predictions都转换成affordance prediction（这有啥区别），然后就得到了有许多重复元素的affordance lists。一个元素重复得越多说明有这个affordance的可能习惯越大。&lt;/p>
+&lt;h3 id="optimization-and-inference">OPTIMIZATION AND INFERENCE&lt;/h3>
+&lt;p>loss就比较常规
+$$
+L = L_{hoi_sp}+\lambda_1L_{hoi}+\lambda_2L_{ATL}
+$$
+，其中$\lambda_1$,$\lambda_2$都是超参数。&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png" alt="Featured image of post One-Shot Affordance Detection" />&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
 >One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;ul>

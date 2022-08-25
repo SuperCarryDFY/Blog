@@ -147,7 +147,207 @@ alt="image.png"
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/18/y95dGIcosCltvVN.png"
 loading="lazy"
 alt="image.png"
->&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png" alt="Featured image of post Prior Guided Feature Enrichment Network for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
+>&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png" alt="Featured image of post One-Shot Affordance Detection" />&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+>One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
+&lt;h2 id="abstract">Abstract&lt;/h2>
+&lt;ul>
+&lt;li>可供性检测就是通过一张图片识别物体潜在的动作。&lt;/li>
+&lt;li>OS-AD网络可以在所有候选图片中帮助发现普遍的可供性，并且学会适应感知未发现的可供性。&lt;/li>
+&lt;li>他们建立了一个数据集PAD ：4k Image；31 affordance；72个物体类别&lt;/li>
+&lt;/ul>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;ul>
+&lt;li>挑战OS-AD 给一张图片，告知其图片上的物体的行为，则可以察觉所有物体普遍的可供性&lt;/li>
+&lt;li>问题：现实生活中一个物体可能有多个affordance（例如沙发可以躺也可以睡），而具体用什么affordance取决于人在这个场景中的目的。抛去目的的指引，直接从一张图片中学习affordance会导致忽略了其他视觉上的对此时的任务有效的affordance
+&lt;ul>
+&lt;li>从行为中找暗示&lt;/li>
+&lt;li>采用&lt;strong>collaboration learning&lt;/strong>去捕捉不同物体间的潜在关系，抵消物体不同的appearance，增加泛化性；OS-AD PLM，PTM，CEM&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>可供性检测应该能适用于各种环境： PAD 目标驱动可供性数据集&lt;/li>
+&lt;/ul>
+&lt;h2 id="related-work">Related work&lt;/h2>
+&lt;ul>
+&lt;li>Affordance Detection&lt;/li>
+&lt;li>One-Shot Learn
+&lt;ul>
+&lt;li>based on metric learning using the siamese neural network 度量学习；孪生神经网络&lt;/li>
+&lt;li>meta-learning and generation models 元学习&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="methods">Methods&lt;/h2>
+&lt;h3 id="framework">Framework&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png"
+loading="lazy"
+alt="framework2.png"
+>&lt;/p>
+&lt;ul>
+&lt;li>input: query images, human-object interactions&lt;/li>
+&lt;li>ResNet50 -&amp;gt; 获得图像表现 $X$ and $ X_{sup} $&lt;/li>
+&lt;li>输入$X_{sup}$和 人和物体的边界矩阵到PLM -&amp;gt; 提取human-object interaction信息，对action-purpose编码，发现人想要旋转的原因&lt;/li>
+&lt;li>输入feature representation和$X$到PTM里面 -&amp;gt; 让网络学会处理带affordance的信息&lt;/li>
+&lt;li>输入encoded feature 到CEM， 输出affordance&lt;/li>
+&lt;/ul>
+&lt;h3 id="purpose-learning-module">Purpose Learning Module&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/HUW6kjnPJ29qX83.png"
+loading="lazy"
+alt="plm.png"
+>&lt;/p>
+&lt;p>:star:&lt;a class="link" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhan_On_Exploring_Undetermined_Relationships_for_Visual_Relationship_Detection_CVPR_2019_paper.pdf" target="_blank" rel="noopener"
+>On Exploring Undetermined Relationships for Visual Relationship Detection&lt;/a>受到了这篇文章的启发，说instance（人或物）的特征可以指导网络哪里应该focus。&lt;/p>
+&lt;p>先得到$M_O$和$M_H$ &lt;strong>（这两者分别代表什么？作者说是为了让模型去分别focus on物体和个人，引入了注意力机制，其中GMP的作用是得到最显著的特征）&lt;/strong> 其中⊗ 代表element-wise product，元素对应位置相乘，$f_O$和$f_H$是$X_O$和$X_H$进行 global maximum pooling（GMP）后的值
+$$
+M_O = Softmax(f_O⊗X_{sup})⊗X_{sup} \
+M_H = Softmax(f_H⊗X_{sup})⊗X_{sup}
+$$
+作者说他们用$f_O$去指导网络应该focus on人物交互$M_{HO}$
+$$
+M_{HO}=Conv(f_O⊗X_H)
+$$
+最后得到encoding of the action purpose $F_{sup}$，其中&amp;quot; ·&amp;ldquo;代表position-wise dot product.
+$$
+F_{sup} = MaxPooling((M_{HO}·M_H)+(M_{HO}·M_O))
+$$&lt;/p>
+&lt;ul>
+&lt;li>输入：$X_{sup}$以及人和物体的边界框&lt;/li>
+&lt;li>输出：动作目的编码 $F_{sup}$&lt;/li>
+&lt;/ul>
+&lt;h3 id="purpose-transfer-module">Purpose Transfer Module&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/qARrZbuCIm4BipT.png"
+loading="lazy"
+alt="ptm.png"
+>&lt;/p>
+&lt;p>通过attention机制，将action purpose传递到query image中，加强相关features
+$$
+X_{T_i} = X_i + Softmax(X_i⊗F_{sup})⊗X_i,\ where\ i \ in\ [1,n]
+$$&lt;/p>
+&lt;h3 id="collaboration-enhancement-module">Collaboration Enhancement Module&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/lx5Jb4jkPhIuSN3.png"
+loading="lazy"
+alt="cem.png"
+>&lt;/p>
+&lt;p>交替使用E-step和M-step，得到一个紧凑的基集，重建query image的特征图。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>从PTM输入的$X_T = {X_{T_1},&amp;hellip;,X_{T_n}}$经过卷积得到$F={F_1,&amp;hellip;F_n}$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>初始化基集$\mu$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>E-step估计隐变量$Z={Z_1,&amp;hellip;Z_n}$&lt;/p>
+&lt;ul>
+&lt;li>第k个basis 第j个像素 第i个图片&lt;/li>
+&lt;li>$Z_{ijk} = \frac{\kappa(f_{ij},\mu_k)}{\sum_{l=1}^{K}\kappa(f_{ij},\mu_l)}$&lt;/li>
+&lt;li>$f_{ij}$第i个图像的第j个位置的特征&lt;/li>
+&lt;li>$\kappa$是指数核函数&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>M-step更新基集$\mu$，并把$\mu$作为$F$的加权平均&lt;/p>
+&lt;ul>
+&lt;li>$\mu_k = \frac{\sum_{i=1}^n\sum_{j=1}^Lz_{ijk}f_{ij}}{\sum_{i=1}^n\sum_{j=1}^Lz_{ijk}}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>经过E-M的迭代后，我们用$\mu$和$Z$去重建$X$并得到$F$&lt;/p>
+&lt;ul>
+&lt;li>$F_i=Z_i\mu$&lt;/li>
+&lt;li>$\tilde X_i=X_i+Conv(F_i)$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="前景知识">前景知识&lt;/h4>
+&lt;p>Expectation-Maximization (E-M)&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/67120173" target="_blank" rel="noopener"
+>https://zhuanlan.zhihu.com/p/67120173&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>初始化参数&lt;/li>
+&lt;li>根据初始化的参数，划分类别&lt;/li>
+&lt;li>根据最大似然估计重新计算参数&lt;/li>
+&lt;li>重复步骤1-3，迭代n次，参数收敛&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>期望最大化注意力机制&lt;/strong>&lt;/p>
+&lt;p>&lt;a class="link" href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Li_Expectation-Maximization_Attention_Networks_for_Semantic_Segmentation_ICCV_2019_paper.pdf" target="_blank" rel="noopener"
+>EMANet&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.jianshu.com/p/6bb799d256b1" target="_blank" rel="noopener"
+>https://www.jianshu.com/p/6bb799d256b1&lt;/a>&lt;/li>
+&lt;li>作者写的知乎专栏：https://zhuanlan.zhihu.com/p/78018142&lt;/li>
+&lt;/ul>
+&lt;p>分为$A_E,A_M,A_R$三部分组成，前两者是EM算法的E步和M步&lt;/p>
+&lt;ul>
+&lt;li>假定输入的特征图为$X\in R^{N\times C}$，基初始值为$\mu\in R^{K\times C}$&lt;/li>
+&lt;li>$A_E$步估计隐变量$Z\in R^{N\times K}$，则第k个基对第n个像素的权责可以计算为
+&lt;ul>
+&lt;li>$z_{nk}=\frac{\kappa(x_n,\mu_k)}{\sum_{j=1}^{K}\kappa(x_n,\mu_j)}$&lt;/li>
+&lt;li>实现时可以用公式 $Z=softmax(\lambda X(\mu^T))$，其中$\lambda$作为超参数控制$Z$的分布&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>$A_M$步更新基。$\mu$被计算为$X$的加权平均。第k个基被个更新为
+&lt;ul>
+&lt;li>$\mu_k=\frac{\sum_{n=1}^Nz_{nk}X_n}{\sum_{n=1}^Nz_{nk}}$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>$A_E$和$A_M$交替执行T步后，$\mu$和$Z$近似收敛，可以用来对X重新评估
+&lt;ul>
+&lt;li>$\tilde X=Z\mu$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="decoder">Decoder&lt;/h3>
+&lt;p>$$
+P^m_i=Conv(Unsample(Conv(X^m_i)+P^{m+1}_i)),\ where\ m \ in \ [1,4]
+$$&lt;/p>
+&lt;ul>
+&lt;li>其中m是第m层，i表示&lt;/li>
+&lt;/ul>
+&lt;p>把检测结果在与原图相同的特征维度还原出来&lt;/p>
+&lt;p>用交叉熵Cross-entropy来作为损失函数&lt;/p>
+&lt;h2 id="experiments">Experiments&lt;/h2>
+&lt;ul>
+&lt;li>k-fold evaluation protocol 将数据集分成三部分，其中之二作为训练集，剩下作为测试集&lt;/li>
+&lt;/ul>
+&lt;h3 id="benchmark-setting">Benchmark Setting&lt;/h3>
+&lt;ul>
+&lt;li>IoU metric
+&lt;ul>
+&lt;li>for segmentation task 切割任务&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Mean Absolute Error (MAE)
+&lt;ul>
+&lt;li>measure the absolute error between the prediction and ground truth&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>E-measure(?)&lt;/strong> 相关文章 &lt;a class="link" href="https://github.com/DengPingFan/E-measure" target="_blank" rel="noopener"
+>E-measure: Enhanced-alignment Measure for Binary Foreground Map Evaluation&lt;/a>
+&lt;ul>
+&lt;li>a metric that combines local pixels and image-level average values to jointly capture image-level statistics and local pixel matching information.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Pearson Correlation Coefficient (CC)&lt;/strong>
+&lt;ul>
+&lt;li>皮尔逊相关系数 两个变量之间的协方差和标准差的商 $$ p_{X,Y}=\frac{cov(X,Y)}{\sigma_x\sigma_y} $$&lt;/li>
+&lt;li>measure the correlation between prediction and ground truth&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>其他训练参数&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Adam optimizer&lt;/li>
+&lt;li>resnet50&lt;/li>
+&lt;li>The input is randomly clipped from 360×360 to 320×320 with random horizontal flipping. 随机裁剪+水平翻转&lt;/li>
+&lt;li>40 epochs on 1080ti&lt;/li>
+&lt;li>learning rate 1e-4&lt;/li>
+&lt;li>the number of bases in CEM is $K=256$&lt;/li>
+&lt;li>E-M 迭代次数 3&lt;/li>
+&lt;/ul>
+&lt;h3 id="quantitative-and-qualitative-comparisons">Quantitative and Qualitative Comparisons&lt;/h3>
+&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png" alt="Featured image of post Prior Guided Feature Enrichment Network for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
 loading="lazy"
 alt="title1.png"
 >&lt;/p>
