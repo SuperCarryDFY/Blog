@@ -48,16 +48,13 @@ $$
 
 holistic prototype $P_h$是novel class（in meta-test phase, when in meta-train it belong to base category）$P_n$和$P_b$的集合。
 
-对每个class k，计算$F_q$和$P_n^k$的匹配度，其中+代表concatenated，$g_\phi$是激活函数，这里用的是sigmoid，为了让output在[0,1]这个区间
+对每个class k，计算$F_q$和$P_n^k$的匹配度，其中+代表concatenated，$g_\phi$是1*1的卷积再加激活函数，这里用的是sigmoid，为了让output在[0,1]这个区间
 $$
 A_k^{ij}=g_\phi(F_q^{ij}+P^k_h)
 $$
 然后他先获得一个maximum score，这个怎么得呢？好聪明啊。主要思路就是，如果说这个像素的跟base dataset里面的prototype相似度更高，那我不管这个像素跟query的相似度有多高，直接把这个像素对应的位置置为0。（因为这个像素更有可能属于base dataset中已经学习过的类别）
 $$
-k^* = argmax_k(A_k^{ij}) 
-$$
-
-$$
+k^* = argmax_k(A_k^{ij}) \\
 M^{ij}=A_{k^*}^{ij} ,\ if \  k^*=1 \ otherwise \ 0
 $$
 

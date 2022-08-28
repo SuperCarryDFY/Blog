@@ -1,7 +1,7 @@
 ---
 title: "Affordance Transfer Learning for Human-Object Interaction Detection"
 date: 2022-08-22
-tags: ["Human-Object Interaction",“Affordance”]
+tags: ["Human-Object Interaction","Affordance"]
 categories : ["CV"]
 license: CC BY-NC-ND
 image: "https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png"
