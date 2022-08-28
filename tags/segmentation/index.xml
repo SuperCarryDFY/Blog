@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Segmentation on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/segmentation/</link><description>Recent content in Segmentation on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/segmentation/index.xml" rel="self" type="application/rss+xml"/><item><title>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning</title><link>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/9DYVUmMyPNJnwkq.png" alt="Featured image of post CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Segmentation on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/segmentation/</link><description>Recent content in Segmentation on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 28 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/segmentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Learning What Not to Segment A New Perspective on Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png" alt="Featured image of post Learning What Not to Segment A New Perspective on Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>I read the paper in the first month when I came in MiLab. However, at that time I could not recognize the quality of this method (I usually don&amp;rsquo;t read the experiment carefully). It appeared when I was reading another paper called &amp;ldquo;Holistic Prototype Activation for Few-Shot Segmentation&amp;rdquo;. The HPA performs well but can not beat BAM (although HPA have loss parameter to train, obviously). So I decided to read this paper again.&lt;/p>
+&lt;h2 id="abstract--introduction">ABSTRACT &amp;amp; INTRODUCTION&lt;/h2>
+&lt;p>Previous problem:&lt;/p>
+&lt;ul>
+&lt;li>the trained models are biased towards the seen classes instead of being ideally class-agnostic&lt;/li>
+&lt;/ul>
+&lt;p>Contribution&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>BAM, i.e., base and the meta has two branches, allowing model to learn what not to segment and what to segmentation, respectively.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Design a special loss in order to train two branches suitably.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Extend the proposed approach to a more challenging setting, which simultaneously identifies the targets of base and novel classes.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>In the following image, (a) is a classical method to address FSS task; (b) is BAM approach; (c) is the extension of BAM&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/hOT72tJIqimkDKL.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>They adopt two stage training method, which means they train base learner and meta learner separately.&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/4KBGJQmrc71nMu2.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h3 id="base-learner">BASE LEARNER&lt;/h3>
+&lt;p>Query image goes through four ResNet blocks and becomes intermediate feature maps $f_b^q$. Then the decoder network $D_b$ yields the prediction result. $N_b$ represents the number of base categories.
+$$
+P_b = softmax(D_b(f_b^q)) \in R^{(1+N_b)\times H\times W}
+$$
+Loss can be defined as
+$$
+L_{base} = \frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}CE(P_{b;i},m^q_{b;i})
+$$
+It is worth noting that they do not employ the general FSS learning paradigm (update the parameter in each episode). And they train the base learner independently. They explain as follow:&lt;/p>
+&lt;blockquote>
+&lt;p>It is unrealistic to additionally build such a large network on the basis of the original few-shot model, which will introduce too many parameters and slow down the inference speed.&lt;/p>
+&lt;p>It is unknown whether the base learner can be trained well with the episodic learning paradigm, so a two stage training strategy is eventually adopted.&lt;/p>
+&lt;/blockquote>
+&lt;p>In the ablation study, it shows that with two stage train, the model can perform better.&lt;/p>
+&lt;h3 id="meta-learner">META LEARNER&lt;/h3>
+&lt;p>This part is highly resemble similar to CANet, employing &amp;ldquo;expand &amp;amp; concatenate&amp;rdquo; operations. The loss can be described as
+$$
+L_{meta} = \frac{1}{n_e}\sum_{i=1}^{n_e}BCE(p_{m;i},m_i^q)
+$$
+, when $n_e$ denotes the number of training episodes in each batch&lt;/p>
+&lt;h3 id="ensemble">Ensemble&lt;/h3>
+&lt;p>This part is designed to leverage the low-level feature to adjust the coarse predictions which is derived from meta learner.&lt;/p>
+&lt;p>Firstly, we calculate the overall indicator $\psi$ for guiding the adjustment process:
+$$
+A_s = F_{reshape}(f_{low}^s) \in R^{C_1\times N},\
+G^s = A_sA^T \in R^{C_1\times C_1}
+$$
+$G^s$ should be denoted as Gram matrix, BTW.&lt;/p>
+&lt;blockquote>
+&lt;p>Gram matrix can be regarded as eccentric covariance matrix between features. Every number in gram matrix describe the relation between every two feature, about which two features appear simultaneously, which two features just offset from each other, etc.&lt;/p>
+&lt;/blockquote>
+&lt;p>$$
+\psi =||G^s - G^q||_F
+$$&lt;/p>
+&lt;p>$||\ ||_F$ denotes the Frobenius norm of the input metirx.&lt;/p>
+&lt;p>After that, the final segmentation pridections $P_f$ can be described as follow:
+$$
+p_f^0 = F_{ensemble}(F_\psi(p_m^0),p_b^f), \
+p_f=p_f^0(+)F_\psi(p_m^1)
+$$
+where $p_m$,$p_b$ denote the predictions of the meta learner and base learner respectively. The superscript &amp;ldquo;0&amp;rdquo; and &amp;ldquo;1&amp;rdquo; represent the background and foreground respectively. Both $F_ψ$ and $F_{ensemble}$ are 1×1 convolution operations with specific initial parameters.&lt;/p>
+&lt;h3 id="loss">LOSS&lt;/h3>
+&lt;p>$$
+L=L_{final} + \lambda L_{meta} \
+L_{final} = \frac{1}{n_e}\sum_{i=1}^{n_e}BCE(p_i^q,m_i^q)
+$$&lt;/p>
+&lt;p>where $L_{meta}$ is the loss function of the meta learner defined in the meta learner stage.&lt;/p>
+&lt;h2 id="experiments">Experiments&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/27/1E4h7VSepL2wHUG.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/27/JuMlP1aGcUwxI94.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p></description></item><item><title>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning</title><link>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/9DYVUmMyPNJnwkq.png" alt="Featured image of post CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -120,15 +209,13 @@ loading="lazy"
 alt="image.png"
 >&lt;/p>
 &lt;p>holistic prototype $P_h$是novel class（in meta-test phase, when in meta-train it belong to base category）$P_n$和$P_b$的集合。&lt;/p>
-&lt;p>对每个class k，计算$F_q$和$P_n^k$的匹配度，其中+代表concatenated，$g_\phi$是激活函数，这里用的是sigmoid，为了让output在[0,1]这个区间
+&lt;p>对每个class k，计算$F_q$和$P_n^k$的匹配度，其中+代表concatenated，$g_\phi$是1&lt;em>1的卷积再加激活函数，这里用的是sigmoid，为了让output在[0,1]这个区间
 $$
 A_k^{ij}=g_\phi(F_q^{ij}+P^k_h)
 $$
 然后他先获得一个maximum score，这个怎么得呢？好聪明啊。主要思路就是，如果说这个像素的跟base dataset里面的prototype相似度更高，那我不管这个像素跟query的相似度有多高，直接把这个像素对应的位置置为0。（因为这个像素更有可能属于base dataset中已经学习过的类别）
 $$
-k^* = argmax_k(A_k^{ij})
-$$&lt;/p>
-&lt;p>$$
+k^&lt;/em> = argmax_k(A_k^{ij}) \
 M^{ij}=A_{k^&lt;em>}^{ij} ,\ if \ k^&lt;/em>=1 \ otherwise \ 0
 $$&lt;/p>
 &lt;p>下面这一步也很聪明，因为一般做FSS的话，都是有个expand + concat的操作的。然而这里有好多个原型，他就不做全局的expand了，因为我前面不是已经做了匹配度计算了么，所以我直接在对应位置做expand就好了，具体可见下图&lt;/p>
