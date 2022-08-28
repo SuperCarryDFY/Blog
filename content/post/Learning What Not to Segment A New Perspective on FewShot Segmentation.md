@@ -9,7 +9,7 @@ image: "https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
 
 ![image.png](https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png)
 
-I read the paper in the first month when I came in MiLab. However, at that time I could not recognize the quality of this method (I usually don't read the experiment carefully). It appeared when I was reading another paper called "Holistic Prototype Activation for Few-Shot Segmentation". The HPA performs well but can not beat BAM (although HPA have loss parameter to train, obviously). So I decided to read this paper again. 
+I read the paper in the first month when I came in MiLab. However, at that time I could not recognize the quality of this method (I usually don't read the experiment carefully). It appeared when I was reading another paper called "Holistic Prototype Activation for Few-Shot Segmentation". The HPA performs well but can not beat BAM (although HPA have less parameter to train, obviously). So I decided to read this paper again. 
 
 ## ABSTRACT & INTRODUCTION
 
