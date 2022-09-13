@@ -26,9 +26,11 @@ train用这张图，test用下面object affordance recognition那张图
 **Efficient HOI Composition**
 
 To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,
+
 $$
 \hat{y} = (\hat{l_o}A_o) \and (l_vA_v)
 $$
+
 ，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）
 
 **Invalid HOI Elimination**
