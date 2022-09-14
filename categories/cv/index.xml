@@ -1,8 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CV on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/categories/cv/</link><description>Recent content in CV on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 28 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/categories/cv/index.xml" rel="self" type="application/rss+xml"/><item><title>Learning What Not to Segment A New Perspective on Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png" alt="Featured image of post Learning What Not to Segment A New Perspective on Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CV on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/categories/cv/</link><description>Recent content in CV on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/categories/cv/index.xml" rel="self" type="application/rss+xml"/><item><title>Few-shot Object Detection via Feature Reweighting</title><link>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</guid><description>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png" alt="Featured image of post Few-shot Object Detection via Feature Reweighting" />&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/oZqPrCX2h7ixfje.png"
+loading="lazy"
+alt="image-20220913110345915"
+>&lt;/p>
+&lt;p>This paper is from ICCV2019. It addressed detection tasks R-CNN based network. However, it simply uses a shared classifier( mlp, I think) and bbox regressor, which is put forward in R-CNN though, to get predictions. Also, it tries a new form loss function out and gets a relatively large promotion.&lt;/p>
+&lt;h2 id="abstruct--introduction">ABSTRUCT &amp;amp; INTRODUCTION&lt;/h2>
+&lt;p>The model is mainly consist of two modules, i.e.,&lt;/p>
+&lt;ul>
+&lt;li>a meta feature learner&lt;/li>
+&lt;li>a light-weight feature reweighting module&lt;/li>
+&lt;/ul>
+&lt;p>The training process is corresponding to two-phase learning scheme,&lt;/p>
+&lt;ul>
+&lt;li>first learn meta features and good reweighting module from base classes&lt;/li>
+&lt;li>fine-tune the detection model to adapt to novel classes.&lt;/li>
+&lt;/ul>
+&lt;p>Though it contains two-phase training, the paper claims it&amp;rsquo;s an end-to-end method.&lt;/p>
+&lt;h2 id="method">METHOD&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png"
+loading="lazy"
+alt="image-20220913110439796"
+>&lt;/p>
+&lt;p>&lt;strong>Reweighting Module&lt;/strong>&lt;/p>
+&lt;p>This module taking the support examples as input, learns to embed support information into reweighting vectors and adjust contribution of each meta feature of the query image accordingly for following detection prediction module.&lt;/p>
+&lt;p>It is like what is used in BAM. However, in BAM it just use global max pooling ( or global average pooling, whatever) , which is not learnable, to get the prototype vectors. In this paper, it use learnable layer to get prototype vectors.&lt;/p>
+&lt;p>After that , they applies prototype vectors to obtain the class-specific feature $Fi$ for novel class $i$ by $F_i = F \times w_i$, where $\times$ means channel-wise multiplication.&lt;/p>
+&lt;p>&lt;strong>Shared Classifier &amp;amp; BBox Regressor&lt;/strong>&lt;/p>
+&lt;p>There isn&amp;rsquo;t any details about Shared Classifier &amp;amp; BBox Regressor module. I simply think this module just being MLP combines BBox Regressor.&lt;/p>
+&lt;p>&lt;strong>Learning Scheme&lt;/strong>&lt;/p>
+&lt;p>In the first stage, they just feed the model with abundant base images with annotations. In this way, the model can learn coordinate the two modules in the desired way.&lt;/p>
+&lt;p>In the second stage, they fine-tune the model on both base and novel classes. The training procedure is the same as the first phase, except that it takes significantly fewer iterations for the model to converge.&lt;/p>
+&lt;p>After two training phases, the model can do test without novel class as input (it should not be deemed as novel class, for it has seen the classes in the second stage) and reweighting module, because it remember the prototype vectors of all class and just do inference in novel images.&lt;/p>
+&lt;h2 id="loss-function">LOSS FUNCTION&lt;/h2>
+&lt;p>It is intuitive to use binary cross-entropy as detection loss function, regressing 1 if the object is the target class and 0 otherwise. However, binary cross-entropy strives to produce balanced positive and negative predictions and could not remove such false predictions. (I don&amp;rsquo;t understand well)&lt;/p>
+&lt;p>Instead, they adopt a softmax layer for calibrate the classification scores among different classes. It can be denoted as $\hat c_i = \frac{e^{c_i}}{\sum_{j=1}^Ne^{c_j}}$. Then, the loss function is below：
+$$
+L_c= -\sum_{i=1}^{N}1(·,i)log(\hat c_i)
+$$
+where $1(·,i)$ is an indicator function for whether current anchor box really belongs to class $i$ or not.&lt;/p>
+&lt;p>Finally, the overall loss function is
+$$
+L_{det} = L_c + L_bbx + L_{obj}
+$$&lt;/p></description></item><item><title>Learning What Not to Segment A New Perspective on Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png" alt="Featured image of post Learning What Not to Segment A New Perspective on Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
-&lt;p>I read the paper in the first month when I came in MiLab. However, at that time I could not recognize the quality of this method (I usually don&amp;rsquo;t read the experiment carefully). It appeared when I was reading another paper called &amp;ldquo;Holistic Prototype Activation for Few-Shot Segmentation&amp;rdquo;. The HPA performs well but can not beat BAM (although HPA have less parameter to train, obviously). So I decided to read this paper again.&lt;/p>
+&lt;p>I read the paper in the first month when I came in MiLab. However, at that time I could not recognize the quality of this method (I usually don&amp;rsquo;t read the experiment carefully). It appeared when I was reading another paper called &amp;ldquo;Holistic Prototype Activation for Few-Shot Segmentation&amp;rdquo;. The HPA performs well but can not beat BAM (although HPA has less parameter to train, obviously). So I decided to read this paper again.&lt;/p>
 &lt;h2 id="abstract--introduction">ABSTRACT &amp;amp; INTRODUCTION&lt;/h2>
 &lt;p>Previous problem:&lt;/p>
 &lt;ul>
@@ -105,11 +147,11 @@ alt="image.png"
 >&lt;/p>
 &lt;h3 id="affordance-transfer-learning">AFFORDANCE TRANSFER LEARNING&lt;/h3>
 &lt;p>&lt;strong>Efficient HOI Composition&lt;/strong>&lt;/p>
-&lt;p>To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,
-$$
+&lt;p>To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,&lt;/p>
+&lt;p>$$
 \hat{y} = (\hat{l_o}A_o) \and (l_vA_v)
-$$
-，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
+$$&lt;/p>
+&lt;p>，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
 &lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
 &lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
 &lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>

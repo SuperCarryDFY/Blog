@@ -16,11 +16,11 @@ alt="image.png"
 >&lt;/p>
 &lt;h3 id="affordance-transfer-learning">AFFORDANCE TRANSFER LEARNING&lt;/h3>
 &lt;p>&lt;strong>Efficient HOI Composition&lt;/strong>&lt;/p>
-&lt;p>To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,
-$$
+&lt;p>To compose a new HOI by the object $\hat{l_o}$ and verb $l_v$, we assign the label to the composite HOI as follows,&lt;/p>
+&lt;p>$$
 \hat{y} = (\hat{l_o}A_o) \and (l_vA_v)
-$$
-，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
+$$&lt;/p>
+&lt;p>，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
 &lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
 &lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
 &lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>
