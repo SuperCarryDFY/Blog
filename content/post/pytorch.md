@@ -276,3 +276,12 @@ input and mat2 must be 3-D tensors each containing the same number of matrics.
 torch.Size([10, 3, 5])
 ```
 
+## @classmethod 和@staticmethod
+
+classmethod 装饰器
+
+对类方法，需要先实例化类，再对实例化的对象调用方法。
+
+而使用@classmethod和@staticmethod就可以不用实例化了，直接类名.方法名()来调用。两者都不需要self参数
+
+区别是@classmethod的函数在定义时需要cls参数，调用类的方法；@staticmethod装饰的函数不需要cls参数。
