@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Few-shot Object Detection via Feature Reweighting</title><link>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</guid><description>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png" alt="Featured image of post Few-shot Object Detection via Feature Reweighting" />&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/oZqPrCX2h7ixfje.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
+&lt;p>Common Conv&lt;/p>
+&lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
+loading="lazy"
+alt="动图"
+>&lt;/p>
+&lt;p>Dilated Conv&lt;/p>
+&lt;p>&lt;img src="https://github.com/vdumoulin/conv_arithmetic/blob/master/gif/same_padding_no_strides.gif?raw=true"
+loading="lazy"
+alt="image-20221023221652075"
+>&lt;/p>
+&lt;p>空洞卷积在一定程度上能增大卷积神经网络的感受野，但是利用其设计语义分割网络则会存在如下两个问题。&lt;/p>
+&lt;p>**1. The Gridding Effect **&lt;/p>
+&lt;p>如果和之前的操作一样，仅仅只是反复叠加3*3的kernal的话，那么在过程中就会存在一定的信息损失。&lt;/p>
+&lt;p>&lt;img src="https://pic3.zhimg.com/v2-478a6b82e1508a147712af63d6472d9a_r.jpg?source=1940ef5c"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;p>&lt;strong>2. 对小物体的分割&lt;/strong>&lt;/p>
+&lt;p>增大感受野对小物体的分割似乎没有好处&lt;/p>
+&lt;p>因此图森组提出了较好的解决方法：Hybrid Dilated Convolution (HDC)&lt;/p>
+&lt;ol>
+&lt;li>叠加卷积的 dilation rate 不能有大于1的公约数。比如 [2, 4, 6] 则不是一个好的三层卷积，依然会出现 gridding effect。我们将 dilation rate 设计成锯齿状结构，例如 [1, 2, 5, 1, 2, 5] 循环结构。&lt;/li>
+&lt;li>需要满足$$M_i = max[M_{i+1}-2r_i, M_{i+1}-2(M_{i+1}-r_i), r_i]$$， 其中$r_i$，$M_i$分别代表第i层的dilation rate和最大dilation rate。&lt;/li>
+&lt;/ol>
+&lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/54149221" target="_blank" rel="noopener"
+>如何理解空洞卷积（dilated convolution）？&lt;/a>， 作者@&lt;a class="link" href="https://www.zhihu.com/people/lorenmt" target="_blank" rel="noopener"
+>刘诗昆&lt;/a>&lt;/p>
+&lt;h2 id="deconvolution">Deconvolution&lt;/h2>
+&lt;p>deconv大致可以分成如下三个方面&lt;/p>
+&lt;ul>
+&lt;li>unsupervised learning&lt;/li>
+&lt;li>CNN可视化&lt;/li>
+&lt;li>upsampling&lt;/li>
+&lt;/ul>
+&lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，而且反卷积存在棋盘格效应。&lt;/p>
+&lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/43609045/answer/132235276" target="_blank" rel="noopener"
+>如何理解深度学习中的deconvolution networks？&lt;/a>， 作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
+>谭旭&lt;/a>&lt;/p></description></item><item><title>Few-shot Object Detection via Feature Reweighting</title><link>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</guid><description>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png" alt="Featured image of post Few-shot Object Detection via Feature Reweighting" />&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/oZqPrCX2h7ixfje.png"
 loading="lazy"
 alt="image-20220913110345915"
 >&lt;/p>
@@ -760,7 +798,11 @@ alt="image.png"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">])&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Holistic Prototype Activation for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/18/wB47rIvCWOyTZVi.png" alt="Featured image of post Holistic Prototype Activation for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png"
+&lt;/div>&lt;h2 id="classmethod-和staticmethod">@classmethod 和@staticmethod&lt;/h2>
+&lt;p>classmethod 装饰器&lt;/p>
+&lt;p>对类方法，需要先实例化类，再对实例化的对象调用方法。&lt;/p>
+&lt;p>而使用@classmethod和@staticmethod就可以不用实例化了，直接类名.方法名()来调用。两者都不需要self参数&lt;/p>
+&lt;p>区别是@classmethod的函数在定义时需要cls参数，调用类的方法；@staticmethod装饰的函数不需要cls参数。&lt;/p></description></item><item><title>Holistic Prototype Activation for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/18/wB47rIvCWOyTZVi.png" alt="Featured image of post Holistic Prototype Activation for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>

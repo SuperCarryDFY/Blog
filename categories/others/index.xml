@@ -429,4 +429,8 @@ alt="image.png"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">])&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div>&lt;h2 id="classmethod-和staticmethod">@classmethod 和@staticmethod&lt;/h2>
+&lt;p>classmethod 装饰器&lt;/p>
+&lt;p>对类方法，需要先实例化类，再对实例化的对象调用方法。&lt;/p>
+&lt;p>而使用@classmethod和@staticmethod就可以不用实例化了，直接类名.方法名()来调用。两者都不需要self参数&lt;/p>
+&lt;p>区别是@classmethod的函数在定义时需要cls参数，调用类的方法；@staticmethod装饰的函数不需要cls参数。&lt;/p></description></item></channel></rss>
