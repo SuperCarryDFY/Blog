@@ -1172,7 +1172,7 @@ $$&lt;/p>
 &lt;li>具体来说，这个X应该是FEM模块中，每一层的feature在information concentration之前，interpolate后做交叉熵的值&lt;/li>
 &lt;li>$L_2$ 最后prediction和label的交叉熵。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;!-- raw HTML omitted -->问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://sm.ms/image/J1485aIlnsLMGRB" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
+&lt;p>&lt;!-- raw HTML omitted -->问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
