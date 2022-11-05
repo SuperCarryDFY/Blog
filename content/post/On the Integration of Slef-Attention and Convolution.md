@@ -4,7 +4,7 @@ date: 2022-11-5
 tags: ["others"]
 categories : ["CV"]
 license: CC BY-NC-ND
-image : "https://sm.ms/image/J1485aIlnsLMGRB"
+image : "https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png"
 ---
 
 ![image.png](https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png)
