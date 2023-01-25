@@ -18,7 +18,7 @@ Dilated Conv
 
 空洞卷积在一定程度上能增大卷积神经网络的感受野，但是利用其设计语义分割网络则会存在如下两个问题。
 
-**1. The Gridding Effect	**
+**1. The Gridding Effect**
 
 如果和之前的操作一样，仅仅只是反复叠加3*3的kernal的话，那么在过程中就会存在一定的信息损失。
 
@@ -45,7 +45,7 @@ deconv大致可以分成如下三个方面
 - CNN可视化
 - upsampling
 
-呃。。一般来说上采样+卷积的性能比反卷积要好，而且反卷积存在棋盘格效应。
+呃。。一般来说上采样+卷积的性能比反卷积要好，况且反卷积存在棋盘格效应。
 
-来自[如何理解深度学习中的deconvolution networks？](https://www.zhihu.com/question/43609045/answer/132235276)， 作者@[谭旭](https://www.zhihu.com/people/xutan)
+来自[如何理解深度学习中的deconvolution networks？](https://www.zhihu.com/question/43609045/answer/132235276)，作者@[谭旭](https://www.zhihu.com/people/xutan)
 

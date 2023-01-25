@@ -1,6 +1,6 @@
 ---
 title: "On the Integration of Self-Attention and Convolution"
-date: 2022-11-5
+date: 2022-11-05
 tags: ["others"]
 categories : ["CV"]
 license: CC BY-NC-ND

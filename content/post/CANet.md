@@ -58,7 +58,7 @@ fancy的地方
 $$
 M_t = x + F(x,y_{t-1})
 $$
-对$M_t$，再经过两层vanilla residual blocks。然后再经过(ASSP)[https://arxiv.org/abs/1706.05587]模块输出。
+对$M_t$，再经过两层vanilla residual blocks。然后再经过[ASSP](https://arxiv.org/abs/1706.05587)模块输出。
 
 就差不多这么迭代n次
 
