@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>&lt;strong>CNN&lt;/strong> The intrinsic characteristics impose crucial inductive biases for image processing. (平移不变性等)&lt;/p>
+&lt;p>&lt;strong>Self-Attention&lt;/strong> The flexibility enables the attention module to focus on different regions adaptively and capture more informative features. ( bigger receptive field )&lt;/p>
+&lt;blockquote>
+&lt;p>Generally, we owed self-attention based model&amp;rsquo;s great performance to the global receptive field it have.&lt;/p>
+&lt;/blockquote>
+&lt;p>Considering the different and complementary properties of convolution and self-attention, there exists a potential possibility to benefit from both paradigms by integrating these modules.&lt;/p>
+&lt;p>&lt;strong>Contribution:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>A strong underlying relation between self-attention and convolution is revealed&lt;/li>
+&lt;li>An elegant integration of the self-attention and convolution module, which enjoys the benefits of both worlds&lt;/li>
+&lt;/ul>
+&lt;h2 id="method">Method&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/4cCOJaNnGZPq56Q.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h3 id="conv">Conv&lt;/h3>
+&lt;p>( This can be better illustrated by image a )&lt;/p>
+&lt;p>They decompose the Conv with K*K kernel to two stages. On the first stage, K*K kernel can be seen as many 1*1 kernel. On the second stage, we can gain finally feature map by shift each feature map and sum them.&lt;/p>
+&lt;h3 id="self-attn">Self-attn&lt;/h3>
+&lt;p>( This can be better illustrated by image b )&lt;/p>
+&lt;p>Like Conv, they treat self-attn with two steps. Firstly, 1*1 kernel conv ( euqal to Fully Connected Network) can be used to generate query, key and value. Then, they use query and key to gain weight and put it on the value.&lt;/p>
+&lt;h3 id="acmix">ACmix&lt;/h3>
+&lt;p>The first stage of Conv and Self-attn can be shared. In the second stage, there are two paths which corresponds to each paradigm. Then, two learnable parameters $\alpha$ and $\beta$ is set for reweighting each feature map for sum up.&lt;/p>
+&lt;h4 id="shift">Shift&lt;/h4>
+&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/hKvFbsuZg6Qkt7w.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>In the Conv path, they add a small trick compared to normal Conv.&lt;/p>
+&lt;blockquote>
+&lt;p>Shifting tensors towards various directions practically breaks the data locality and is difficult to achieve vectorized implementation. This may greatly impair the actual efficiency of our module at the inference time. ( This part I don&amp;rsquo;t understand perfectly)&lt;/p>
+&lt;/blockquote>
+&lt;p>As a remedy, they turn to apply depthwise convolution with fixed kernels. Here comes to a question. Now that you use conv kernel to shift feature map, why not make it learnable? So they use learnable kernels and initialized as shift kernels.&lt;/p>
+&lt;h2 id="experiments">Experiments&lt;/h2>
+&lt;p>The idea is quite simple. So They need strong experiments result to support them. They use their module in many models and many task( classification, detection and segmentation ). All seems good.&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/TXMgFrQBpkd6Wcs.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/qn4bxQupHwck21A.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h3 id="alpha-and-beta">alpha and beta&lt;/h3>
+&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/VJ5gh2LsanSkfIH.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>At last, they check $\alpha$ and $\beta$ in each layer. This leads to a interesting conclusion. We can see that at early stage $\beta$ take dominate position. This means Conv is a good feature extractor. But at the last stage, self-attention shows superiority over convolution.&lt;/p>
+&lt;blockquote>
+&lt;p>This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>comments&lt;/strong>: small but clear idea, enough experiment.&lt;/p></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
 &lt;p>Common Conv&lt;/p>
 &lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
 loading="lazy"
@@ -10,7 +68,7 @@ loading="lazy"
 alt="image-20221023221652075"
 >&lt;/p>
 &lt;p>空洞卷积在一定程度上能增大卷积神经网络的感受野，但是利用其设计语义分割网络则会存在如下两个问题。&lt;/p>
-&lt;p>**1. The Gridding Effect **&lt;/p>
+&lt;p>&lt;strong>1. The Gridding Effect&lt;/strong>&lt;/p>
 &lt;p>如果和之前的操作一样，仅仅只是反复叠加3*3的kernal的话，那么在过程中就会存在一定的信息损失。&lt;/p>
 &lt;p>&lt;img src="https://pic3.zhimg.com/v2-478a6b82e1508a147712af63d6472d9a_r.jpg?source=1940ef5c"
 loading="lazy"
@@ -33,9 +91,9 @@ alt="img"
 &lt;li>CNN可视化&lt;/li>
 &lt;li>upsampling&lt;/li>
 &lt;/ul>
-&lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，而且反卷积存在棋盘格效应。&lt;/p>
+&lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，况且反卷积存在棋盘格效应。&lt;/p>
 &lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/43609045/answer/132235276" target="_blank" rel="noopener"
->如何理解深度学习中的deconvolution networks？&lt;/a>， 作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
+>如何理解深度学习中的deconvolution networks？&lt;/a>，作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
 >谭旭&lt;/a>&lt;/p></description></item><item><title>Few-shot Object Detection via Feature Reweighting</title><link>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</guid><description>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png" alt="Featured image of post Few-shot Object Detection via Feature Reweighting" />&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/oZqPrCX2h7ixfje.png"
 loading="lazy"
 alt="image-20220913110345915"
@@ -396,7 +454,8 @@ alt="image.png"
 $$
 M_t = x + F(x,y_{t-1})
 $$
-对$M_t$，再经过两层vanilla residual blocks。然后再经过(ASSP)[https://arxiv.org/abs/1706.05587]模块输出。&lt;/p>
+对$M_t$，再经过两层vanilla residual blocks。然后再经过&lt;a class="link" href="https://arxiv.org/abs/1706.05587" target="_blank" rel="noopener"
+>ASSP&lt;/a>模块输出。&lt;/p>
 &lt;p>就差不多这么迭代n次&lt;/p>
 &lt;h3 id="attention-mechanism-for-k-shot-segmentation">ATTENTION MECHANISM FOR K-SHOT SEGMENTATION&lt;/h3>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/16/ZEuUP7zm2i9IKks.png"
@@ -1178,62 +1237,4 @@ $$&lt;/p>
 &lt;p>At present, my research field is Few-Shot Learning and Segmentation.&lt;/p>
 &lt;p>I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any other ideas later, I will post them here.&lt;/p>
 &lt;p>Later the website will support a comment system, so you will be able to leave your idea here.&lt;/p>
-&lt;p>If you want to contact me, please email me at &lt;a class="link" href="mailto:da1cantst0p@gmail.com" >da1cantst0p@gmail.com&lt;/a> or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate your purpose).&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;h2 id="introduction">Introduction&lt;/h2>
-&lt;p>&lt;strong>CNN&lt;/strong> The intrinsic characteristics impose crucial inductive biases for image processing. (平移不变性等)&lt;/p>
-&lt;p>&lt;strong>Self-Attention&lt;/strong> The flexibility enables the attention module to focus on different regions adaptively and capture more informative features. ( bigger receptive field )&lt;/p>
-&lt;blockquote>
-&lt;p>Generally, we owed self-attention based model&amp;rsquo;s great performance to the global receptive field it have.&lt;/p>
-&lt;/blockquote>
-&lt;p>Considering the different and complementary properties of convolution and self-attention, there exists a potential possibility to benefit from both paradigms by integrating these modules.&lt;/p>
-&lt;p>&lt;strong>Contribution:&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>A strong underlying relation between self-attention and convolution is revealed&lt;/li>
-&lt;li>An elegant integration of the self-attention and convolution module, which enjoys the benefits of both worlds&lt;/li>
-&lt;/ul>
-&lt;h2 id="method">Method&lt;/h2>
-&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/4cCOJaNnGZPq56Q.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;h3 id="conv">Conv&lt;/h3>
-&lt;p>( This can be better illustrated by image a )&lt;/p>
-&lt;p>They decompose the Conv with K*K kernel to two stages. On the first stage, K*K kernel can be seen as many 1*1 kernel. On the second stage, we can gain finally feature map by shift each feature map and sum them.&lt;/p>
-&lt;h3 id="self-attn">Self-attn&lt;/h3>
-&lt;p>( This can be better illustrated by image b )&lt;/p>
-&lt;p>Like Conv, they treat self-attn with two steps. Firstly, 1*1 kernel conv ( euqal to Fully Connected Network) can be used to generate query, key and value. Then, they use query and key to gain weight and put it on the value.&lt;/p>
-&lt;h3 id="acmix">ACmix&lt;/h3>
-&lt;p>The first stage of Conv and Self-attn can be shared. In the second stage, there are two paths which corresponds to each paradigm. Then, two learnable parameters $\alpha$ and $\beta$ is set for reweighting each feature map for sum up.&lt;/p>
-&lt;h4 id="shift">Shift&lt;/h4>
-&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/hKvFbsuZg6Qkt7w.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>In the Conv path, they add a small trick compared to normal Conv.&lt;/p>
-&lt;blockquote>
-&lt;p>Shifting tensors towards various directions practically breaks the data locality and is difficult to achieve vectorized implementation. This may greatly impair the actual efficiency of our module at the inference time. ( This part I don&amp;rsquo;t understand perfectly)&lt;/p>
-&lt;/blockquote>
-&lt;p>As a remedy, they turn to apply depthwise convolution with fixed kernels. Here comes to a question. Now that you use conv kernel to shift feature map, why not make it learnable? So they use learnable kernels and initialized as shift kernels.&lt;/p>
-&lt;h2 id="experiments">Experiments&lt;/h2>
-&lt;p>The idea is quite simple. So They need strong experiments result to support them. They use their module in many models and many task( classification, detection and segmentation ). All seems good.&lt;/p>
-&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/TXMgFrQBpkd6Wcs.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/qn4bxQupHwck21A.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;h3 id="alpha-and-beta">alpha and beta&lt;/h3>
-&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/VJ5gh2LsanSkfIH.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>At last, they check $\alpha$ and $\beta$ in each layer. This leads to a interesting conclusion. We can see that at early stage $\beta$ take dominate position. This means Conv is a good feature extractor. But at the last stage, self-attention shows superiority over convolution.&lt;/p>
-&lt;blockquote>
-&lt;p>This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;strong>comments&lt;/strong>: small but clear idea, enough experiment.&lt;/p></description></item><item><title>Search</title><link>https://SuperCarryDFY.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/search/</guid><description/></item></channel></rss>
+&lt;p>If you want to contact me, please email me at &lt;a class="link" href="mailto:da1cantst0p@gmail.com" >da1cantst0p@gmail.com&lt;/a> or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate your purpose).&lt;/p></description></item><item><title>Search</title><link>https://SuperCarryDFY.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/search/</guid><description/></item></channel></rss>

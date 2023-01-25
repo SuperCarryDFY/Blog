@@ -143,7 +143,8 @@ alt="image.png"
 $$
 M_t = x + F(x,y_{t-1})
 $$
-对$M_t$，再经过两层vanilla residual blocks。然后再经过(ASSP)[https://arxiv.org/abs/1706.05587]模块输出。&lt;/p>
+对$M_t$，再经过两层vanilla residual blocks。然后再经过&lt;a class="link" href="https://arxiv.org/abs/1706.05587" target="_blank" rel="noopener"
+>ASSP&lt;/a>模块输出。&lt;/p>
 &lt;p>就差不多这么迭代n次&lt;/p>
 &lt;h3 id="attention-mechanism-for-k-shot-segmentation">ATTENTION MECHANISM FOR K-SHOT SEGMENTATION&lt;/h3>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/16/ZEuUP7zm2i9IKks.png"

@@ -1,96 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>others on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/others/</link><description>Recent content in others on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/others/index.xml" rel="self" type="application/rss+xml"/><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
-&lt;p>Common Conv&lt;/p>
-&lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
-loading="lazy"
-alt="动图"
->&lt;/p>
-&lt;p>Dilated Conv&lt;/p>
-&lt;p>&lt;img src="https://github.com/vdumoulin/conv_arithmetic/blob/master/gif/same_padding_no_strides.gif?raw=true"
-loading="lazy"
-alt="image-20221023221652075"
->&lt;/p>
-&lt;p>空洞卷积在一定程度上能增大卷积神经网络的感受野，但是利用其设计语义分割网络则会存在如下两个问题。&lt;/p>
-&lt;p>**1. The Gridding Effect **&lt;/p>
-&lt;p>如果和之前的操作一样，仅仅只是反复叠加3*3的kernal的话，那么在过程中就会存在一定的信息损失。&lt;/p>
-&lt;p>&lt;img src="https://pic3.zhimg.com/v2-478a6b82e1508a147712af63d6472d9a_r.jpg?source=1940ef5c"
-loading="lazy"
-alt="img"
->&lt;/p>
-&lt;p>&lt;strong>2. 对小物体的分割&lt;/strong>&lt;/p>
-&lt;p>增大感受野对小物体的分割似乎没有好处&lt;/p>
-&lt;p>因此图森组提出了较好的解决方法：Hybrid Dilated Convolution (HDC)&lt;/p>
-&lt;ol>
-&lt;li>叠加卷积的 dilation rate 不能有大于1的公约数。比如 [2, 4, 6] 则不是一个好的三层卷积，依然会出现 gridding effect。我们将 dilation rate 设计成锯齿状结构，例如 [1, 2, 5, 1, 2, 5] 循环结构。&lt;/li>
-&lt;li>需要满足$$M_i = max[M_{i+1}-2r_i, M_{i+1}-2(M_{i+1}-r_i), r_i]$$， 其中$r_i$，$M_i$分别代表第i层的dilation rate和最大dilation rate。&lt;/li>
-&lt;/ol>
-&lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/54149221" target="_blank" rel="noopener"
->如何理解空洞卷积（dilated convolution）？&lt;/a>， 作者@&lt;a class="link" href="https://www.zhihu.com/people/lorenmt" target="_blank" rel="noopener"
->刘诗昆&lt;/a>&lt;/p>
-&lt;h2 id="deconvolution">Deconvolution&lt;/h2>
-&lt;p>deconv大致可以分成如下三个方面&lt;/p>
-&lt;ul>
-&lt;li>unsupervised learning&lt;/li>
-&lt;li>CNN可视化&lt;/li>
-&lt;li>upsampling&lt;/li>
-&lt;/ul>
-&lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，而且反卷积存在棋盘格效应。&lt;/p>
-&lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/43609045/answer/132235276" target="_blank" rel="noopener"
->如何理解深度学习中的deconvolution networks？&lt;/a>， 作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
->谭旭&lt;/a>&lt;/p></description></item><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>Some papers are famous and have gotten several citations. They Always appear when I&amp;rsquo;m reading current papers. So I decided to write down the most critical parts (concerned mainly by myself, in another way) from these papers on this page.&lt;/p>
-&lt;h1 id="learning-deep-features-for-discriminative-localization">Learning Deep Features for Discriminative Localization&lt;/h1>
-&lt;p>&lt;img src="https://s2.loli.net/2022/08/17/xeEUAgGitC461Q7.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>This is a well-known work from CVPR2016, which has got 6.5k citation numbers up-to-date.&lt;/p>
-&lt;p>There are two parts seems to be important to me: &lt;strong>comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>framework&lt;/strong>.&lt;/p>
-&lt;h2 id="gmp-vs-gap">GMP vs. GAP&lt;/h2>
-&lt;blockquote>
-&lt;p>We believe that GAP loss encourages the network to identify the extent of the object as compared to GMP which encourages it to identify just one discriminative part.&lt;/p>
-&lt;p>while GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
-&lt;/blockquote>
-&lt;p>GAP can focus on a wide range of pixels while GMP only depends on the most significant feature.&lt;/p>
-&lt;h2 id="framework">FRAMEWORK&lt;/h2>
-&lt;p>&lt;img src="https://s2.loli.net/2022/08/17/g3qjOyweVAtlNR1.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>The output of the last convolutional layer is denoted as $f_k(x,y)$, while k means the channel. After GAP, which should be expressed as $F^k = \sum_{x,y}f_k(x,y)$, for a given class, the input to the softmax $S_c$, is $\Sigma_kw_k^cF_k$ where $w_k^c$ is weight corresponding to class c for unit k.
-$$
-S_c = \sum_kw_k^c\sum_{x,y} f_k(x,y) = \sum_{x,y}\sum_k w_k^cf_k(x,y)
-$$
-They did upsampling in the middle of the framework to fit the size.&lt;/p>
-&lt;p>ABOUT &lt;strong>weakly-supervised&lt;/strong>: They meant weakly-supervised because the labels is image-level but localization is object-level&lt;/p>
-&lt;h1 id="learning-to-compare-relation-network-for-few-shot-learning">Learning to Compare: Relation Network for Few-Shot Learning&lt;/h1>
-&lt;p>&lt;img src="https://s2.loli.net/2022/08/20/mdSbWiDs8HYKRoJ.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>这篇文章的思路相当简单，而且比原型网络那篇更好理解，是最早的metric-base few-shot learning的一批，并且现在依然流行（其实现在的方法就是在这个基础上修改，大体的框架是一样的）。&lt;/p>
-&lt;h2 id="framework-1">FRAMEWORK&lt;/h2>
-&lt;p>&lt;img src="https://s2.loli.net/2022/08/20/2fjUiYmbQ58cSTp.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>framework基本上一眼就能看明白，$f_\phi$和$g_\phi$都是卷积，池化，batch norm操作，没什么特别的。concatenation似乎就是从这里来的，现在基本也都是把query feature和support feature concatenate起来。其过程可用如下公式表示
-$$
-r_{i,j} = g_\phi(C(f_\phi(x_i),f_\phi(x_j)))
-$$
-其中$f_{\phi}$，$g_{\phi}$表示embedding module和relation module，函数$C(·，·)$表示concatenation。&lt;/p>
-&lt;h2 id="zero-shot-learning">ZERO-SHOT LEARNING&lt;/h2>
-&lt;p>在zero-shot learning中，不再给support image，而是给semantic class embedding vector $v_c$，其过程可以用如下公式表示
-$$
-r_{i,j} = g_\phi(C(f_{\phi_1}(v_c),f_{\phi_2}(x_j)))
-$$
-&lt;img src="https://s2.loli.net/2022/08/20/zASjlHLM4GRkfJ1.png"
-loading="lazy"
-alt="image.png"
->&lt;/p>
-&lt;p>这里的DNN是训练好的模型，如VGG、Inception等。&lt;/p>
-&lt;p>和prototypical network的区别&lt;/p>
-&lt;blockquote>
-&lt;p>Relation Network比原型网络的方法多了可学习的层，用来判别相似度度量，而在原型网络中是直接拿特定的相似度度量公式（如cosine similarity）&lt;/p>
-&lt;/blockquote></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>others on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/tags/others/</link><description>Recent content in others on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/tags/others/index.xml" rel="self" type="application/rss+xml"/><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -148,4 +56,96 @@ alt="image.png"
 &lt;blockquote>
 &lt;p>This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;strong>comments&lt;/strong>: small but clear idea, enough experiment.&lt;/p></description></item></channel></rss>
+&lt;p>&lt;strong>comments&lt;/strong>: small but clear idea, enough experiment.&lt;/p></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
+&lt;p>Common Conv&lt;/p>
+&lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
+loading="lazy"
+alt="动图"
+>&lt;/p>
+&lt;p>Dilated Conv&lt;/p>
+&lt;p>&lt;img src="https://github.com/vdumoulin/conv_arithmetic/blob/master/gif/same_padding_no_strides.gif?raw=true"
+loading="lazy"
+alt="image-20221023221652075"
+>&lt;/p>
+&lt;p>空洞卷积在一定程度上能增大卷积神经网络的感受野，但是利用其设计语义分割网络则会存在如下两个问题。&lt;/p>
+&lt;p>&lt;strong>1. The Gridding Effect&lt;/strong>&lt;/p>
+&lt;p>如果和之前的操作一样，仅仅只是反复叠加3*3的kernal的话，那么在过程中就会存在一定的信息损失。&lt;/p>
+&lt;p>&lt;img src="https://pic3.zhimg.com/v2-478a6b82e1508a147712af63d6472d9a_r.jpg?source=1940ef5c"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;p>&lt;strong>2. 对小物体的分割&lt;/strong>&lt;/p>
+&lt;p>增大感受野对小物体的分割似乎没有好处&lt;/p>
+&lt;p>因此图森组提出了较好的解决方法：Hybrid Dilated Convolution (HDC)&lt;/p>
+&lt;ol>
+&lt;li>叠加卷积的 dilation rate 不能有大于1的公约数。比如 [2, 4, 6] 则不是一个好的三层卷积，依然会出现 gridding effect。我们将 dilation rate 设计成锯齿状结构，例如 [1, 2, 5, 1, 2, 5] 循环结构。&lt;/li>
+&lt;li>需要满足$$M_i = max[M_{i+1}-2r_i, M_{i+1}-2(M_{i+1}-r_i), r_i]$$， 其中$r_i$，$M_i$分别代表第i层的dilation rate和最大dilation rate。&lt;/li>
+&lt;/ol>
+&lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/54149221" target="_blank" rel="noopener"
+>如何理解空洞卷积（dilated convolution）？&lt;/a>， 作者@&lt;a class="link" href="https://www.zhihu.com/people/lorenmt" target="_blank" rel="noopener"
+>刘诗昆&lt;/a>&lt;/p>
+&lt;h2 id="deconvolution">Deconvolution&lt;/h2>
+&lt;p>deconv大致可以分成如下三个方面&lt;/p>
+&lt;ul>
+&lt;li>unsupervised learning&lt;/li>
+&lt;li>CNN可视化&lt;/li>
+&lt;li>upsampling&lt;/li>
+&lt;/ul>
+&lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，况且反卷积存在棋盘格效应。&lt;/p>
+&lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/43609045/answer/132235276" target="_blank" rel="noopener"
+>如何理解深度学习中的deconvolution networks？&lt;/a>，作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
+>谭旭&lt;/a>&lt;/p></description></item><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>Some papers are famous and have gotten several citations. They Always appear when I&amp;rsquo;m reading current papers. So I decided to write down the most critical parts (concerned mainly by myself, in another way) from these papers on this page.&lt;/p>
+&lt;h1 id="learning-deep-features-for-discriminative-localization">Learning Deep Features for Discriminative Localization&lt;/h1>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/17/xeEUAgGitC461Q7.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>This is a well-known work from CVPR2016, which has got 6.5k citation numbers up-to-date.&lt;/p>
+&lt;p>There are two parts seems to be important to me: &lt;strong>comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>framework&lt;/strong>.&lt;/p>
+&lt;h2 id="gmp-vs-gap">GMP vs. GAP&lt;/h2>
+&lt;blockquote>
+&lt;p>We believe that GAP loss encourages the network to identify the extent of the object as compared to GMP which encourages it to identify just one discriminative part.&lt;/p>
+&lt;p>while GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
+&lt;/blockquote>
+&lt;p>GAP can focus on a wide range of pixels while GMP only depends on the most significant feature.&lt;/p>
+&lt;h2 id="framework">FRAMEWORK&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/17/g3qjOyweVAtlNR1.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>The output of the last convolutional layer is denoted as $f_k(x,y)$, while k means the channel. After GAP, which should be expressed as $F^k = \sum_{x,y}f_k(x,y)$, for a given class, the input to the softmax $S_c$, is $\Sigma_kw_k^cF_k$ where $w_k^c$ is weight corresponding to class c for unit k.
+$$
+S_c = \sum_kw_k^c\sum_{x,y} f_k(x,y) = \sum_{x,y}\sum_k w_k^cf_k(x,y)
+$$
+They did upsampling in the middle of the framework to fit the size.&lt;/p>
+&lt;p>ABOUT &lt;strong>weakly-supervised&lt;/strong>: They meant weakly-supervised because the labels is image-level but localization is object-level&lt;/p>
+&lt;h1 id="learning-to-compare-relation-network-for-few-shot-learning">Learning to Compare: Relation Network for Few-Shot Learning&lt;/h1>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/20/mdSbWiDs8HYKRoJ.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>这篇文章的思路相当简单，而且比原型网络那篇更好理解，是最早的metric-base few-shot learning的一批，并且现在依然流行（其实现在的方法就是在这个基础上修改，大体的框架是一样的）。&lt;/p>
+&lt;h2 id="framework-1">FRAMEWORK&lt;/h2>
+&lt;p>&lt;img src="https://s2.loli.net/2022/08/20/2fjUiYmbQ58cSTp.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>framework基本上一眼就能看明白，$f_\phi$和$g_\phi$都是卷积，池化，batch norm操作，没什么特别的。concatenation似乎就是从这里来的，现在基本也都是把query feature和support feature concatenate起来。其过程可用如下公式表示
+$$
+r_{i,j} = g_\phi(C(f_\phi(x_i),f_\phi(x_j)))
+$$
+其中$f_{\phi}$，$g_{\phi}$表示embedding module和relation module，函数$C(·，·)$表示concatenation。&lt;/p>
+&lt;h2 id="zero-shot-learning">ZERO-SHOT LEARNING&lt;/h2>
+&lt;p>在zero-shot learning中，不再给support image，而是给semantic class embedding vector $v_c$，其过程可以用如下公式表示
+$$
+r_{i,j} = g_\phi(C(f_{\phi_1}(v_c),f_{\phi_2}(x_j)))
+$$
+&lt;img src="https://s2.loli.net/2022/08/20/zASjlHLM4GRkfJ1.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;p>这里的DNN是训练好的模型，如VGG、Inception等。&lt;/p>
+&lt;p>和prototypical network的区别&lt;/p>
+&lt;blockquote>
+&lt;p>Relation Network比原型网络的方法多了可学习的层，用来判别相似度度量，而在原型网络中是直接拿特定的相似度度量公式（如cosine similarity）&lt;/p>
+&lt;/blockquote></description></item></channel></rss>
