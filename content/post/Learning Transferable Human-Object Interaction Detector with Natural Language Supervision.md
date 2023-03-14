@@ -80,8 +80,6 @@ $$
 
 Project Head其实就是一个线性层，把从transformer block出来的X映射到text encoder的输出的维度，方便做相似度计算，从而找到最近的tensor。
 
-因为我不懂detection，所以Regressor不太关心。
-
 ## LOSS
 
 LOSS部分没有很复杂，由两部分组成，分别是box head输出和project head的loss

@@ -9,24 +9,22 @@ image : "https://s2.loli.net/2022/08/18/wB47rIvCWOyTZVi.png"
 
 ![image.png](https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png)
 
-这篇真的好复杂
-
 ## ABSTRACT & INTRODUCTION
 
 从Few-shot learning角度，这篇也是基于metric-based的（我都没看到过几篇meta-based的文章，不知道是不是已经被淘汰了）
 
-现在的FSS主要有俩问题
+Motivations->现在的FSS主要有俩问题
 
 - 会把不属于本类的物体也分割进来
 - 分不清边界
 
 ![image.png](https://s2.loli.net/2022/08/18/OJjBCcq7IUnFfey.png)
 
-对于第一个问题，他们说在meta-training阶段就让模型直接学会识别base-dataset，这样后面做test的时候，如果说一个物体我在train的时候见过，那么这个物体肯定就不是我要分割的物体了
+对于第一个问题，他们说在meta-training阶段就让模型直接学会识别base-dataset，这样后面做test的时候，如果说一个物体在train的时候见过，那么这个物体肯定就不是要分割的物体了(好像有点transductive了哈，但是严格说又不是)
 
 > The proposed Prototype Activation Module (PAM) integrates the base prototypes with the current novel prototype to form a holistic prototype set, and then activates the region of each target in the query image based on this set. If the object area is activated with high confidence by base prototypes, the corresponding location will be erased in the final activation map (i.e., set to 0)
 
-对于第二个问题，他们说关键就是要找出support和query中的本质联系（套话），他们提出了基于DeepLabv3的CRD模型来解决这个问题。
+对于第二个问题，他们说关键就是要找出support和query中的本质联系（0.0），他们提出了基于DeepLabv3的CRD模型来解决这个问题。
 
 > We argue that, with limited samples available, the crux of improving foreground activation accuracy is to capture the co-existence characteristics between support and query images
 
@@ -58,18 +56,14 @@ k^* = argmax_k(A_k^{ij}) \\
 M^{ij}=A_{k^*}^{ij} ,\ if \  k^*=1 \ otherwise \ 0
 $$
 
-下面这一步也很聪明，因为一般做FSS的话，都是有个expand + concat的操作的。然而这里有好多个原型，他就不做全局的expand了，因为我前面不是已经做了匹配度计算了么，所以我直接在对应位置做expand就好了，具体可见下图
+下面这一步也很聪明，因为一般做FSS的话，都是有个expand + concat的操作的。然而这里有好多个原型，他就不做全局的expand了，因为前面不是已经做了匹配度计算了么，所以直接在对应位置做expand就好了，具体可见下图
 
 ![image.png](https://s2.loli.net/2022/08/18/HumfepLVWd6byYa.png)
 
 ### CROSS-REFERENCE DECODER
 
-这一步就比较乱了，左一步右一步的，还跟deeplabv3有关，我可能要先去把deeplabv3看了才能真正理解。
-
 ![image.png](https://s2.loli.net/2022/08/18/uwkmMHxE4P8q15Y.png)
 
 ## LOSS
-
- loss部分没太看懂，$\alpha$好理解，也是多任务下比较常见的做法。就是$L_{act}$是咋算的没太看懂，不是直接跟label做cross-entropy吗
 
 ![image.png](https://s2.loli.net/2022/08/18/y95dGIcosCltvVN.png)

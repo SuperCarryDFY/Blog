@@ -6,7 +6,7 @@ categories : ["Others"]
 license: CC BY-NC-ND
 ---
 
-Some papers are famous and have gotten several citations. They Always appear when I'm reading current papers. So I decided to write down the most critical parts (concerned mainly by myself, in another way) from these papers on this page.
+Some papers are famous and have gotten several citations. They always appear when I'm reading current papers. So I decided to write down the most critical parts (concerned mainly with myself, in another way) from these papers on this page.
 
 # Learning Deep Features for Discriminative Localization
 
@@ -14,13 +14,13 @@ Some papers are famous and have gotten several citations. They Always appear whe
 
 This is a well-known work from CVPR2016, which has got 6.5k citation numbers up-to-date.
 
-There are two parts seems to be important to me: **comparison between global max pooling and global average pooling**, as well as **framework**.
+There are two parts that seem to be important to me: **the comparison between global max pooling and global average pooling**, as well as **the framework**.
 
 ## GMP vs. GAP
 
 > We believe that GAP loss encourages the network to identify the extent of the object as compared to GMP which encourages it to identify just one discriminative part.
 >
-> while GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.
+> While GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.
 
 GAP can focus on a wide range of pixels while GMP only depends on the most significant feature.
 
@@ -32,9 +32,9 @@ The output of the last convolutional layer is denoted as $f_k(x,y)$, while k mea
 $$
 S_c = \sum_kw_k^c\sum_{x,y} f_k(x,y) = \sum_{x,y}\sum_k w_k^cf_k(x,y)
 $$
-They did upsampling in the middle of the framework to fit the size.
+They did upsample in the middle of the framework to fit the size.
 
-ABOUT **weakly-supervised**: They meant weakly-supervised because the labels is image-level but localization is object-level
+ABOUT **weakly supervised**: They meant weakly-supervised because the labels are image-level but localization is object-level
 
 
 

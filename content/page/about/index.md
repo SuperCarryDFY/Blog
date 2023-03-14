@@ -16,15 +16,6 @@ menu:
 
 Hey, welcome to Dai Fengyuan's blog!
 
-I am an undergraduate student from SHU, majoring in Computer Science. 
+I am an undergraduate student from SHU, majoring in Computer Science. Simultaneously, I am doing internship jobs at Milab, Westlake University. My research field is compositional zero-shot learning and reinforcement learning (still a beginner). I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any other ideas later, I will post them here.
 
-Fortunately, I am doing internship jobs at Milab, Westlake University simultaneously. 
-
-At present, my research field is Few-Shot Learning and Segmentation. 
-
-I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any other ideas later, I will post them here.
-
-Later the website will support a comment system, so you will be able to leave your idea here.
-
-If you want to contact me, please email me at da1cantst0p@gmail.com or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate your purpose). 
-
+If you want to contact me, please email me at [da1cantst0p@gmail.com](mailto:da1cantst0p@gmail.com) or find me on WeChat. My Wechat ID is DaiBaoSuperrrr (please indicate your purpose). 

@@ -22,7 +22,7 @@ consists of
 - an iterative optimization module 
   - iteratively refines the predicted results. 
 
-fancy的地方
+有趣的地方
 
 - 先前的工作，从1-shot拓展到k-shot时，都是用non-learnable fusion，这篇文章中用的是attention mechanism。
 - 做test的时候，不再输入support image mask了，而是输入support image bounding box.
@@ -80,7 +80,7 @@ $$
 
 > 其中提了一嘴While block4 corresponds to high-level features, e.g., categories, and incorporates a great number of parameters (2048 channels), which makes it hard to optimize under the fewshot setting.
 >
-> 深有同感！我改topformer的时候就是纠结这个地方
+> 深有同感！
 
 **Attention vs. Feature Fusion vs. Mask Fusion**
 

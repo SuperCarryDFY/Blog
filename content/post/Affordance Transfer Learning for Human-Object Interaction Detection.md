@@ -35,7 +35,7 @@ $$
 
 **Invalid HOI Elimination**
 
-他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪
+有些HOI是无效的（比如ride orange），所以把无效HOI在上式矩阵的对应位置清零了
 
 ### OBJECT AFFORDANCE RECOGNITION
 

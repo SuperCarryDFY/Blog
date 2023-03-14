@@ -147,7 +147,7 @@ $$
   - for segmentation task 切割任务
 - Mean Absolute Error (MAE) 
   - measure the absolute error between the prediction and ground truth
-- **E-measure(?)** 相关文章 [E-measure: Enhanced-alignment Measure for Binary Foreground Map Evaluation](https://github.com/DengPingFan/E-measure)
+- **E-measure** 相关文章 [E-measure: Enhanced-alignment Measure for Binary Foreground Map Evaluation](https://github.com/DengPingFan/E-measure)
   - a metric that combines local pixels and image-level average values to jointly capture image-level statistics and local pixel matching information.
 - **Pearson Correlation Coefficient (CC)**
   - 皮尔逊相关系数 两个变量之间的协方差和标准差的商   $$ p_{X,Y}=\frac{cov(X,Y)}{\sigma_x\sigma_y} $$

@@ -71,5 +71,3 @@ At last, they check $\alpha$ and  $\beta$ in each layer. This leads to a interes
 > This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers
 
 
-
-**comments**: small but clear idea, enough experiment.

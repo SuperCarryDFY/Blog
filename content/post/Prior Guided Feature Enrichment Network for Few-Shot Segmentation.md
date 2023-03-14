@@ -89,5 +89,3 @@ $$
 - $L_1^i$ FEM出来的n层spatial size中的第i层的X，通过intermediate supervision生成
 - 具体来说，这个X应该是FEM模块中，每一层的feature在information concentration之前，interpolate后做交叉熵的值
 - $L_2$ 最后prediction和label的交叉熵。
-
-<font color='red'>问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）</font>
