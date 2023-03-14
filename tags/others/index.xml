@@ -55,8 +55,7 @@ alt="image.png"
 &lt;p>At last, they check $\alpha$ and $\beta$ in each layer. This leads to a interesting conclusion. We can see that at early stage $\beta$ take dominate position. This means Conv is a good feature extractor. But at the last stage, self-attention shows superiority over convolution.&lt;/p>
 &lt;blockquote>
 &lt;p>This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;strong>comments&lt;/strong>: small but clear idea, enough experiment.&lt;/p></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
+&lt;/blockquote></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
 &lt;p>Common Conv&lt;/p>
 &lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
 loading="lazy"
@@ -94,18 +93,18 @@ alt="img"
 &lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，况且反卷积存在棋盘格效应。&lt;/p>
 &lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/43609045/answer/132235276" target="_blank" rel="noopener"
 >如何理解深度学习中的deconvolution networks？&lt;/a>，作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
->谭旭&lt;/a>&lt;/p></description></item><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>Some papers are famous and have gotten several citations. They Always appear when I&amp;rsquo;m reading current papers. So I decided to write down the most critical parts (concerned mainly by myself, in another way) from these papers on this page.&lt;/p>
+>谭旭&lt;/a>&lt;/p></description></item><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>Some papers are famous and have gotten several citations. They always appear when I&amp;rsquo;m reading current papers. So I decided to write down the most critical parts (concerned mainly with myself, in another way) from these papers on this page.&lt;/p>
 &lt;h1 id="learning-deep-features-for-discriminative-localization">Learning Deep Features for Discriminative Localization&lt;/h1>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/17/xeEUAgGitC461Q7.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
 &lt;p>This is a well-known work from CVPR2016, which has got 6.5k citation numbers up-to-date.&lt;/p>
-&lt;p>There are two parts seems to be important to me: &lt;strong>comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>framework&lt;/strong>.&lt;/p>
+&lt;p>There are two parts that seem to be important to me: &lt;strong>the comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>the framework&lt;/strong>.&lt;/p>
 &lt;h2 id="gmp-vs-gap">GMP vs. GAP&lt;/h2>
 &lt;blockquote>
 &lt;p>We believe that GAP loss encourages the network to identify the extent of the object as compared to GMP which encourages it to identify just one discriminative part.&lt;/p>
-&lt;p>while GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
+&lt;p>While GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
 &lt;/blockquote>
 &lt;p>GAP can focus on a wide range of pixels while GMP only depends on the most significant feature.&lt;/p>
 &lt;h2 id="framework">FRAMEWORK&lt;/h2>
@@ -117,8 +116,8 @@ alt="image.png"
 $$
 S_c = \sum_kw_k^c\sum_{x,y} f_k(x,y) = \sum_{x,y}\sum_k w_k^cf_k(x,y)
 $$
-They did upsampling in the middle of the framework to fit the size.&lt;/p>
-&lt;p>ABOUT &lt;strong>weakly-supervised&lt;/strong>: They meant weakly-supervised because the labels is image-level but localization is object-level&lt;/p>
+They did upsample in the middle of the framework to fit the size.&lt;/p>
+&lt;p>ABOUT &lt;strong>weakly supervised&lt;/strong>: They meant weakly-supervised because the labels are image-level but localization is object-level&lt;/p>
 &lt;h1 id="learning-to-compare-relation-network-for-few-shot-learning">Learning to Compare: Relation Network for Few-Shot Learning&lt;/h1>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/20/mdSbWiDs8HYKRoJ.png"
 loading="lazy"

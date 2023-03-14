@@ -22,7 +22,7 @@ alt="image.png"
 $$&lt;/p>
 &lt;p>，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
 &lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
-&lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
+&lt;p>有些HOI是无效的（比如ride orange），所以把无效HOI在上式矩阵的对应位置清零了&lt;/p>
 &lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>
 &lt;p>这里主要解释如何在test phase做推理&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/22/CaRPrfTUmpjAqtX.png"
@@ -212,7 +212,7 @@ $$&lt;/p>
 &lt;li>measure the absolute error between the prediction and ground truth&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&lt;strong>E-measure(?)&lt;/strong> 相关文章 &lt;a class="link" href="https://github.com/DengPingFan/E-measure" target="_blank" rel="noopener"
+&lt;li>&lt;strong>E-measure&lt;/strong> 相关文章 &lt;a class="link" href="https://github.com/DengPingFan/E-measure" target="_blank" rel="noopener"
 >E-measure: Enhanced-alignment Measure for Binary Foreground Map Evaluation&lt;/a>
 &lt;ul>
 &lt;li>a metric that combines local pixels and image-level average values to jointly capture image-level statistics and local pixel matching information.&lt;/li>

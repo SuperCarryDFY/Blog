@@ -28,7 +28,7 @@ $$
 H_l^{&rsquo;}=MHA(H_{l-1},X_{l-1}^{[1:]}) + H_{l-1} \
 H_l = MLP(LN(H_l^{&rsquo;}))+H_l^{&rsquo;}
 $$
-<strong>HOI Sequence Parser</strong></p><p><img src=https://s2.loli.net/2022/08/25/X8iwQBC4c9SYFyI.png loading=lazy alt=image.png></p><p>从transformer block出来的HOI序列有一个问题，没办法区分开来。这其实也好理解，因为输入的时候并没有带位置信息，实际上H之间都是等效的。</p><p>所以作者故意在这个模块中使用Sequence manner 而不是 in parallel的方式。</p><p><strong>Project Head and Bounding Box Regressor</strong></p><p>Project Head其实就是一个线性层，把从transformer block出来的X映射到text encoder的输出的维度，方便做相似度计算，从而找到最近的tensor。</p><p>因为我不懂detection，所以Regressor不太关心。</p><h2 id=loss>LOSS</h2><p>LOSS部分没有很复杂，由两部分组成，分别是box head输出和project head的loss
+<strong>HOI Sequence Parser</strong></p><p><img src=https://s2.loli.net/2022/08/25/X8iwQBC4c9SYFyI.png loading=lazy alt=image.png></p><p>从transformer block出来的HOI序列有一个问题，没办法区分开来。这其实也好理解，因为输入的时候并没有带位置信息，实际上H之间都是等效的。</p><p>所以作者故意在这个模块中使用Sequence manner 而不是 in parallel的方式。</p><p><strong>Project Head and Bounding Box Regressor</strong></p><p>Project Head其实就是一个线性层，把从transformer block出来的X映射到text encoder的输出的维度，方便做相似度计算，从而找到最近的tensor。</p><h2 id=loss>LOSS</h2><p>LOSS部分没有很复杂，由两部分组成，分别是box head输出和project head的loss
 $$
 L_m(i,\phi) = L_b(\hat{b_p^i},b_p^{\phi_i})+L_b(\hat{b_o^i},b_o^{\phi_i})+L_h(\hat{h_i},s_{\phi_i})
 $$

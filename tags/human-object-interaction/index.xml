@@ -22,7 +22,7 @@ alt="image.png"
 $$&lt;/p>
 &lt;p>，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
 &lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
-&lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
+&lt;p>有些HOI是无效的（比如ride orange），所以把无效HOI在上式矩阵的对应位置清零了&lt;/p>
 &lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>
 &lt;p>这里主要解释如何在test phase做推理&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/22/CaRPrfTUmpjAqtX.png"
@@ -111,7 +111,6 @@ alt="image.png"
 &lt;p>所以作者故意在这个模块中使用Sequence manner 而不是 in parallel的方式。&lt;/p>
 &lt;p>&lt;strong>Project Head and Bounding Box Regressor&lt;/strong>&lt;/p>
 &lt;p>Project Head其实就是一个线性层，把从transformer block出来的X映射到text encoder的输出的维度，方便做相似度计算，从而找到最近的tensor。&lt;/p>
-&lt;p>因为我不懂detection，所以Regressor不太关心。&lt;/p>
 &lt;h2 id="loss">LOSS&lt;/h2>
 &lt;p>LOSS部分没有很复杂，由两部分组成，分别是box head输出和project head的loss
 $$

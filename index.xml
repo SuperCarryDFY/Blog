@@ -55,8 +55,7 @@ alt="image.png"
 &lt;p>At last, they check $\alpha$ and $\beta$ in each layer. This leads to a interesting conclusion. We can see that at early stage $\beta$ take dominate position. This means Conv is a good feature extractor. But at the last stage, self-attention shows superiority over convolution.&lt;/p>
 &lt;blockquote>
 &lt;p>This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;strong>comments&lt;/strong>: small but clear idea, enough experiment.&lt;/p></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
+&lt;/blockquote></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
 &lt;p>Common Conv&lt;/p>
 &lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
 loading="lazy"
@@ -98,42 +97,42 @@ alt="img"
 loading="lazy"
 alt="image-20220913110345915"
 >&lt;/p>
-&lt;p>This paper is from ICCV2019. It addressed detection tasks R-CNN based network. However, it simply uses a shared classifier( mlp, I think) and bbox regressor, which is put forward in R-CNN though, to get predictions. Also, it tries a new form loss function out and gets a relatively large promotion.&lt;/p>
+&lt;p>This paper is from ICCV 2019. It addressed detection tasks R-CNN based network. However, it simply uses a shared classifier( mlp, I think) and bbox regressor, which is put forward in R-CNN though, to get predictions. Also, it tries a new form loss function out and gets a relatively large promotion.&lt;/p>
 &lt;h2 id="abstruct--introduction">ABSTRUCT &amp;amp; INTRODUCTION&lt;/h2>
 &lt;p>The model is mainly consist of two modules, i.e.,&lt;/p>
 &lt;ul>
-&lt;li>a meta feature learner&lt;/li>
-&lt;li>a light-weight feature reweighting module&lt;/li>
+&lt;li>a meta feature learner.&lt;/li>
+&lt;li>a light-weight feature reweighting module.&lt;/li>
 &lt;/ul>
 &lt;p>The training process is corresponding to two-phase learning scheme,&lt;/p>
 &lt;ul>
-&lt;li>first learn meta features and good reweighting module from base classes&lt;/li>
+&lt;li>first learn meta features and good reweighting module from base classes.&lt;/li>
 &lt;li>fine-tune the detection model to adapt to novel classes.&lt;/li>
 &lt;/ul>
-&lt;p>Though it contains two-phase training, the paper claims it&amp;rsquo;s an end-to-end method.&lt;/p>
+&lt;p>Though it contains two-phase training, it&amp;rsquo;s an end-to-end method.&lt;/p>
 &lt;h2 id="method">METHOD&lt;/h2>
 &lt;p>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png"
 loading="lazy"
 alt="image-20220913110439796"
 >&lt;/p>
 &lt;p>&lt;strong>Reweighting Module&lt;/strong>&lt;/p>
-&lt;p>This module taking the support examples as input, learns to embed support information into reweighting vectors and adjust contribution of each meta feature of the query image accordingly for following detection prediction module.&lt;/p>
-&lt;p>It is like what is used in BAM. However, in BAM it just use global max pooling ( or global average pooling, whatever) , which is not learnable, to get the prototype vectors. In this paper, it use learnable layer to get prototype vectors.&lt;/p>
-&lt;p>After that , they applies prototype vectors to obtain the class-specific feature $Fi$ for novel class $i$ by $F_i = F \times w_i$, where $\times$ means channel-wise multiplication.&lt;/p>
+&lt;p>This module taking the support examples as input learns to embed support information into reweighting vectors and adjusts the contribution of each meta feature of the query image accordingly for the following detection prediction module.
+It is like what is used in BAM. However, in BAM it just uses global max pooling ( or global average pooling, whatever), which is not learnable, to get the prototype vectors. This paper uses a learnable layer to get prototype vectors.
+After that, they apply prototype vectors to obtain the class-specific feature Fi for novel class i by F_i = F \times w_i, where \times means channel-wise multiplication.&lt;/p>
 &lt;p>&lt;strong>Shared Classifier &amp;amp; BBox Regressor&lt;/strong>&lt;/p>
-&lt;p>There isn&amp;rsquo;t any details about Shared Classifier &amp;amp; BBox Regressor module. I simply think this module just being MLP combines BBox Regressor.&lt;/p>
+&lt;p>There aren&amp;rsquo;t any details about Shared Classifier &amp;amp; BBox Regressor module. I simply think this module just being MLP combines BBox Regressor.&lt;/p>
 &lt;p>&lt;strong>Learning Scheme&lt;/strong>&lt;/p>
-&lt;p>In the first stage, they just feed the model with abundant base images with annotations. In this way, the model can learn coordinate the two modules in the desired way.&lt;/p>
+&lt;p>In the first stage, they just feed the model with abundant base images with annotations. In this way, the model can learn to coordinate the two modules in the desired way.&lt;/p>
 &lt;p>In the second stage, they fine-tune the model on both base and novel classes. The training procedure is the same as the first phase, except that it takes significantly fewer iterations for the model to converge.&lt;/p>
-&lt;p>After two training phases, the model can do test without novel class as input (it should not be deemed as novel class, for it has seen the classes in the second stage) and reweighting module, because it remember the prototype vectors of all class and just do inference in novel images.&lt;/p>
+&lt;p>After two training phases, the model can do a test without a novel class as input (it should not be deemed as a novel class, for it has seen the classes in the second stage) and reweighting module, because it remembers the prototype vectors of all class and just do inference in novel images.&lt;/p>
 &lt;h2 id="loss-function">LOSS FUNCTION&lt;/h2>
-&lt;p>It is intuitive to use binary cross-entropy as detection loss function, regressing 1 if the object is the target class and 0 otherwise. However, binary cross-entropy strives to produce balanced positive and negative predictions and could not remove such false predictions. (I don&amp;rsquo;t understand well)&lt;/p>
-&lt;p>Instead, they adopt a softmax layer for calibrate the classification scores among different classes. It can be denoted as $\hat c_i = \frac{e^{c_i}}{\sum_{j=1}^Ne^{c_j}}$. Then, the loss function is below：
+&lt;p>It is intuitive to use binary cross-entropy as a detection loss function, regressing 1 if the object is the target class and 0 otherwise. However, binary cross-entropy strives to produce balanced positive and negative predictions and could not remove such false predictions.
+Instead, they adopt a softmax layer to calibrate the classification scores among different classes. It can be denoted as \hat c_i = \frac{e^{c_i}}{\sum_{j=1}^Ne^{c_j}}. Then, the loss function is below：
 $$
 L_c= -\sum_{i=1}^{N}1(·,i)log(\hat c_i)
-$$
-where $1(·,i)$ is an indicator function for whether current anchor box really belongs to class $i$ or not.&lt;/p>
-&lt;p>Finally, the overall loss function is
+$$&lt;/p>
+&lt;p>where 1(·, i) is an indicator function for whether the current anchor box really belongs to class i or not.
+Finally, the overall loss function is
 $$
 L_{det} = L_c + L_bbx + L_{obj}
 $$&lt;/p></description></item><item><title>Learning What Not to Segment A New Perspective on Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png" alt="Featured image of post Learning What Not to Segment A New Perspective on Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
@@ -249,7 +248,7 @@ alt="image.png"
 $$&lt;/p>
 &lt;p>，其中$A_o$和$A_v$是分别关于object和verb的同现矩阵co-occurrence matrix（？）&lt;/p>
 &lt;p>&lt;strong>Invalid HOI Elimination&lt;/strong>&lt;/p>
-&lt;p>他说有些HOI是无效的（比如ride orange），所以（手动？）把无效HOI在上式矩阵的对应位置清零了。这段好怪&lt;/p>
+&lt;p>有些HOI是无效的（比如ride orange），所以把无效HOI在上式矩阵的对应位置清零了&lt;/p>
 &lt;h3 id="object-affordance-recognition">OBJECT AFFORDANCE RECOGNITION&lt;/h3>
 &lt;p>这里主要解释如何在test phase做推理&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/22/CaRPrfTUmpjAqtX.png"
@@ -338,24 +337,23 @@ alt="image.png"
 &lt;p>所以作者故意在这个模块中使用Sequence manner 而不是 in parallel的方式。&lt;/p>
 &lt;p>&lt;strong>Project Head and Bounding Box Regressor&lt;/strong>&lt;/p>
 &lt;p>Project Head其实就是一个线性层，把从transformer block出来的X映射到text encoder的输出的维度，方便做相似度计算，从而找到最近的tensor。&lt;/p>
-&lt;p>因为我不懂detection，所以Regressor不太关心。&lt;/p>
 &lt;h2 id="loss">LOSS&lt;/h2>
 &lt;p>LOSS部分没有很复杂，由两部分组成，分别是box head输出和project head的loss
 $$
 L_m(i,\phi) = L_b(\hat{b_p^i},b_p^{\phi_i})+L_b(\hat{b_o^i},b_o^{\phi_i})+L_h(\hat{h_i},s_{\phi_i})
 $$
-其中$L_b$表示Bounding box 的loss，$L_h$代表CLIP那边的loss，包括text-to-visual和visual-to-text&lt;/p></description></item><item><title>Archives</title><link>https://SuperCarryDFY.github.io/archives/</link><pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/archives/</guid><description/></item><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>Some papers are famous and have gotten several citations. They Always appear when I&amp;rsquo;m reading current papers. So I decided to write down the most critical parts (concerned mainly by myself, in another way) from these papers on this page.&lt;/p>
+其中$L_b$表示Bounding box 的loss，$L_h$代表CLIP那边的loss，包括text-to-visual和visual-to-text&lt;/p></description></item><item><title>Archives</title><link>https://SuperCarryDFY.github.io/archives/</link><pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/archives/</guid><description/></item><item><title>Combination of Papers</title><link>https://SuperCarryDFY.github.io/p/combination-of-papers/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/combination-of-papers/</guid><description>&lt;p>Some papers are famous and have gotten several citations. They always appear when I&amp;rsquo;m reading current papers. So I decided to write down the most critical parts (concerned mainly with myself, in another way) from these papers on this page.&lt;/p>
 &lt;h1 id="learning-deep-features-for-discriminative-localization">Learning Deep Features for Discriminative Localization&lt;/h1>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/17/xeEUAgGitC461Q7.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
 &lt;p>This is a well-known work from CVPR2016, which has got 6.5k citation numbers up-to-date.&lt;/p>
-&lt;p>There are two parts seems to be important to me: &lt;strong>comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>framework&lt;/strong>.&lt;/p>
+&lt;p>There are two parts that seem to be important to me: &lt;strong>the comparison between global max pooling and global average pooling&lt;/strong>, as well as &lt;strong>the framework&lt;/strong>.&lt;/p>
 &lt;h2 id="gmp-vs-gap">GMP vs. GAP&lt;/h2>
 &lt;blockquote>
 &lt;p>We believe that GAP loss encourages the network to identify the extent of the object as compared to GMP which encourages it to identify just one discriminative part.&lt;/p>
-&lt;p>while GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
+&lt;p>While GMP achieves similar classification performance as GAP, GAP outperforms GMP for localization.&lt;/p>
 &lt;/blockquote>
 &lt;p>GAP can focus on a wide range of pixels while GMP only depends on the most significant feature.&lt;/p>
 &lt;h2 id="framework">FRAMEWORK&lt;/h2>
@@ -367,8 +365,8 @@ alt="image.png"
 $$
 S_c = \sum_kw_k^c\sum_{x,y} f_k(x,y) = \sum_{x,y}\sum_k w_k^cf_k(x,y)
 $$
-They did upsampling in the middle of the framework to fit the size.&lt;/p>
-&lt;p>ABOUT &lt;strong>weakly-supervised&lt;/strong>: They meant weakly-supervised because the labels is image-level but localization is object-level&lt;/p>
+They did upsample in the middle of the framework to fit the size.&lt;/p>
+&lt;p>ABOUT &lt;strong>weakly supervised&lt;/strong>: They meant weakly-supervised because the labels are image-level but localization is object-level&lt;/p>
 &lt;h1 id="learning-to-compare-relation-network-for-few-shot-learning">Learning to Compare: Relation Network for Few-Shot Learning&lt;/h1>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/20/mdSbWiDs8HYKRoJ.png"
 loading="lazy"
@@ -421,7 +419,7 @@ alt="image.png"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>fancy的地方&lt;/p>
+&lt;p>有趣的地方&lt;/p>
 &lt;ul>
 &lt;li>先前的工作，从1-shot拓展到k-shot时，都是用non-learnable fusion，这篇文章中用的是attention mechanism。&lt;/li>
 &lt;li>做test的时候，不再输入support image mask了，而是输入support image bounding box.&lt;/li>
@@ -473,7 +471,7 @@ alt="image.png"
 &lt;p>这里说单个的话block2效果是最好的，整体上block2+block3的效果最好。嗯，比较可信。&lt;/p>
 &lt;blockquote>
 &lt;p>其中提了一嘴While block4 corresponds to high-level features, e.g., categories, and incorporates a great number of parameters (2048 channels), which makes it hard to optimize under the fewshot setting.&lt;/p>
-&lt;p>深有同感！我改topformer的时候就是纠结这个地方&lt;/p>
+&lt;p>深有同感！&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>Attention vs. Feature Fusion vs. Mask Fusion&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/16/layPuvoMD6Xrgkc.png"
@@ -865,10 +863,9 @@ alt="image.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
-&lt;p>这篇真的好复杂&lt;/p>
 &lt;h2 id="abstract--introduction">ABSTRACT &amp;amp; INTRODUCTION&lt;/h2>
 &lt;p>从Few-shot learning角度，这篇也是基于metric-based的（我都没看到过几篇meta-based的文章，不知道是不是已经被淘汰了）&lt;/p>
-&lt;p>现在的FSS主要有俩问题&lt;/p>
+&lt;p>Motivations-&amp;gt;现在的FSS主要有俩问题&lt;/p>
 &lt;ul>
 &lt;li>会把不属于本类的物体也分割进来&lt;/li>
 &lt;li>分不清边界&lt;/li>
@@ -877,11 +874,11 @@ alt="image.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
-&lt;p>对于第一个问题，他们说在meta-training阶段就让模型直接学会识别base-dataset，这样后面做test的时候，如果说一个物体我在train的时候见过，那么这个物体肯定就不是我要分割的物体了&lt;/p>
+&lt;p>对于第一个问题，他们说在meta-training阶段就让模型直接学会识别base-dataset，这样后面做test的时候，如果说一个物体在train的时候见过，那么这个物体肯定就不是要分割的物体了(好像有点transductive了哈，但是严格说又不是)&lt;/p>
 &lt;blockquote>
 &lt;p>The proposed Prototype Activation Module (PAM) integrates the base prototypes with the current novel prototype to form a holistic prototype set, and then activates the region of each target in the query image based on this set. If the object area is activated with high confidence by base prototypes, the corresponding location will be erased in the final activation map (i.e., set to 0)&lt;/p>
 &lt;/blockquote>
-&lt;p>对于第二个问题，他们说关键就是要找出support和query中的本质联系（套话），他们提出了基于DeepLabv3的CRD模型来解决这个问题。&lt;/p>
+&lt;p>对于第二个问题，他们说关键就是要找出support和query中的本质联系（0.0），他们提出了基于DeepLabv3的CRD模型来解决这个问题。&lt;/p>
 &lt;blockquote>
 &lt;p>We argue that, with limited samples available, the crux of improving foreground activation accuracy is to capture the co-existence characteristics between support and query images&lt;/p>
 &lt;/blockquote>
@@ -911,19 +908,17 @@ $$
 k^&lt;/em> = argmax_k(A_k^{ij}) \
 M^{ij}=A_{k^&lt;em>}^{ij} ,\ if \ k^&lt;/em>=1 \ otherwise \ 0
 $$&lt;/p>
-&lt;p>下面这一步也很聪明，因为一般做FSS的话，都是有个expand + concat的操作的。然而这里有好多个原型，他就不做全局的expand了，因为我前面不是已经做了匹配度计算了么，所以我直接在对应位置做expand就好了，具体可见下图&lt;/p>
+&lt;p>下面这一步也很聪明，因为一般做FSS的话，都是有个expand + concat的操作的。然而这里有好多个原型，他就不做全局的expand了，因为前面不是已经做了匹配度计算了么，所以直接在对应位置做expand就好了，具体可见下图&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/18/HumfepLVWd6byYa.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
 &lt;h3 id="cross-reference-decoder">CROSS-REFERENCE DECODER&lt;/h3>
-&lt;p>这一步就比较乱了，左一步右一步的，还跟deeplabv3有关，我可能要先去把deeplabv3看了才能真正理解。&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/18/uwkmMHxE4P8q15Y.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
 &lt;h2 id="loss">LOSS&lt;/h2>
-&lt;p>loss部分没太看懂，$\alpha$好理解，也是多任务下比较常见的做法。就是$L_{act}$是咋算的没太看懂，不是直接跟label做cross-entropy吗&lt;/p>
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/18/y95dGIcosCltvVN.png"
 loading="lazy"
 alt="image.png"
@@ -1103,7 +1098,7 @@ $$&lt;/p>
 &lt;li>measure the absolute error between the prediction and ground truth&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&lt;strong>E-measure(?)&lt;/strong> 相关文章 &lt;a class="link" href="https://github.com/DengPingFan/E-measure" target="_blank" rel="noopener"
+&lt;li>&lt;strong>E-measure&lt;/strong> 相关文章 &lt;a class="link" href="https://github.com/DengPingFan/E-measure" target="_blank" rel="noopener"
 >E-measure: Enhanced-alignment Measure for Binary Foreground Map Evaluation&lt;/a>
 &lt;ul>
 &lt;li>a metric that combines local pixels and image-level average values to jointly capture image-level statistics and local pixel matching information.&lt;/li>
@@ -1230,11 +1225,6 @@ $$&lt;/p>
 &lt;li>$L_1^i$ FEM出来的n层spatial size中的第i层的X，通过intermediate supervision生成&lt;/li>
 &lt;li>具体来说，这个X应该是FEM模块中，每一层的feature在information concentration之前，interpolate后做交叉熵的值&lt;/li>
 &lt;li>$L_2$ 最后prediction和label的交叉熵。&lt;/li>
-&lt;/ul>
-&lt;p>&lt;!-- raw HTML omitted -->问题：实际上两个loss离得很近（计算L1的feature其实经过concat然后稍微卷积一下就到计算L2的feature了），那这样效果不是跟直接把学习率调大1一倍差不多吗）&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>About</title><link>https://SuperCarryDFY.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/about/</guid><description>&lt;p>Hey, welcome to Dai Fengyuan&amp;rsquo;s blog!&lt;/p>
-&lt;p>I am an undergraduate student from SHU, majoring in Computer Science.&lt;/p>
-&lt;p>Fortunately, I am doing internship jobs at Milab, Westlake University simultaneously.&lt;/p>
-&lt;p>At present, my research field is Few-Shot Learning and Segmentation.&lt;/p>
-&lt;p>I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any other ideas later, I will post them here.&lt;/p>
-&lt;p>Later the website will support a comment system, so you will be able to leave your idea here.&lt;/p>
-&lt;p>If you want to contact me, please email me at &lt;a class="link" href="mailto:da1cantst0p@gmail.com" >da1cantst0p@gmail.com&lt;/a> or find me on Wechat. My Wechat ID is DaiBaoSuperrrr (please indicate your purpose).&lt;/p></description></item><item><title>Search</title><link>https://SuperCarryDFY.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/search/</guid><description/></item></channel></rss>
+&lt;/ul></description></item><item><title>About</title><link>https://SuperCarryDFY.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/about/</guid><description>&lt;p>Hey, welcome to Dai Fengyuan&amp;rsquo;s blog!&lt;/p>
+&lt;p>I am an undergraduate student from SHU, majoring in Computer Science. Simultaneously, I am doing internship jobs at Milab, Westlake University. My research field is compositional zero-shot learning and reinforcement learning (still a beginner). I built this website mainly because I needed the motivation to write down the key point of the paper I had read. If I have any other ideas later, I will post them here.&lt;/p>
+&lt;p>If you want to contact me, please email me at &lt;a class="link" href="mailto:da1cantst0p@gmail.com" >da1cantst0p@gmail.com&lt;/a> or find me on WeChat. My Wechat ID is DaiBaoSuperrrr (please indicate your purpose).&lt;/p></description></item><item><title>Search</title><link>https://SuperCarryDFY.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/search/</guid><description/></item></channel></rss>
