@@ -1,4 +1,4 @@
-baseurl: https://SuperCarryDFY.github.io
+baseurl: https://SuperCarryDFY.github.io/Blog
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
