@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CV on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/categories/cv/</link><description>Recent content in CV on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/categories/cv/index.xml" rel="self" type="application/rss+xml"/><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CV on Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/Blog/categories/cv/</link><description>Recent content in CV on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/categories/cv/index.xml" rel="self" type="application/rss+xml"/><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -55,7 +55,7 @@ alt="image.png"
 &lt;p>At last, they check $\alpha$ and $\beta$ in each layer. This leads to a interesting conclusion. We can see that at early stage $\beta$ take dominate position. This means Conv is a good feature extractor. But at the last stage, self-attention shows superiority over convolution.&lt;/p>
 &lt;blockquote>
 &lt;p>This is also consistent with the design patterns in the previous works where self-attention is mostly adopted in the last stages to replace the original 3×3 convolution, and convolutions at early stages are proved to be more effective for vision transformers&lt;/p>
-&lt;/blockquote></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
+&lt;/blockquote></description></item><item><title>Dilated Convolution &amp; Deconvolution</title><link>https://SuperCarryDFY.github.io/Blog/p/dilated-convolution-deconvolution/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/dilated-convolution-deconvolution/</guid><description>&lt;h2 id="dilated-convolution">Dilated Convolution&lt;/h2>
 &lt;p>Common Conv&lt;/p>
 &lt;p>&lt;img src="https://pic2.zhimg.com/50/v2-d552433faa8363df84c53b905443a556_720w.webp?source=1940ef5c"
 loading="lazy"
@@ -93,7 +93,7 @@ alt="img"
 &lt;p>呃。。一般来说上采样+卷积的性能比反卷积要好，况且反卷积存在棋盘格效应。&lt;/p>
 &lt;p>来自&lt;a class="link" href="https://www.zhihu.com/question/43609045/answer/132235276" target="_blank" rel="noopener"
 >如何理解深度学习中的deconvolution networks？&lt;/a>，作者@&lt;a class="link" href="https://www.zhihu.com/people/xutan" target="_blank" rel="noopener"
->谭旭&lt;/a>&lt;/p></description></item><item><title>Few-shot Object Detection via Feature Reweighting</title><link>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/few-shot-object-detection-via-feature-reweighting/</guid><description>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png" alt="Featured image of post Few-shot Object Detection via Feature Reweighting" />&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/oZqPrCX2h7ixfje.png"
+>谭旭&lt;/a>&lt;/p></description></item><item><title>Few-shot Object Detection via Feature Reweighting</title><link>https://SuperCarryDFY.github.io/Blog/p/few-shot-object-detection-via-feature-reweighting/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/few-shot-object-detection-via-feature-reweighting/</guid><description>&lt;img src="https://s2.loli.net/2022/09/13/hZK19UkL7T3twCr.png" alt="Featured image of post Few-shot Object Detection via Feature Reweighting" />&lt;p>&lt;img src="https://s2.loli.net/2022/09/13/oZqPrCX2h7ixfje.png"
 loading="lazy"
 alt="image-20220913110345915"
 >&lt;/p>
@@ -135,7 +135,7 @@ $$&lt;/p>
 Finally, the overall loss function is
 $$
 L_{det} = L_c + L_bbx + L_{obj}
-$$&lt;/p></description></item><item><title>Learning What Not to Segment A New Perspective on Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png" alt="Featured image of post Learning What Not to Segment A New Perspective on Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
+$$&lt;/p></description></item><item><title>Learning What Not to Segment A New Perspective on Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/Blog/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/learning-what-not-to-segment-a-new-perspective-on-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png" alt="Featured image of post Learning What Not to Segment A New Perspective on Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/25/cUieTg3LOa1ZN2k.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -224,7 +224,7 @@ alt="image.png"
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/27/JuMlP1aGcUwxI94.png"
 loading="lazy"
 alt="image.png"
->&lt;/p></description></item><item><title>Affordance Transfer Learning for Human-Object Interaction Detection</title><link>https://SuperCarryDFY.github.io/p/affordance-transfer-learning-for-human-object-interaction-detection/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/affordance-transfer-learning-for-human-object-interaction-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png" alt="Featured image of post Affordance Transfer Learning for Human-Object Interaction Detection" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/avbpq9mtxy5IdCF.png"
+>&lt;/p></description></item><item><title>Affordance Transfer Learning for Human-Object Interaction Detection</title><link>https://SuperCarryDFY.github.io/Blog/p/affordance-transfer-learning-for-human-object-interaction-detection/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/affordance-transfer-learning-for-human-object-interaction-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/9m3qWEVyUQIHfgB.png" alt="Featured image of post Affordance Transfer Learning for Human-Object Interaction Detection" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/avbpq9mtxy5IdCF.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -262,7 +262,7 @@ alt="image.png"
 $$
 L = L_{hoi_sp}+\lambda_1L_{hoi}+\lambda_2L_{ATL}
 $$
-，其中$\lambda_1$,$\lambda_2$都是超参数。&lt;/p></description></item><item><title>Learning Transferable Human-Object Interaction Detector with Natural Language Supervision</title><link>https://SuperCarryDFY.github.io/p/learning-transferable-human-object-interaction-detector-with-natural-language-supervision/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/learning-transferable-human-object-interaction-detector-with-natural-language-supervision/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/d7nPavWht2iRBue.png" alt="Featured image of post Learning Transferable Human-Object Interaction Detector with Natural Language Supervision" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/gWoakEicOMpR68j.png"
+，其中$\lambda_1$,$\lambda_2$都是超参数。&lt;/p></description></item><item><title>Learning Transferable Human-Object Interaction Detector with Natural Language Supervision</title><link>https://SuperCarryDFY.github.io/Blog/p/learning-transferable-human-object-interaction-detector-with-natural-language-supervision/</link><pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/learning-transferable-human-object-interaction-detector-with-natural-language-supervision/</guid><description>&lt;img src="https://s2.loli.net/2022/08/22/d7nPavWht2iRBue.png" alt="Featured image of post Learning Transferable Human-Object Interaction Detector with Natural Language Supervision" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/22/gWoakEicOMpR68j.png"
 loading="lazy"
 alt="image-20220822150720449"
 >&lt;/p>
@@ -342,7 +342,7 @@ alt="image.png"
 $$
 L_m(i,\phi) = L_b(\hat{b_p^i},b_p^{\phi_i})+L_b(\hat{b_o^i},b_o^{\phi_i})+L_h(\hat{h_i},s_{\phi_i})
 $$
-其中$L_b$表示Bounding box 的loss，$L_h$代表CLIP那边的loss，包括text-to-visual和visual-to-text&lt;/p></description></item><item><title>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning</title><link>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/9DYVUmMyPNJnwkq.png" alt="Featured image of post CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png"
+其中$L_b$表示Bounding box 的loss，$L_h$代表CLIP那边的loss，包括text-to-visual和visual-to-text&lt;/p></description></item><item><title>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning</title><link>https://SuperCarryDFY.github.io/Blog/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/canet-class-agnostic-segmentation-networks-with-iterative-refinement-and-attentive-few-shot-learning/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/9DYVUmMyPNJnwkq.png" alt="Featured image of post CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/AiIQyMX2cZBlStK.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -424,7 +424,7 @@ alt="image.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
-&lt;p>从这里可以看出Attention效果是最好的。但是相比来说的话还是多了两层卷积，增加了参数。Feature-Avg表现不错，感觉跟attention也差不多了（主要是没有另外加参数）。Mask-Avg这么奇怪的想法竟然也有效，能+0.5。还有Mask-OR你要笑死我嘛，怎么还没1-shot高啊，怎么回事啊小老弟，纯纯的帮倒忙。&lt;/p></description></item><item><title>Holistic Prototype Activation for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/holistic-prototype-activation-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/18/wB47rIvCWOyTZVi.png" alt="Featured image of post Holistic Prototype Activation for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png"
+&lt;p>从这里可以看出Attention效果是最好的。但是相比来说的话还是多了两层卷积，增加了参数。Feature-Avg表现不错，感觉跟attention也差不多了（主要是没有另外加参数）。Mask-Avg这么奇怪的想法竟然也有效，能+0.5。还有Mask-OR你要笑死我嘛，怎么还没1-shot高啊，怎么回事啊小老弟，纯纯的帮倒忙。&lt;/p></description></item><item><title>Holistic Prototype Activation for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/Blog/p/holistic-prototype-activation-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/holistic-prototype-activation-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/18/wB47rIvCWOyTZVi.png" alt="Featured image of post Holistic Prototype Activation for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/18/B18VowS6RfMEJKX.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>
@@ -487,7 +487,7 @@ alt="image.png"
 &lt;p>&lt;img src="https://s2.loli.net/2022/08/18/y95dGIcosCltvVN.png"
 loading="lazy"
 alt="image.png"
->&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/one-shot-affordance-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png" alt="Featured image of post One-Shot Affordance Detection" />&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
+>&lt;/p></description></item><item><title>One-Shot Affordance Detection</title><link>https://SuperCarryDFY.github.io/Blog/p/one-shot-affordance-detection/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/one-shot-affordance-detection/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/GYdogZcblesFhuk.png" alt="Featured image of post One-Shot Affordance Detection" />&lt;p>&lt;a class="link" href="https://arxiv.org/pdf/2106.14747.pdf" target="_blank" rel="noopener"
 >One-shot Affordance Detetion 2106.14747.pdf (arxiv.org)&lt;/a>&lt;/p>
 &lt;h2 id="abstract">Abstract&lt;/h2>
 &lt;ul>
@@ -687,7 +687,7 @@ $$&lt;/p>
 &lt;li>E-M 迭代次数 3&lt;/li>
 &lt;/ul>
 &lt;h3 id="quantitative-and-qualitative-comparisons">Quantitative and Qualitative Comparisons&lt;/h3>
-&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png" alt="Featured image of post Prior Guided Feature Enrichment Network for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
+&lt;p>对比下来就是我们的模型很好很好&lt;/p></description></item><item><title>Prior Guided Feature Enrichment Network for Few-Shot Segmentation</title><link>https://SuperCarryDFY.github.io/Blog/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/prior-guided-feature-enrichment-network-for-few-shot-segmentation/</guid><description>&lt;img src="https://s2.loli.net/2022/08/16/sO1AU62fiEWBKbQ.png" alt="Featured image of post Prior Guided Feature Enrichment Network for Few-Shot Segmentation" />&lt;p>&lt;img src="https://s2.loli.net/2022/08/16/cs5Rm6YUpuX3QFf.png"
 loading="lazy"
 alt="title1.png"
 >&lt;/p>
