@@ -1,4 +1,4 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="INTRODUCTION 主要解决了两个问题：
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="INTRODUCTION 主要解决了两个问题：
 Generalization Reduction &amp;amp; High-Level Features. [CANet: Classagnostic segmentation networks with iterative refinement and attentive few-shot learning]指出high-level feature cause performance drop. （估计是因为使用high-level feature会使得模型泛化能力变弱） 他们用imagenet上pre-train出来的模块，生成“prior”。因为prior是用high-level feature训练出来的，并且只是在imagenet上训练，所以不失generalization ability。 Spatial Inconsistency. 因为support image有限，有时候support image和query image上的物体的姿势之类的可能变化很大。他们提出了Feature Enrichment Module，去解决这个问题。 RELATED WORK Few-Shot Learning
 meta-learning 跟memory有关。似乎是基于RNN的模型（比如LSTM）修改的。 metric-learning Prototypical network 这篇文章比较偏向于metric-learning METHOD Prior for Few-Shot Segmentation CANet表现好主要是通过backbone提取了middle-level feature，并且CANet说middle-level里面有unseen class的object part。但是我们的解释与之相反。
 Prior Generation的具体做法
