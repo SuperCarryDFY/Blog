@@ -7,10 +7,6 @@ categories : ["CV"]
 image: "Untitled.png"
 ---
 
-
-
-# SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS
-
 ## Score based generative modeling with SDEs
 
 diffusion process可以被表述为以下形式 
