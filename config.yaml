@@ -2,12 +2,12 @@ baseurl: https://SuperCarryDFY.github.io/Blog
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Dai Fengyuan
+title: Fengyuan Dai
 
 languages:
     en:
         languageName: English
-        title: Dai Fengyuan
+        title: Fengyuan Dai
         weight: 1
 
 # Change it to your Disqus shortname before using
