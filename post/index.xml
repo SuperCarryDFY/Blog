@@ -12,53 +12,29 @@ data-flex-grow="492"
 data-flex-basis="1183px"
 >&lt;/p>
 &lt;p>reverse-time SDE可以被表述为以下形式（可以看到需要知道分布分数s_theta）&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%201.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 1.png)&lt;/p>
 &lt;h3 id="estimating-scores-for-the-sde">estimating scores for the SDE&lt;/h3>
 &lt;p>和SMLD那篇文章一样，用denoising score matching的方式训练：&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%202.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 2.png)&lt;/p>
 &lt;h3 id="vevp-sdes-and-beyond">VE,VP SDEs and Beyond&lt;/h3>
 &lt;p>这里讲了SMLD,DDPM和SDE的关系（SMLD和DDPM可以看作离散的SDEs的两种不同模式）。&lt;/p>
 &lt;p>对SMLD（Variance Exploding SDE）：&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%203.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 3.png)&lt;/p>
 &lt;p>对DDPM（Variance Preserving SDE）：&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%204.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 4.png)&lt;/p>
 &lt;h2 id="solving-the-reverse-sde">Solving the reverse SDE&lt;/h2>
 &lt;p>作者提出了三种采样方式&lt;/p>
 &lt;h3 id="general-purpose-numerical-sde-solversreverse-diffusion-samplers">general-purpose numerical SDE solvers（reverse diffusion samplers）&lt;/h3>
 &lt;p>DDPM的采样方法&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%205.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 5.png)&lt;/p>
 &lt;p>被称之为祖先采样（ancestral sampling），而作者提出了reverse diffusion samplers&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%206.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 6.png)&lt;/p>
 &lt;p>可以证明，ancestral sampling，当beta_i趋近于0的时候，可以转化为reverse diffusion samplers的形式&lt;/p>
 &lt;h3 id="predictor-corrector-samplers">Predictor-corrector samplers&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%207.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 7.png)&lt;/p>
 &lt;h3 id="probability-flow">probability flow&lt;/h3>
 &lt;p>对于每个SDE，存在一个确定性的diffusion过程：ODE&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%208.png"
-loading="lazy"
-alt="Untitled"
->&lt;/p>
+&lt;p>![Untitled](Untitled 8.png)&lt;/p>
 &lt;p>ODE速度更快但是生成的质量较差。&lt;/p>
 &lt;h2 id="controallable-generation">controallable generation&lt;/h2>
 &lt;p>懒得看了&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
