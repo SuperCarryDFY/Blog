@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dai Fengyuan</title><link>https://SuperCarryDFY.github.io/Blog/</link><description>Recent content on Dai Fengyuan</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/index.xml" rel="self" type="application/rss+xml"/><item><title>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title><link>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled.png" alt="Featured image of post SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS" />&lt;h1 id="score-based-generative-modeling-through-stochastic-differential-equations">SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/</link><description>Recent content on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/index.xml" rel="self" type="application/rss+xml"/><item><title>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title><link>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled.png" alt="Featured image of post SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS" />&lt;h1 id="score-based-generative-modeling-through-stochastic-differential-equations">SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS&lt;/h1>
 &lt;h2 id="score-based-generative-modeling-with-sdes">Score based generative modeling with SDEs&lt;/h2>
 &lt;p>diffusion process可以被表述为以下形式&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;p>reverse-time SDE可以被表述为以下形式（可以看到需要知道分布分数s_theta）&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%201.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%201.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;h3 id="estimating-scores-for-the-sde">estimating scores for the SDE&lt;/h3>
 &lt;p>和SMLD那篇文章一样，用denoising score matching的方式训练：&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%202.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%202.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;h3 id="vevp-sdes-and-beyond">VE,VP SDEs and Beyond&lt;/h3>
 &lt;p>这里讲了SMLD,DDPM和SDE的关系（SMLD和DDPM可以看作离散的SDEs的两种不同模式）。&lt;/p>
 &lt;p>对SMLD（Variance Exploding SDE）：&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%203.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%203.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;p>对DDPM（Variance Preserving SDE）：&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%204.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%204.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
@@ -32,24 +32,24 @@ alt="Untitled"
 &lt;p>作者提出了三种采样方式&lt;/p>
 &lt;h3 id="general-purpose-numerical-sde-solversreverse-diffusion-samplers">general-purpose numerical SDE solvers（reverse diffusion samplers）&lt;/h3>
 &lt;p>DDPM的采样方法&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%205.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%205.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;p>被称之为祖先采样（ancestral sampling），而作者提出了reverse diffusion samplers&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%206.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%206.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;p>可以证明，ancestral sampling，当beta_i趋近于0的时候，可以转化为reverse diffusion samplers的形式&lt;/p>
 &lt;h3 id="predictor-corrector-samplers">Predictor-corrector samplers&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%207.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%207.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
 &lt;h3 id="probability-flow">probability flow&lt;/h3>
 &lt;p>对于每个SDE，存在一个确定性的diffusion过程：ODE&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled%208.png"
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/Untitled%208.png"
 loading="lazy"
 alt="Untitled"
 >&lt;/p>
