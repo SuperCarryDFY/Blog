@@ -19,13 +19,13 @@ diffusion process可以被表述为以下形式
 
 reverse-time SDE可以被表述为以下形式（可以看到需要知道分布分数s_theta）
 
-![Untitled](Untitled 1.png)
+![Untitled](Untitled_1.png)
 
 ### estimating scores for the SDE
 
 和SMLD那篇文章一样，用denoising score matching的方式训练：
 
-![Untitled](Untitled 2.png)
+![Untitled](Untitled_2.png)
 
 ### VE,VP SDEs and Beyond
 
@@ -33,11 +33,11 @@ reverse-time SDE可以被表述为以下形式（可以看到需要知道分布�
 
 对SMLD（Variance Exploding SDE）：
 
-![Untitled](Untitled 3.png)
+![Untitled](Untitled_3.png)
 
 对DDPM（Variance Preserving SDE）：
 
-![Untitled](Untitled 4.png)
+![Untitled](Untitled_4.png)
 
 ## Solving the reverse SDE
 
@@ -47,23 +47,23 @@ reverse-time SDE可以被表述为以下形式（可以看到需要知道分布�
 
 DDPM的采样方法
 
-![Untitled](Untitled 5.png)
+![Untitled](Untitled_5.png)
 
 被称之为祖先采样（ancestral sampling），而作者提出了reverse diffusion samplers
 
-![Untitled](Untitled 6.png)
+![Untitled](Untitled_6.png)
 
 可以证明，ancestral sampling，当beta_i趋近于0的时候，可以转化为reverse diffusion samplers的形式
 
 ### Predictor-corrector samplers
 
-![Untitled](Untitled 7.png)
+![Untitled](Untitled_7.png)
 
 ### probability flow
 
 对于每个SDE，存在一个确定性的diffusion过程：ODE
 
-![Untitled](Untitled 8.png)
+![Untitled](Untitled_8.png)
 
 ODE速度更快但是生成的质量较差。
 
