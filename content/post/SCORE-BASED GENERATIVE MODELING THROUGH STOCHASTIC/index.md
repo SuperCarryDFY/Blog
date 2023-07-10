@@ -4,7 +4,7 @@ date: 2023-07-04
 license: CC BY-NC-ND
 tags: ["Diffusion Models"]
 categories : ["CV"]
-image: "SCORE-BASED%20GENERATIVE%20MODELING%20THROUGH%20STOCHASTIC%2091e1e486eac24bc0b30b85fedb4f4862/Untitled.png"
+image: "Untitled.png"
 ---
 
 
