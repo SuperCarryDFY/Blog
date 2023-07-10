@@ -10,7 +10,7 @@ Most of the contents can be found from [E(n) Equivariant Graph Neural Networks](
 
 ## Define Equivariance
 
-![Define](fig_1.png)
+![Defination](fig_1.png)
 
 Then the Translation, Rotation, Permutation equivariance can be defined as followes:
 
@@ -18,4 +18,6 @@ Then the Translation, Rotation, Permutation equivariance can be defined as follo
 
 ## Define Invariance
 
-Similar to equivariance, invariance meas after a function, the output remains invariance when the input performs translation, rotation or permutation.
+Similar to equivariance, invariance meas after a function, the output remains invariance when the input performs translation, rotation or permutation. 
+
+PS. the input and output can be features. 
