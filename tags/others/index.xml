@@ -6,7 +6,7 @@ width="404"
 height="121"
 srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/about-equivariant-and-invariant/Fig_1_hu15c9de64f8332cd2382f678f735e835e_27443_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/about-equivariant-and-invariant/Fig_1_hu15c9de64f8332cd2382f678f735e835e_27443_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="Define"
+alt="Defination"
 class="gallery-image"
 data-flex-grow="333"
 data-flex-basis="801px"
@@ -23,7 +23,8 @@ data-flex-grow="172"
 data-flex-basis="413px"
 >&lt;/p>
 &lt;h2 id="define-invariance">Define Invariance&lt;/h2>
-&lt;p>Similar to equivariance, invariance meas after a function, the output remains invariance when the input performs translation, rotation or permutation.&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
+&lt;p>Similar to equivariance, invariance meas after a function, the output remains invariance when the input performs translation, rotation or permutation.&lt;/p>
+&lt;p>PS. the input and output can be features.&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>

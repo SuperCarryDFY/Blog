@@ -6,7 +6,7 @@ width="404"
 height="121"
 srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/about-equivariant-and-invariant/Fig_1_hu15c9de64f8332cd2382f678f735e835e_27443_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/about-equivariant-and-invariant/Fig_1_hu15c9de64f8332cd2382f678f735e835e_27443_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="Define"
+alt="Defination"
 class="gallery-image"
 data-flex-grow="333"
 data-flex-basis="801px"
@@ -23,7 +23,8 @@ data-flex-grow="172"
 data-flex-basis="413px"
 >&lt;/p>
 &lt;h2 id="define-invariance">Define Invariance&lt;/h2>
-&lt;p>Similar to equivariance, invariance meas after a function, the output remains invariance when the input performs translation, rotation or permutation.&lt;/p></description></item><item><title>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title><link>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/Untitled.png" alt="Featured image of post SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS" />&lt;h2 id="score-based-generative-modeling-with-sdes">Score based generative modeling with SDEs&lt;/h2>
+&lt;p>Similar to equivariance, invariance meas after a function, the output remains invariance when the input performs translation, rotation or permutation.&lt;/p>
+&lt;p>PS. the input and output can be features.&lt;/p></description></item><item><title>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title><link>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/Untitled.png" alt="Featured image of post SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS" />&lt;h2 id="score-based-generative-modeling-with-sdes">Score based generative modeling with SDEs&lt;/h2>
 &lt;p>diffusion process可以被表述为以下形式&lt;/p>
 &lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/Untitled.png"
 width="281"
