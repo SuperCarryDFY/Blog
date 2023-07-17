@@ -1,4 +1,177 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/post/</link><description>Recent content in Posts on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 10 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>About Equivariant and Invariant</title><link>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</guid><description>&lt;p>Most of the contents can be found from &lt;a class="link" href="https://arxiv.org/pdf/2102.09844.pdf" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/post/</link><description>Recent content in Posts on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 17 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds</title><link>https://SuperCarryDFY.github.io/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/</link><pubDate>Mon, 17 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/Untitled.png" alt="Featured image of post Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds" />&lt;h2 id="genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds">Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds&lt;/h2>
+&lt;p>这篇文章的方法简单有效&lt;/p>
+&lt;p>之前的方法要构建C-alpha的旋转矩阵的话，需要构建SE(3)或者SU(2)的扩散模型，十分复杂。然后这篇文章通过利用Frenet-Serret frames，就可以根据C-alpha的坐标生成对应的旋转矩阵，也就是说只需要找到C-alpha即可，那么又回到了传统的ddpm模型。&lt;/p>
+&lt;h3 id="intro">Intro&lt;/h3>
+&lt;p>Generative modeling trilemma&lt;/p>
+&lt;ul>
+&lt;li>quality&lt;/li>
+&lt;li>mode coverage&lt;/li>
+&lt;li>sampling time&lt;/li>
+&lt;/ul>
+&lt;p>其实intro没讲啥，就是引入了一种新的建模方式（cloud，其实就是旋转矩阵+平移向量）achieve sota&lt;/p>
+&lt;h3 id="method">Method&lt;/h3>
+&lt;p>FS frames构建过程如下，可以看到只需要输入序列C-alpha的坐标就好&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig1.png"
+width="448"
+height="276"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig1_hu57469a013193ec236924dfc8e17ea7c0_56323_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig1_hu57469a013193ec236924dfc8e17ea7c0_56323_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="FS frame"
+class="gallery-image"
+data-flex-grow="162"
+data-flex-basis="389px"
+>&lt;/p>
+&lt;p>&lt;strong>模型&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig2.png"
+width="916"
+height="761"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig2_hu5d940220cb998702e9daebab8f6816fd_185190_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig2_hu5d940220cb998702e9daebab8f6816fd_185190_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="model"
+class="gallery-image"
+data-flex-grow="120"
+data-flex-basis="288px"
+>&lt;/p>
+&lt;p>看上去就是AF2的structure module（不过这篇文章画这么大的模型图真的合适吗？又不是重点）&lt;/p>
+&lt;p>&lt;strong>训练&lt;/strong>&lt;/p>
+&lt;p>其实就是ddpm的目标函数，不过code中用的是RMSD计算距离&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig3.png"
+width="452"
+height="236"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig3_hua51a752cfeb38c9ab293c9c87298521e_38813_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig3_hua51a752cfeb38c9ab293c9c87298521e_38813_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Loss"
+class="gallery-image"
+data-flex-grow="191"
+data-flex-basis="459px"
+>&lt;/p>
+&lt;h3 id="results">Results&lt;/h3>
+&lt;h4 id="comparison-with-short-models-50-128">Comparison with short models （50-128）&lt;/h4>
+&lt;p>&lt;strong>Designability&lt;/strong>&lt;/p>
+&lt;p>方法：Genie采样得到的结构-&amp;gt;8条ProteinMPNN生成序列（temperature=0.1）-&amp;gt; OmegaFold（或者ESMFold）预测结构，和采样的结构算TM-score&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Metric&lt;/th>
+&lt;th>Genie&lt;/th>
+&lt;th>ProtDiff&lt;/th>
+&lt;th>FoldingDiff&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>scTM&amp;gt;0.5&lt;/td>
+&lt;td>81.5%&lt;/td>
+&lt;td>5.1% (11.8%)&lt;/td>
+&lt;td>19.6% (22.7%)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>scTM&amp;gt;0.5&amp;amp;pLDDT&amp;gt;70&lt;/td>
+&lt;td>58.3%&lt;/td>
+&lt;td>3.2%&lt;/td>
+&lt;td>17.7%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Diversity&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>看secondary structure elements（用P-SEA识别二级结构）&lt;/li>
+&lt;/ol>
+&lt;p>对所有scTM&amp;gt;0.5&amp;amp;pLDDT&amp;gt;70的蛋白质，画出其二级结构的分布，发现Genie分布最diverse&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig4.png"
+width="648"
+height="214"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig4_hua3dd05d3722f864959318fa0a13a1025_27763_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig4_hua3dd05d3722f864959318fa0a13a1025_27763_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="SSE"
+class="gallery-image"
+data-flex-grow="302"
+data-flex-basis="726px"
+>&lt;/p>
+&lt;ol start="2">
+&lt;li>看一个蛋白质和confident domain上的蛋白质的最高TM-score（越小说明越diverse）&lt;/li>
+&lt;/ol>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Metric&lt;/th>
+&lt;th>Genie&lt;/th>
+&lt;th>ProtDiff&lt;/th>
+&lt;th>FoldingDiff&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>maximum TM-score&lt;/td>
+&lt;td>0.561 ± 0.086&lt;/td>
+&lt;td>0.583 ± 0.115&lt;/td>
+&lt;td>0.668 ± 0.178&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Novelty&lt;/strong>&lt;/p>
+&lt;p>算和training set中的maximum TM-score&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Metric&lt;/th>
+&lt;th>Genie&lt;/th>
+&lt;th>ProtDiff&lt;/th>
+&lt;th>FoldingDiff&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>maximum TM-score&amp;lt;0.5&lt;/td>
+&lt;td>21.5%&lt;/td>
+&lt;td>4%&lt;/td>
+&lt;td>20.3%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（这里看上去其实Genie生成的很大一部分蛋白质都是跟training set中一致的，怀疑过拟合了，也只比FoldingDiff好一点）&lt;/p>
+&lt;h4 id="comparison-with-short-models-50-256">Comparison with short models （50-256）&lt;/h4>
+&lt;p>和RFdiffusion，FrameDiff比&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig5.png"
+width="814"
+height="162"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig5_hu7b233041975e293f0f4ac1f1931346a5_40120_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig5_hu7b233041975e293f0f4ac1f1931346a5_40120_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Tab1"
+class="gallery-image"
+data-flex-grow="502"
+data-flex-basis="1205px"
+>&lt;/p>
+&lt;p>&lt;strong>Designability&lt;/strong>&lt;/p>
+&lt;p>ProteinMPNN+ESMFold: scRMSD&amp;lt;2 and pLDDT&amp;lt;70&lt;/p>
+&lt;p>&lt;strong>Diversity&lt;/strong>&lt;/p>
+&lt;p>看下二级结构分布。（看上去FrameDiff和RFDiffsion好像更好）&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig6.png"
+width="471"
+height="570"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig6_huce6ecea9e5c85eeac3e072ac4b263502_53774_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig6_huce6ecea9e5c85eeac3e072ac4b263502_53774_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="SSE"
+class="gallery-image"
+data-flex-grow="82"
+data-flex-basis="198px"
+>&lt;/p>
+&lt;p>并且考虑三级结构的diversity，给所有的可设计蛋白质结构聚合（根据TMscore&amp;gt;0.6）&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig7.png"
+width="472"
+height="192"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig7_hu86a6915aa5004574cfc79f1dfaafbfa8_39846_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/fig7_hu86a6915aa5004574cfc79f1dfaafbfa8_39846_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="F1"
+class="gallery-image"
+data-flex-grow="245"
+data-flex-basis="590px"
+>&lt;/p>
+&lt;p>&lt;strong>Novelty&lt;/strong>&lt;/p>
+&lt;p>对比PDB中的蛋白质，如果scRMSD&amp;lt;2 and pLDDT&amp;gt;70 and Maximum TM &amp;lt;0.5则认为是novel&lt;/p>
+&lt;h3 id="结论">结论&lt;/h3>
+&lt;p>说实话采样真的很慢很慢。。&lt;/p>
+&lt;p>其实是被RFdiffusion吊打的，但是可以说RFdiffusion是pretrain过的，但是Genie是从头开始训练的&lt;/p></description></item><item><title>About Equivariant and Invariant</title><link>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</guid><description>&lt;p>Most of the contents can be found from &lt;a class="link" href="https://arxiv.org/pdf/2102.09844.pdf" target="_blank" rel="noopener"
 >E(n) Equivariant Graph Neural Networks&lt;/a>&lt;/p>
 &lt;h2 id="define-equivariance">Define Equivariance&lt;/h2>
 &lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/about-equivariant-and-invariant/Fig_1.png"
