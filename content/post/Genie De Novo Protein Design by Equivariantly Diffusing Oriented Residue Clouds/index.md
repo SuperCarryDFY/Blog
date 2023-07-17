@@ -4,7 +4,6 @@ date: 2023-07-17
 license: CC BY-NC-ND
 tags: ["Protein"]
 categories : ["Protein"]
-image: "Untitled.png"
 ---
 
 ## Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds
