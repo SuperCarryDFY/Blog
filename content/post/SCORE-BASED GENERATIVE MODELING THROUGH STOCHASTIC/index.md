@@ -3,7 +3,7 @@ title: "SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATION
 date: 2023-07-04
 license: CC BY-NC-ND
 tags: ["Diffusion Models"]
-categories : ["CV"]
+categories : ["ML"]
 image: "Untitled.png"
 ---
 
