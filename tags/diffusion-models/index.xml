@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diffusion Models on Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/tags/diffusion-models/</link><description>Recent content in Diffusion Models on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/tags/diffusion-models/index.xml" rel="self" type="application/rss+xml"/><item><title>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title><link>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/Untitled.png" alt="Featured image of post SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS" />&lt;h2 id="score-based-generative-modeling-with-sdes">Score based generative modeling with SDEs&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diffusion Models on Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/tags/diffusion-models/</link><description>Recent content in Diffusion Models on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/tags/diffusion-models/index.xml" rel="self" type="application/rss+xml"/><item><title>Text-to-image diffusion</title><link>https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/</link><pubDate>Sun, 06 Aug 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/stable.png" alt="Featured image of post Text-to-image diffusion" />&lt;p>paper list&lt;/p>
+&lt;ul>
+&lt;li>stable diffusion&lt;/li>
+&lt;li>dalle 2&lt;/li>
+&lt;/ul>
+&lt;h2 id="high-resolution-image-synthesis-with-latent-diffusion-models">High-Resolution Image Synthesis with Latent Diffusion Models&lt;/h2>
+&lt;p>stable diffusion; CVPR2022&lt;/p>
+&lt;h3 id="motivation">Motivation&lt;/h3>
+&lt;p>Diffusion太慢了，不论是训练还是采样。于是他们提出一种在隐空间使用diffusion process的方法，减少了计算资源的使用。&lt;/p>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>对diffusion来说，普通人真的用不起（目前最强大的diffusion model需要150-1000V100 days训练），并且采样也需要花费大量时间（产生50k图片需要在一张A100上跑5天）。而只在隐空间使用diffusion process可以很好的解决这个问题（把3*H*W降维到C*H/d*W/d）&lt;/p>
+&lt;p>而怎么把图片映射到隐空间（再映射回来）呢？作者首先分析了压缩方法。见下图，对autoencoder和gan来讲，其对样本的压缩更多是感知上的，而对于LDM来讲，其更多在于语义上。（我理解感知即比较high-level的，high-frequency的信息，而语义更在乎细枝末节）。因此我们其实不需要很多语义上的信息，并且希望保留感知上的信息，于是VAE就是一个很好的选择。&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1.png"
+width="635"
+height="413"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1_hu51fcda10950d7ca7701213d56b0a90fb_152280_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1_hu51fcda10950d7ca7701213d56b0a90fb_152280_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Perceptual and semantic compression"
+class="gallery-image"
+data-flex-grow="153"
+data-flex-basis="369px"
+>&lt;/p>
+&lt;h3 id="method">Method&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2.png"
+width="657"
+height="327"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2_huc51233c81c3e90f600eb7d36bdbd1b11_80949_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2_huc51233c81c3e90f600eb7d36bdbd1b11_80949_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="method"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/p>
+&lt;p>方法比较简单，不同的condition都是用相同的方法：经过一个encoder得到embedding，然后用cross-attention的方法把信息注入到U-Net中。目标函数与ddpm是一致的。&lt;/p>
+&lt;h3 id="一些思考">一些思考&lt;/h3>
+&lt;p>对蛋白质领域而言，要根据这篇文章做一篇类似的有几个困难&lt;/p>
+&lt;ol>
+&lt;li>Diffusion太慢，这个motivation在protein这边不好立足（现在protein backbone generation倒没有说很费GPU）。&lt;/li>
+&lt;li>这里的VAE换成什么比较好？可以是foldseek，但是又要考虑失真的问题（也就是上面文章提到的感知和语义压缩trade-off）&lt;/li>
+&lt;li>对蛋白质结构而言，是否有类似上图一样的感知和语义压缩的事情？&lt;/li>
+&lt;/ol>
+&lt;h2 id="hierarchical-text-conditional-image-generation-with-clip-latents">Hierarchical Text-Conditional Image Generation with CLIP Latents&lt;/h2>
+&lt;p>dalle 2; openai&lt;/p>
+&lt;p>这篇文章的特点就是，相对其他方法，其condition并不是直接的text embedding，而是通过CLIP学了一个逆向的 CLIP image encoder（他称之为prior），然后condition在这个prior输出的image embedding上。&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2.png"
+width="1077"
+height="460"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2_hud526a9cec759325341635592597ada5e_201694_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2_hud526a9cec759325341635592597ada5e_201694_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="method"
+class="gallery-image"
+data-flex-grow="234"
+data-flex-basis="561px"
+>&lt;/p>
+&lt;p>其他似乎没什么了。这篇文章感觉更像是技术报告，很符合OpenAI的风格。其文中设计很多实现细节而较少提及motivation，只是在后面用ablation study证实了自己的方法是最优的（包括为什么要用prior他也说了，也跑了不用prior的实验，生成的图片会模糊很多）。&lt;/p></description></item><item><title>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title><link>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/Untitled.png" alt="Featured image of post SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS" />&lt;h2 id="score-based-generative-modeling-with-sdes">Score based generative modeling with SDEs&lt;/h2>
 &lt;p>diffusion process可以被表述为以下形式&lt;/p>
 &lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/score-based-generative-modeling-through-stochastic-differential-equations/Untitled.png"
 width="281"
@@ -108,53 +162,4 @@ data-flex-basis="1760px"
 >&lt;/p>
 &lt;p>ODE速度更快但是生成的质量较差。&lt;/p>
 &lt;h2 id="controallable-generation">controallable generation&lt;/h2>
-&lt;p>懒得看了&lt;/p></description></item><item><title>Text-to-image diffusion</title><link>https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/stable.png" alt="Featured image of post Text-to-image diffusion" />&lt;h1 id="high-resolution-image-synthesis-with-latent-diffusion-models">High-Resolution Image Synthesis with Latent Diffusion Models&lt;/h1>
-&lt;p>stable diffusion; CVPR2022&lt;/p>
-&lt;h3 id="motivation">Motivation&lt;/h3>
-&lt;p>Diffusion太慢了，不论是训练还是采样。于是他们提出一种在隐空间使用diffusion process的方法，减少了计算资源的使用。&lt;/p>
-&lt;h3 id="introduction">Introduction&lt;/h3>
-&lt;p>对diffusion来说，普通人真的用不起（目前最强大的diffusion model需要150-1000V100 days训练），并且采样也需要花费大量时间（产生50k图片需要在一张A100上跑5天）。而只在隐空间使用diffusion process可以很好的解决这个问题（把3*H*W降维到C*H/d*W/d）&lt;/p>
-&lt;p>而怎么把图片映射到隐空间（再映射回来）呢？作者首先分析了压缩方法。见下图，对autoencoder和gan来讲，其对样本的压缩更多是感知上的，而对于LDM来讲，其更多在于语义上。（我理解感知即比较high-level的，high-frequency的信息，而语义更在乎细枝末节）。因此我们其实不需要很多语义上的信息，并且希望保留感知上的信息，于是VAE就是一个很好的选择。&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1.png"
-width="635"
-height="413"
-srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1_hu51fcda10950d7ca7701213d56b0a90fb_152280_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1_hu51fcda10950d7ca7701213d56b0a90fb_152280_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="Perceptual ans semantic compression"
-class="gallery-image"
-data-flex-grow="153"
-data-flex-basis="369px"
->&lt;/p>
-&lt;h3 id="method">Method&lt;/h3>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2.png"
-width="657"
-height="327"
-srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2_huc51233c81c3e90f600eb7d36bdbd1b11_80949_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2_huc51233c81c3e90f600eb7d36bdbd1b11_80949_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="method"
-class="gallery-image"
-data-flex-grow="200"
-data-flex-basis="482px"
->&lt;/p>
-&lt;p>方法比较简单，不同的condition都是用相同的方法：经过一个encoder得到embedding，然后用cross-attention的方法把信息注入到U-Net中。目标函数与ddpm是一致的。&lt;/p>
-&lt;h3 id="一些思考">一些思考&lt;/h3>
-&lt;p>对蛋白质领域而言，要根据这篇文章做一篇类似的有几个困难&lt;/p>
-&lt;ol>
-&lt;li>Diffusion太慢，这个motivation在protein这边不好立足（现在protein backbone generation倒没有说很费GPU）。&lt;/li>
-&lt;li>这里的VAE换成什么比较好？可以是foldseek，但是又要考虑失真的问题（也就是上面文章提到的感知和语义压缩trade-off）&lt;/li>
-&lt;li>对蛋白质结构而言，是否有类似上图一样的感知和语义压缩的事情？&lt;/li>
-&lt;/ol>
-&lt;h2 id="hierarchical-text-conditional-image-generation-with-clip-latents">Hierarchical Text-Conditional Image Generation with CLIP Latents&lt;/h2>
-&lt;p>dalle 2; openai&lt;/p>
-&lt;p>这篇文章的特点就是，相对其他方法，其condition并不是直接的text embedding，而是通过CLIP学了一个逆向的 CLIP image encoder（他称之为prior），然后condition在这个prior输出的image embedding上。&lt;/p>
-&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2.png"
-width="1077"
-height="460"
-srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2_hud526a9cec759325341635592597ada5e_201694_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2_hud526a9cec759325341635592597ada5e_201694_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="method"
-class="gallery-image"
-data-flex-grow="234"
-data-flex-basis="561px"
->&lt;/p>
-&lt;p>其他似乎没什么了。这篇文章感觉更像是技术报告，很符合OpenAI的风格。其文中设计很多实现细节而较少提及motivation，只是在后面用ablation study证实了自己的方法是最优的（包括为什么要用prior他也说了，也跑了不用prior的实验，生成的图片会模糊很多）。&lt;/p></description></item></channel></rss>
+&lt;p>懒得看了&lt;/p></description></item></channel></rss>
