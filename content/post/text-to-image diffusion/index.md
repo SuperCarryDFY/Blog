@@ -1,13 +1,18 @@
 ---
 title: "Text-to-image diffusion"
-date: 2023-07-04
+date: 2023-08-06
 license: CC BY-NC-ND
 tags: ["Diffusion Models"]
 categories : ["ML"]
 image: "stable.png"
 ---
 
-# High-Resolution Image Synthesis with Latent Diffusion Models
+paper list
+
+- stable diffusion
+- dalle 2
+
+## High-Resolution Image Synthesis with Latent Diffusion Models
 
 stable diffusion; CVPR2022 
 
@@ -21,7 +26,7 @@ Diffusion太慢了，不论是训练还是采样。于是他们提出一种在�
 
 而怎么把图片映射到隐空间（再映射回来）呢？作者首先分析了压缩方法。见下图，对autoencoder和gan来讲，其对样本的压缩更多是感知上的，而对于LDM来讲，其更多在于语义上。（我理解感知即比较high-level的，high-frequency的信息，而语义更在乎细枝末节）。因此我们其实不需要很多语义上的信息，并且希望保留感知上的信息，于是VAE就是一个很好的选择。
 
-![Perceptual ans semantic compression](stable_1.png)
+![Perceptual and semantic compression](stable_1.png)
 
 ### Method
 
