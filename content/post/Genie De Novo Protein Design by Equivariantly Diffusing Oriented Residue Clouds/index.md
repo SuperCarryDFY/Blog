@@ -103,6 +103,4 @@ ProteinMPNN+ESMFold: scRMSD<2 and pLDDT<70
 
 ### 结论
 
-说实话采样真的很慢很慢。。
-
 其实是被RFdiffusion吊打的，但是可以说RFdiffusion是pretrain过的，但是Genie是从头开始训练的
