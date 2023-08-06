@@ -3,7 +3,7 @@ title: "Sorts of Normalization"
 date: 2023-08-02
 license: CC BY-NC-ND
 tags: ["others"]
-categories : ["ML"]B
+categories : ["ML"]
 ---
 
 ## BatchNorm
