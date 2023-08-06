@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/post/</link><description>Recent content in Posts on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 17 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds</title><link>https://SuperCarryDFY.github.io/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/</link><pubDate>Mon, 17 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/</guid><description>&lt;h2 id="genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds">Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fengyuan Dai</title><link>https://SuperCarryDFY.github.io/Blog/post/</link><description>Recent content in Posts on Fengyuan Dai</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 02 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SuperCarryDFY.github.io/Blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Somethings</title><link>https://SuperCarryDFY.github.io/Blog/p/somethings/</link><pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/somethings/</guid><description>&lt;h2 id="关于为什么nlp中diffusion不火">关于为什么NLP中diffusion不火&lt;/h2>
+&lt;p>谈及AIGC，CV or multimodal上最火的就是diffusion，但是在NLP中还是GPT为首的transformer autoregressive方式比较火，原因是什么。&lt;/p>
+&lt;p>&lt;em>2023.8.2&lt;/em>&lt;/p>
+&lt;p>看了ICLR2023 “DIFFUSEQ: SEQUENCE TO SEQUENCE TEXT GENERATION WITH DIFFUSION MODELS” 引发的思考。&lt;/p>
+&lt;blockquote>
+&lt;p>任务不同。multimodal的任务无非是生成图片，不论是unconditional还是conditional。而对于NLP，unconditonal生成seq并没有什么实际价值（胡言乱语有什么用呢）；而对于conditional，NLP的任务定义也与multimodal稍有不同：前者的condition是句子，而后者的condition通常为属性（比如说笑，哭，动漫化）。对后者来说，属性的种类有限，可以为每一个属性训练一个单独的classifier。而对前者，很难说每个句子都设计一个classifier。上面这篇文章解决的就是这个问题，把condition当作输入送入classifier-free diffusion，但是也只能做到和GPT-2 comparable。&lt;/p>
+&lt;p>ICML2022“ On the Learning of Non-Autoregressive Transformers” 提到NAT方法在用max log likelihood时suffer from conditional total correlation。这篇文章我简单看了下，conditional total correlation大概就是说其实NAT的方法在生成当前token时没有考虑前一时刻的token（它同时生成整个序列的token的嘛），所以说并不会考虑token之间的相关性，而只会考虑此token在整个句子中的分布概率。所以说对于NLP的任务来说，AT天生好于NAT。&lt;/p>
+&lt;p>其实上述两个问题在ICLR这篇文章中都已经解决了（对后者他在diffusion中用的模型是transformer，即用AT的方式生成latent embedding）。可能也没有涉及为啥diffusion在NLP中不火的本质，但是这篇文章的效果确实跟transformer-based的方法比是有差距的。&lt;/p>
+&lt;/blockquote>
+&lt;p>这里有个问题，ICML这篇文章其实并没有指定NLP，他就是说用最大log相似作为目标的时候，NAT会有问题。但是DDPM这篇文章用的也是最大log相似（应该说生成任务用的都是最大log相似）并且不是AT模型，DDPM是否也存在这个问题？&lt;/p></description></item><item><title>Sorts of Normalization</title><link>https://SuperCarryDFY.github.io/Blog/p/sorts-of-normalization/</link><pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/sorts-of-normalization/</guid><description>&lt;h2 id="batchnorm">BatchNorm&lt;/h2>
+&lt;p>BatchNorm need to&lt;/p>
+&lt;h2 id="layernorm">LayerNorm&lt;/h2>
+&lt;p>LayerNorm is mostly used in NLP. Because the length of the sentences is not always same, so batchnorm is not suitable. LayerNorm normalizes the input along the word-dimention.&lt;/p>
+&lt;blockquote>
+&lt;p>Noted that the input is [bs, length,embeddings]. LayerNorm normalizes the embeddings for each words.&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">nn&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LayerNorm&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">normalized_shape&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Union&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">List&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">torch&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Size&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">eps&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">float&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">1e-05&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">elementwise_affine&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">bool&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>to be continue&amp;hellip;&lt;/p></description></item><item><title>Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds</title><link>https://SuperCarryDFY.github.io/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/</link><pubDate>Mon, 17 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds/</guid><description>&lt;h2 id="genie-de-novo-protein-design-by-equivariantly-diffusing-oriented-residue-clouds">Genie De Novo Protein Design by Equivariantly Diffusing Oriented Residue Clouds&lt;/h2>
 &lt;p>这篇文章的方法简单有效&lt;/p>
 &lt;p>之前的方法要构建C-alpha的旋转矩阵的话，需要构建SE(3)或者SU(2)的扩散模型，十分复杂。然后这篇文章通过利用Frenet-Serret frames，就可以根据C-alpha的坐标生成对应的旋转矩阵，也就是说只需要找到C-alpha即可，那么又回到了传统的ddpm模型。&lt;/p>
 &lt;h3 id="intro">Intro&lt;/h3>
@@ -170,7 +200,6 @@ data-flex-basis="590px"
 &lt;p>&lt;strong>Novelty&lt;/strong>&lt;/p>
 &lt;p>对比PDB中的蛋白质，如果scRMSD&amp;lt;2 and pLDDT&amp;gt;70 and Maximum TM &amp;lt;0.5则认为是novel&lt;/p>
 &lt;h3 id="结论">结论&lt;/h3>
-&lt;p>说实话采样真的很慢很慢。。&lt;/p>
 &lt;p>其实是被RFdiffusion吊打的，但是可以说RFdiffusion是pretrain过的，但是Genie是从头开始训练的&lt;/p></description></item><item><title>About Equivariant and Invariant</title><link>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</guid><description>&lt;p>Most of the contents can be found from &lt;a class="link" href="https://arxiv.org/pdf/2102.09844.pdf" target="_blank" rel="noopener"
 >E(n) Equivariant Graph Neural Networks&lt;/a>&lt;/p>
 &lt;h2 id="define-equivariance">Define Equivariance&lt;/h2>
@@ -307,7 +336,56 @@ data-flex-basis="1760px"
 >&lt;/p>
 &lt;p>ODE速度更快但是生成的质量较差。&lt;/p>
 &lt;h2 id="controallable-generation">controallable generation&lt;/h2>
-&lt;p>懒得看了&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
+&lt;p>懒得看了&lt;/p></description></item><item><title>Text-to-image diffusion</title><link>https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/</link><pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/</guid><description>&lt;img src="https://SuperCarryDFY.github.io/Blog/p/text-to-image-diffusion/stable.png" alt="Featured image of post Text-to-image diffusion" />&lt;h1 id="high-resolution-image-synthesis-with-latent-diffusion-models">High-Resolution Image Synthesis with Latent Diffusion Models&lt;/h1>
+&lt;p>stable diffusion; CVPR2022&lt;/p>
+&lt;h3 id="motivation">Motivation&lt;/h3>
+&lt;p>Diffusion太慢了，不论是训练还是采样。于是他们提出一种在隐空间使用diffusion process的方法，减少了计算资源的使用。&lt;/p>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>对diffusion来说，普通人真的用不起（目前最强大的diffusion model需要150-1000V100 days训练），并且采样也需要花费大量时间（产生50k图片需要在一张A100上跑5天）。而只在隐空间使用diffusion process可以很好的解决这个问题（把3*H*W降维到C*H/d*W/d）&lt;/p>
+&lt;p>而怎么把图片映射到隐空间（再映射回来）呢？作者首先分析了压缩方法。见下图，对autoencoder和gan来讲，其对样本的压缩更多是感知上的，而对于LDM来讲，其更多在于语义上。（我理解感知即比较high-level的，high-frequency的信息，而语义更在乎细枝末节）。因此我们其实不需要很多语义上的信息，并且希望保留感知上的信息，于是VAE就是一个很好的选择。&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1.png"
+width="635"
+height="413"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1_hu51fcda10950d7ca7701213d56b0a90fb_152280_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_1_hu51fcda10950d7ca7701213d56b0a90fb_152280_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Perceptual ans semantic compression"
+class="gallery-image"
+data-flex-grow="153"
+data-flex-basis="369px"
+>&lt;/p>
+&lt;h3 id="method">Method&lt;/h3>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2.png"
+width="657"
+height="327"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2_huc51233c81c3e90f600eb7d36bdbd1b11_80949_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/stable_2_huc51233c81c3e90f600eb7d36bdbd1b11_80949_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="method"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/p>
+&lt;p>方法比较简单，不同的condition都是用相同的方法：经过一个encoder得到embedding，然后用cross-attention的方法把信息注入到U-Net中。目标函数与ddpm是一致的。&lt;/p>
+&lt;h3 id="一些思考">一些思考&lt;/h3>
+&lt;p>对蛋白质领域而言，要根据这篇文章做一篇类似的有几个困难&lt;/p>
+&lt;ol>
+&lt;li>Diffusion太慢，这个motivation在protein这边不好立足（现在protein backbone generation倒没有说很费GPU）。&lt;/li>
+&lt;li>这里的VAE换成什么比较好？可以是foldseek，但是又要考虑失真的问题（也就是上面文章提到的感知和语义压缩trade-off）&lt;/li>
+&lt;li>对蛋白质结构而言，是否有类似上图一样的感知和语义压缩的事情？&lt;/li>
+&lt;/ol>
+&lt;h2 id="hierarchical-text-conditional-image-generation-with-clip-latents">Hierarchical Text-Conditional Image Generation with CLIP Latents&lt;/h2>
+&lt;p>dalle 2; openai&lt;/p>
+&lt;p>这篇文章的特点就是，相对其他方法，其condition并不是直接的text embedding，而是通过CLIP学了一个逆向的 CLIP image encoder（他称之为prior），然后condition在这个prior输出的image embedding上。&lt;/p>
+&lt;p>&lt;img src="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2.png"
+width="1077"
+height="460"
+srcset="https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2_hud526a9cec759325341635592597ada5e_201694_480x0_resize_box_3.png 480w, https://SuperCarryDFY.github.io/Blog/Blog/p/text-to-image-diffusion/dalle2_hud526a9cec759325341635592597ada5e_201694_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="method"
+class="gallery-image"
+data-flex-grow="234"
+data-flex-basis="561px"
+>&lt;/p>
+&lt;p>其他似乎没什么了。这篇文章感觉更像是技术报告，很符合OpenAI的风格。其文中设计很多实现细节而较少提及motivation，只是在后面用ablation study证实了自己的方法是最优的（包括为什么要用prior他也说了，也跑了不用prior的实验，生成的图片会模糊很多）。&lt;/p></description></item><item><title>On the Integration of Self-Attention and Convolution</title><link>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</link><pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/on-the-integration-of-self-attention-and-convolution/</guid><description>&lt;img src="https://s2.loli.net/2022/11/05/9Lt7nI36HupazUE.png" alt="Featured image of post On the Integration of Self-Attention and Convolution" />&lt;p>&lt;img src="https://s2.loli.net/2022/11/05/q6tB2b4KcskzQZn.png"
 loading="lazy"
 alt="image.png"
 >&lt;/p>

@@ -170,7 +170,6 @@ data-flex-basis="590px"
 &lt;p>&lt;strong>Novelty&lt;/strong>&lt;/p>
 &lt;p>对比PDB中的蛋白质，如果scRMSD&amp;lt;2 and pLDDT&amp;gt;70 and Maximum TM &amp;lt;0.5则认为是novel&lt;/p>
 &lt;h3 id="结论">结论&lt;/h3>
-&lt;p>说实话采样真的很慢很慢。。&lt;/p>
 &lt;p>其实是被RFdiffusion吊打的，但是可以说RFdiffusion是pretrain过的，但是Genie是从头开始训练的&lt;/p></description></item><item><title>About Equivariant and Invariant</title><link>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://SuperCarryDFY.github.io/Blog/p/about-equivariant-and-invariant/</guid><description>&lt;p>Most of the contents can be found from &lt;a class="link" href="https://arxiv.org/pdf/2102.09844.pdf" target="_blank" rel="noopener"
 >E(n) Equivariant Graph Neural Networks&lt;/a>&lt;/p>
 &lt;h2 id="define-equivariance">Define Equivariance&lt;/h2>
